@@ -1,0 +1,75 @@
+<!-- Left side column. contains the sidebar -->
+<aside class="main-sidebar">
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+    <!-- Sidebar user panel -->
+    <div class="user-panel">
+      <div class="pull-left image">
+        <%= image_tag current_user.avatar , width: "160px",class:"user-image img-circle",  height: "160px",  alt: "User Image" %>
+      </div>
+      <div class="pull-left info">
+        <p><%= current_user.name %></p>
+        <a href="#"><i class="fa fa-circle text-success"></i> En ligne</a>
+      </div>
+    </div>
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+    <ul class="sidebar-menu">
+      <li class="header">NAVIGATION</li>
+      <li class="<%= (params[:controller] === 'admin/pages') ? 'active' : '' %>"><%= link_to "<i class='fa fa-tachometer' aria-hidden='true'></i> Accueil".html_safe, admin_dashboard_path %></li>
+      <li class="treeview <%= (params[:controller] ===  'admin/category') ? 'active' : '' %>">
+        <a href="#">
+          <i class="fa fa-coffee" aria-hidden="true"></i>
+          <span>Category</span>
+          <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li class="<%= (params[:controller] === 'admin/category' && params[:action] === 'index' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i>Liste".html_safe, admin_categories_path %></li>
+          <li class="<%= (params[:controller] === 'admin/category' && params[:action] === 'create' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i>Nouveau".html_safe, new_admin_category_path %></li>
+        </ul>
+      </li>
+      <li class="treeview <%= (params[:controller] === 'admin/blogs/articles') ? 'active' : ''  %>">
+        <a href="#">
+          <i class="fa fa-paper-plane-o" aria-hidden="true"></i> <span>Blog</span> <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li class="<%= (params[:controller] === 'admin/blogs/articles' && params[:action] === 'index' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i>Liste".html_safe, admin_blogs_path %></li>
+          <li class="<%= (params[:controller] === 'admin/blogs/articles' && params[:action] === 'create' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i> Créer un article".html_safe, admin_blogs_path %></li>
+        </ul>
+      </li>
+      <li class="treeview <%= (params[:controller] ===  'admin/projects/projects') ? 'active' : '' %>">
+        <a href="#">
+          <i class="fa fa-coffee" aria-hidden="true"></i> <span>Projets</span> <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li class="<%= (params[:controller] === 'admin/projects/projects' && params[:action] === 'index' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i> Liste ".html_safe, admin_projects_path %></li>
+          <li class="<%= (params[:controller] === 'admin/projects/projects' && params[:action] === 'labelled' ) ? 'active' : ''  %>"><a href="../../index.html"><i class="fa fa-circle-o"></i>Projets labelisés</a></li>
+        </ul>
+      </li>
+      <li class="treeview <%= (params[:controller] ===  'admin/polls/polls') ? 'active' : '' %>">
+        <a href="#">
+          <i class="fa fa-coffee" aria-hidden="true"></i>
+          <span>Sondages</span>
+          <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li class="<%= (params[:controller] === 'admin/polls/polls' && params[:action] === 'index' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i>Liste".html_safe, admin_surveys_path %></li>
+          <li class="<%= (params[:controller] === 'admin/polls/polls' && params[:action] === 'create' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i>Nouveau".html_safe, new_admin_survey_path %></li>
+        </ul>
+      </li>
+      <li class="treeview <%= (params[:controller] === 'admin/users/users') ? 'active' : ''  %>">
+        <a href="#">
+          <i class="fa fa-users" aria-hidden="true"></i> <span>Utilisateurs</span> <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li class="<%= (params[:controller] === 'admin/users/users' && params[:action] === 'index' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i>Liste".html_safe, admin_users_url %></li>
+        </ul>
+      </li>
+      <li><a href="../../documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
+      <li class="header">LABELS</li>
+      <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
+      <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
+      <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
+    </ul>
+  </section>
+  <!-- /.sidebar -->
+</aside>

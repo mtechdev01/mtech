@@ -1,0 +1,6 @@
+<% if flash[:notice] != nil && flash[:notice] != ""%>
+  <div class="alert alert-<%= flash[:class] %>">
+    <a href="#" data-dismiss="alert" class="close">×</a>
+        <%= flash[:notice] %>
+  </div>
+<% end %>

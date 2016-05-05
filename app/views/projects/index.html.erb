@@ -1,0 +1,11 @@
+<% @projects.each do | project | %>
+  <h1><%= link_to project.name, project_path( project.friendly_id )%></h1>
+  <p>
+    <%= project.content %>
+  </p>
+  <ul>
+    <li>Créé le:  <%= project.published_at %></li>
+    <li>Auteur:   <%= project.owner.name %></li>
+    <li>Catégorie: <%= project.category.name %></li>
+  </ul>
+<% end %>

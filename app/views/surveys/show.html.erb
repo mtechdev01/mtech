@@ -1,0 +1,27 @@
+<%
+meta title: "Meusetech - #{@survey.title}",
+     description: @survey.description,
+     keywords: ["Meusetech", "sondages",  @survey.title]
+%>
+<div class="container" id="poll-list" style="margin-bottom:75px;">
+  <h1><%= @survey.title %></h1>
+  <%= form_for :fields, :url => {controller: "surveys", action: "reponse", method: "post"} do |f| %>
+  <input type="hidden" name="fields[survey_id]" value="<%= @survey.id %>">
+    <% @survey.fields.each do | field | %>
+      <div class="form-group">
+        <label for="fields[<%= field.id %>]"><%= field.question %></label>
+        <% if field.optionsFormated != nil %>
+          <select name="fields[questions][<%= field.id %>]" class="form-control" <%= field.is_required ? "required" : "" %>>
+            <% field.optionsFormated.each_with_index do | value, key | %>
+              <option value="<%= key %>"> <%= value %></option>
+            <% end %>
+          </select>
+        <% else %>
+          <input type="<%= field.input_type %>" name="fields[questions][<%= field.id %>]"
+            class="form-control" <%= field.is_required ? "required" : "" %> <%= field.rulesFormated %> />
+        <% end %>
+      </div>
+    <% end %>
+    <%= f.submit :valider , class: "btn btn-primary"%>
+  <% end %>
+</div>

@@ -1,0 +1,73 @@
+<div class="container-fluid box box-info ">
+  <div class="box-header with-border">
+    <h3>
+      Gérer les projets
+      <span class="block-title_link pull-right">
+        <%= link_to "<i class='fa fa-plus'></i> Ajouter un projet ".html_safe, new_admin_project_url %>
+      </span>
+    </h3>
+  </div>
+  <div class="box-body">
+    <table id="projectsTable" class="table table-hovered no-margin">
+      <thead>
+        <tr>
+          <th>
+            Nom du projet
+          </th>
+          <th>
+            Catégorie
+          </th>
+          <th> <!--colonne icône-->
+          </th>
+          <th>
+            Lieu
+          </th>
+          <th>
+            Crée le
+          </th>
+          <th>
+            Par
+          </th>
+          <th>
+            Avancement
+          </th>
+          <th>
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @projects.each do | project | %>
+          <tr>
+            <td>
+              <h4><%= truncate(project.name.html_safe) %></h4>
+            </td>
+            <td>
+              <%= project.category.name %>
+            </td>
+            <td>
+              <img class="logo_size" style=width:25px src="<%= project.category.icon %>" alt="category icon"/>
+            </td>
+            <td>
+              <%= project.location %>
+            </td>
+            <td>
+              <%= project.created_at %>
+
+            </td>
+            <td>
+              <%= project.owner.name %>
+            </td>
+            <td>
+              <%= project.state %>
+            </td>
+            <td>
+              <%= link_to "<i class='fa fa-pencil'></i>".html_safe, edit_admin_project_url(project.friendly_id), class:'btn btn-warning'%>
+              <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, admin_project_url(project.friendly_id), method: "delete", class:'btn btn-danger'%>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

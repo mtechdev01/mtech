@@ -1,0 +1,11 @@
+<% @articles.each do | article | %>
+  <h1><%= link_to article.title, blog_path( article.friendly_id )%></h1>
+  <p>
+    <%= article.content %>
+  </p>
+  <ul>
+    <li>Créé le:  <%= article.published_at %></li>
+    <li>Auteur:   <%= article.author.name %></li>
+    <li>Catégorie: <%= article.category.name %></li>
+  </ul>
+<% end %>

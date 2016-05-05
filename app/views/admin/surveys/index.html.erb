@@ -1,0 +1,52 @@
+<section class="content-header">
+  <h1>
+    Sondages
+    <small>Liste</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Accueil</a></li>
+    <li class="active">Sondages</li>
+  </ol>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title">Liste de mes sondages</h3>
+        </div><!-- /.box-header -->
+        <div class="box-body">
+          <table id="surveysListe" class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Début</th>
+                <th>Fin</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @surveys.each do | survey | %>
+              <tr>
+                <td><%= survey.id %></td>
+                <td><%= survey.title%></td>
+                <td><%= truncate(survey.description.html_safe, length: 50, separator: ' ') %></td>
+                <td><%= time_tag(survey.start_at)%></td>
+                <td><%= time_tag(survey.end_at)%></td>
+                <td>
+                  <%= link_to "<i class='fa fa-eye'></i>".html_safe, admin_survey_path(survey.id), class: "btn btn-success" %>
+                  <%= link_to "<i class='fa fa-pencil'></i>".html_safe, edit_admin_survey_url(survey.id), class: "btn btn-warning" %>
+                  <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, admin_survey_url(survey.id), class: "btn btn-danger", method: "delete" %>
+                </td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div><!-- /.box-body -->
+      </div><!-- /.box -->
+
+    </div><!-- /.col -->
+  </div><!-- /.row -->
+</section><!-- /.content -->
