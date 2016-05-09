@@ -1,9 +1,8 @@
 class User < ActiveRecord::Base
-
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-  devise :omniauthable, :omniauth_providers => [:facebook, :google_oauth2, :twitter]
   
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :confirmable, :validatable
+  devise :omniauthable, :omniauth_providers => [:facebook, :google_oauth2, :twitter]
   mount_uploader :avatar, AvatarUploader
 
   has_many :projects, foreign_key: "owner_id"

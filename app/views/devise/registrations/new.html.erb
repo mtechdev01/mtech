@@ -65,5 +65,17 @@
   </div>
 <% end %>
 
-
+<script>
+    function changeHiddenInput(select)
+        {
+            if (select.value == "Autre") {
+                document.getElementById("hiddenDiv").style.display = "block";
+                document.getElementById("hiddenInput").value = "";
+            }
+            else {
+                document.getElementById("hiddenDiv").style.display = "none";
+                document.getElementById("hiddenInput").value = select.value;
+            }
+        }
+</script>
 <%= render "devise/shared/links" %>
