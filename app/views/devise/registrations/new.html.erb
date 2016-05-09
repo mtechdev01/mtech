@@ -42,9 +42,9 @@
       <%= text_field_tag(:autocomplete) %>
     </div>
 
-    <%= f.text_field :city, id:"locality" %>
-    <%= f.text_field :cp, id:"postal_code" %>
-    <%= f.text_field :country, id:"country" %>
+    <%= f.hidden_field :city, id:"locality" %>
+    <%= f.hidden_field :cp, id:"postal_code" %>
+    <%= f.hidden_field :country, id:"country" %>
   </div>
 
 
