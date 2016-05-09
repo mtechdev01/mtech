@@ -49,7 +49,7 @@ class Admin::UsersController < Admin::AdminController
   private
 
   def user_params
-    params.require(:user).permit(:name, :avatar, :cp, :city, :address, :email, :is_banned, :can_comment, projects_attributes: [:id, :name, :content], comments_attributes: [:id, :created_at, :content])
+      params.require(:user).permit(:username, :first_name, :last_name, :territory_attachment, :country, :avatar, :cp, :city, :address, :email, :is_banned, :can_comment, projects_attributes: [:id, :name, :content], comments_attributes: [:id, :created_at, :content])
   end
 
 end
