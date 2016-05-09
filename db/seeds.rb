@@ -3,9 +3,11 @@
 puts "CREATION DES UTILISATEURS"
 admin = User.new(
   :email                 => "admin@local.io",
+  :unconfirmed_email     => "admin@local.io",
   :password              => "11111122",
   :password_confirmation => "11111122",
-  name: "Admin",
+  confirmed_at: DateTime.now,
+  username: "Admin",
   avatar: "admin.png",
   address: "2, rue du developpement",
   city: "rubyCity",
@@ -18,9 +20,11 @@ admin.save!
 
 jc = User.new(
   :email                 => "jc@local.io",
+  :unconfirmed_email     => "jc@local.io",
   :password              => "11111122",
   :password_confirmation => "11111122",
-  name: "jean-christophe",
+  confirmed_at: DateTime.now,
+  username: "jean-christophe",
   avatar: "admin.png",
   address: "2, rue du developpement",
   city: "rubyCity",
@@ -33,9 +37,11 @@ jc.save!
 
 cecile = User.new(
   :email                 => "cecile@local.io",
+  :unconfirmed_email     => "cecile@local.io",
   :password              => "11111122",
   :password_confirmation => "11111122",
-  name: "cecile",
+  confirmed_at: DateTime.now,
+  username: "cecile",
   avatar: "admin.png",
   address: "2, rue du developpement",
   city: "rubyCity",
@@ -48,9 +54,11 @@ cecile.save!
 
 john = User.new(
   :email                 => "john@local.io",
+  :unconfirmed_email     => "john@local.io",
   :password              => "11111122",
   :password_confirmation => "11111122",
-  name: "john",
+  confirmed_at: DateTime.now,
+  username: "john",
   avatar: "admin.png",
   address: "2, rue du developpement",
   city: "rubyCity",
@@ -63,9 +71,11 @@ john.save!
 
 jerome = User.new(
   :email                 => "jerome@local.io",
+  :unconfirmed_email     => "jerome@local.io",
   :password              => "11111122",
   :password_confirmation => "11111122",
-  name: "jerome",
+  confirmed_at: DateTime.now,
+  username: "jerome",
   avatar: "admin.png",
   address: "2, rue du developpement",
   city: "rubyCity",
@@ -78,9 +88,11 @@ jerome.save!
 
 benjamin = User.new(
   :email                 => "benjamin@local.io",
+  :unconfirmed_email     => "benjamin@local.io",
   :password              => "11111122",
   :password_confirmation => "11111122",
-  name: "benjamin",
+  confirmed_at: DateTime.now,
+  username: "benjamin",
   avatar: "admin.png",
   address: "2, rue du developpement",
   city: "rubyCity",
