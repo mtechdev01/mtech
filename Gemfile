@@ -58,7 +58,9 @@ gem 'mini_magick'
 gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap'
 gem "koala", "~> 2.2"
-gem 'omniauth-facebook'
 gem 'jquery-minicolors-rails'
 gem 'metamagic'
 gem 'friendly_id', '~> 5.1.0'
+gem 'omniauth-twitter'
+gem "omniauth-google-oauth2"
+gem 'omniauth-facebook'
