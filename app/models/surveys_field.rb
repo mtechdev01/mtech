@@ -6,13 +6,16 @@ class SurveysField < ActiveRecord::Base
 
   accepts_nested_attributes_for :responses
 
+  validates :input_type, presence: { message: "Le type est nécessaire" }
+  validates :question, presence: { message: "La question ne peut être vide" }, length: { maximum: 400, too_long: "La question ne doit pas dépasser les %{count} caractères" }
+  validates_associated :survey
 
   def optionsFormated
     if self.options != nil
       return self.options.split(",").map(&:to_s)
     end
   end
-  
+
   def getResponse
     return self.responses.groupedByResponse
   end

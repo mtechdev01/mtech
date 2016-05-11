@@ -7,4 +7,6 @@ class Category < ActiveRecord::Base
   has_many :articles
   has_many :projects
 
+  validates :name, presence: { message: "Le nom de la catégorie est obligatoire" }, uniqueness: { message: "Cette catégorie existe déjà" }
+  
 end

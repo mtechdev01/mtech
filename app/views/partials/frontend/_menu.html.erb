@@ -38,6 +38,8 @@
             <ul class="dropdown-menu">
               <li><%= link_to "<i class='fa fa-user'></i> Se connecter".html_safe, new_session_path(:user) %></li>
               <li><%= link_to "Connection avec Facebook", user_omniauth_authorize_path(:facebook) %></li>
+              <li><%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %></li>
+              <li><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> <span class="caret"></span></a>
                 <ul class="dropdown-menu">

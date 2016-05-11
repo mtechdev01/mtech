@@ -4,8 +4,13 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    <%= f.label :username, "Pseudo" %><br />
+    <%= f.text_field :username, autofocus: true %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email %>
   </div>
 
   <div class="field">
@@ -21,9 +26,56 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= f.label :first_name, "Prénom" %><br />
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name, "Nom" %><br />
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <div id="locationField">
+      <%= label("",:Coordonnées) %><br />
+      <%= text_field_tag(:autocomplete) %>
+    </div>
+
+    <%= f.hidden_field :city, id:"locality" %>
+    <%= f.hidden_field :cp, id:"postal_code" %>
+    <%= f.hidden_field :country, id:"country" %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :territory_attachment, "Attachement au territoire" %><br />
+    <%= f.select :territory_attachment, options_for_select(["Domicile", "Travail", "Loisirs", "Originaire du territoire", "Autre"]), {}, :onChange=>"javascript: changeHiddenInput(this);"  %><br />
+  </div>
+
+  <div class="field", style="display:none", id="hiddenDiv">
+    <%= f.label :territory_attachment, "Précisez :" %><br />
+    <%= f.text_field :territory_attachment, id:"hiddenInput" %>
+ </div><br/>
+
+
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
 <% end %>
 
+<script>
+    function changeHiddenInput(select)
+        {
+            if (select.value == "Autre") {
+                document.getElementById("hiddenDiv").style.display = "block";
+                document.getElementById("hiddenInput").value = "";
+            }
+            else {
+                document.getElementById("hiddenDiv").style.display = "none";
+                document.getElementById("hiddenInput").value = select.value;
+            }
+        }
+</script>
 <%= render "devise/shared/links" %>

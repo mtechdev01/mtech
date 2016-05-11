@@ -6,6 +6,9 @@ class SurveysResponse < ActiveRecord::Base
   belongs_to :survey
   belongs_to :user
 
+  validates_associated :user, :survey, :surveys_field
+  validates :response, presence: { message: "La réponse doit être présente" }, length: { maximum: 400, too_long: "La réponse ne peut pas dépasser les %{count} caractères" }
+
   def self.responsed user
     where(user: user ).group(:survey_id).order( created_at: :desc)
   end
