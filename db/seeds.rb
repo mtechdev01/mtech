@@ -15,6 +15,10 @@ admin = User.new(
   is_admin: true,
   is_banned: false,
   can_comment: true,
+  territory_attachment: "Domicile",
+  last_name: "Dus",
+  first_name: "Jean-Claude",
+  country: "France",
 )
 admin.save!
 
@@ -32,6 +36,10 @@ jc = User.new(
   is_admin: false,
   is_banned: false,
   can_comment: true,
+  territory_attachment: "Domicile",
+  last_name: "Dus",
+  first_name: "Jean-Claude",
+  country: "France",
 )
 jc.save!
 
@@ -49,6 +57,10 @@ cecile = User.new(
   is_admin: false,
   is_banned: false,
   can_comment: true,
+  territory_attachment: "Domicile",
+  last_name: "Dus",
+  first_name: "Jean-Claude",
+  country: "France",
 )
 cecile.save!
 
@@ -66,6 +78,10 @@ john = User.new(
   is_admin: false,
   is_banned: false,
   can_comment: true,
+  territory_attachment: "Domicile",
+  last_name: "Dus",
+  first_name: "Jean-Claude",
+  country: "France",
 )
 john.save!
 
@@ -83,6 +99,10 @@ jerome = User.new(
   is_admin: false,
   is_banned: false,
   can_comment: true,
+  territory_attachment: "Domicile",
+  last_name: "Dus",
+  first_name: "Jean-Claude",
+  country: "France",
 )
 jerome.save!
 
@@ -100,6 +120,10 @@ benjamin = User.new(
   is_admin: false,
   is_banned: false,
   can_comment: true,
+  territory_attachment: "Domicile",
+  last_name: "Dus",
+  first_name: "Jean-Claude",
+  country: "France",
 )
 benjamin.save!
 
@@ -250,7 +274,6 @@ projet1 = Project.new(
   category: cat1,
   name: "Projet numero 1 de jc",
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  likes_count: 0,
   published: true,
   location: "Belleville",
   thumb: "https://i.ytimg.com/vi/ljm6RU6lRuM/maxresdefault.jpg"
@@ -262,7 +285,6 @@ projet2 = Project.new(
   category: cat2,
   name: "Projet numero 2 de cecile",
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  likes_count: 0,
   published: true,
   location: "Charny",
   thumb: "https://i.ytimg.com/vi/ljm6RU6lRuM/maxresdefault.jpg"
@@ -274,7 +296,6 @@ projet3 = Project.new(
   category: cat3,
   name: "Projet numero 3 de john",
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  likes_count: 0,
   location: "verdun",
   thumb: "https://i.ytimg.com/vi/ljm6RU6lRuM/maxresdefault.jpg",
 )
@@ -285,7 +306,6 @@ projet4 = Project.new(
   category: cat4,
   name: "Projet numero 4 de jerome",
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  likes_count: 0,
   location: "bras-sur-meuse",
   thumb: "https://i.ytimg.com/vi/ljm6RU6lRuM/maxresdefault.jpg"
 )
@@ -296,7 +316,6 @@ projet5 = Project.new(
   category: cat5,
   name: "Projet numero 5 de benjamin",
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  likes_count: 0,
   location: "verdun",
   thumb: "https://i.ytimg.com/vi/ljm6RU6lRuM/maxresdefault.jpg"
 )

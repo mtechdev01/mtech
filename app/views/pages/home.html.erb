@@ -1,3 +1,4 @@
 <% if current_user %>
   Bienvenue <%= image_tag current_user.avatar, size:"250x250" %> <%= current_user.username %>
 <% end %>
+<%= cell("Social").(:facebook) %>
