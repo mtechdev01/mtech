@@ -11,8 +11,13 @@ Rails.application.routes.draw do
   end
 
   resources :projects, controller: 'projects' do
-    resources :comments, only: :create
+      resources :comments, only: :create
   end
+    
+  resources :interactions
+  resources :likes
+  post '/projects/new_support', to: 'projects#new_support'
+  post '/projects/new_participation', to: 'projects#new_participation'
 
   resources :surveys, controller: 'surveys'
   post '/reponse', to: 'surveys#reponse', as: 'surveyReponse'

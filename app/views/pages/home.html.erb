@@ -1,3 +1,12 @@
 <% if current_user %>
   Bienvenue <%= image_tag current_user.avatar, size:"250x250" %> <%= current_user.username %>
 <% end %>
+
+<% @most_active_projects.each do |project| %>
+  <p><%= project.name %></p>
+<% end %>
+
+<% @last_projects.each do |project| %>
+  <p><%= project.name %></p>
+  <p><%= project.created_at %></p>
+<% end %>
