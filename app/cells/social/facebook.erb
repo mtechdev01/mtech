@@ -1,0 +1,38 @@
+<h1>
+  Social#facebook
+</h1>
+
+<p>
+  Find me in app/cells/social/facebook.erb
+</p>
+<div id="fb-block">
+  <div class="fb-post">
+
+  </div>
+</div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId: <%= Rails.configuration.fb_id %>,
+      xfbml: true,
+      version: 'v2.6',
+      hideFlashCallback: false
+    });
+    FB.api('/<%= Rails.configuration.fb_page_id %>/feed',{ access_token : "708003905969064|binYrSoowF058NCSx87nTWBSpSM", fields: ['id','message','picture'] }, function(results) {
+      console.log(results);
+    });
+  };
+
+  (function(d, s, id) {
+  var fjs, js;
+  js = void 0;
+  fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {
+    return;
+  }
+  js = d.createElement(s);
+  js.id = id;
+  js.src = '//connect.facebook.net/en_US/sdk.js';
+  fjs.parentNode.insertBefore(js, fjs);
+  })(document, 'script', 'facebook-jssdk');
+</script>
