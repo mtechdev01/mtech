@@ -5,7 +5,7 @@ class Project < ActiveRecord::Base
   belongs_to  :category
   belongs_to  :owner, class_name: "User"
   has_many    :comments, as: :commentable
-  has_many    :likes, as: :likeable
+  has_many    :interactions
 
   self.per_page = 4
 
@@ -21,9 +21,24 @@ class Project < ActiveRecord::Base
     where( author_id: user.id ).order( created_at: :desc)
   end
 
+  def self.lasts
+    self.all.where(published: "t").order(created_at: :desc).first(3)
+  end
+
   def self.mostActive
-    order("likes_count + comments_count*6 DESC")
-    .limit(3)
+    hash = Hash.new
+    most_active = Array.new
+    self.all.each do |project|
+      if project.published
+        score = ((project.comments.count)*8)+(project.interactions.where(role: "support").count)+((project.interactions.where(role: "participation").count)*3)    
+        hash[project] = score
+      end
+    end
+    hash = hash.sort_by{|_key, value| value}.reverse.first(3)
+    hash.each do |element|
+      most_active.push(element[0])
+    end
+      return most_active
   end
 
 end

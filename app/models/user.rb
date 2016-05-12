@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :surveysResponses, class_name: "SurveysResponse"
   has_many :likes
+  has_many :interactions
 
   validates_presence_of :city, :cp, :username, :email, :country, :territory_attachment, :first_name, :last_name, :message => "Ce champ est obligatoire"
   validates_uniqueness_of :email, :username, :message => "Déjà utilisé"
