@@ -67,3 +67,4 @@ gem 'omniauth-twitter'
 gem "omniauth-google-oauth2"
 gem 'omniauth-facebook'
 gem 'coffee-script-source', '~> 1.8.0'
+gem 'jquery-ui-rails'
