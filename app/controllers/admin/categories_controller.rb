@@ -32,10 +32,10 @@ class Admin::CategoriesController < Admin::AdminController
   def create
     @category = Category.new
     if request.post?
-      @category = Category.new article_params
+      @category = Category.new category_params
       if @category.valid?
         if @category.save
-          flash[:notice] ="Votre article a été ajouté."
+          flash[:notice] ="Votre catégorie a été ajouté."
           flash[:class] ="success"
           @category = nil
           redirect_to admin_categories_path
@@ -61,7 +61,7 @@ class Admin::CategoriesController < Admin::AdminController
 
   private
 
-  def article_params
+  def category_params
     params.require(:category).permit(:name, :icon, :color)
   end
 
