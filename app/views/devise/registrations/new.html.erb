@@ -39,7 +39,7 @@
   <div class="field">
     <div id="locationField">
       <%= label("",:Coordonnées) %><br />
-      <%= text_field_tag(:autocomplete) %>
+      <%= text_field_tag 'autocomplete', 'Coordonnées'%>
     </div>
 
     <%= f.hidden_field :city, id:"locality" %>
