@@ -24,7 +24,7 @@
         </a>
         <ul class="treeview-menu">
           <li class="<%= (params[:controller] === 'admin/category' && params[:action] === 'index' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i>Liste".html_safe, admin_categories_path %></li>
-          <li class="<%= (params[:controller] === 'admin/category' && params[:action] === 'create' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i>Nouveau".html_safe, new_admin_category_path %></li>
+          <li class="<%= (params[:controller] === 'admin/category' && params[:action] === 'create' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i>Nouvelle catégorie".html_safe, new_admin_category_path %></li>
         </ul>
       </li>
       <li class="treeview <%= (params[:controller] === 'admin/blogs/articles') ? 'active' : ''  %>">
@@ -33,7 +33,7 @@
         </a>
         <ul class="treeview-menu">
           <li class="<%= (params[:controller] === 'admin/blogs/articles' && params[:action] === 'index' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i>Liste".html_safe, admin_articles_path %></li>
-          <li class="<%= (params[:controller] === 'admin/blogs/articles' && params[:action] === 'create' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i> Créer un article".html_safe, new_admin_article_path %></li>
+          <li class="<%= (params[:controller] === 'admin/blogs/articles' && params[:action] === 'create' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i>Nouvel article".html_safe, new_admin_article_path %></li>
         </ul>
       </li>
       <li class="treeview <%= (params[:controller] ===  'admin/projects/projects') ? 'active' : '' %>">
@@ -42,7 +42,7 @@
         </a>
         <ul class="treeview-menu">
           <li class="<%= (params[:controller] === 'admin/projects/projects' && params[:action] === 'index' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i> Liste ".html_safe, admin_projects_path %></li>
-          <li class="<%= (params[:controller] === 'admin/projects/projects' && params[:action] === 'labelled' ) ? 'active' : ''  %>"><a href="../../index.html"><i class="fa fa-circle-o"></i>Projets labelisés</a></li>
+          <li class="<%= (params[:controller] === 'admin/blogs/projects' && params[:action] === 'create' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i>Nouveau projet".html_safe, new_admin_project_path %></li>
         </ul>
       </li>
       <li class="treeview <%= (params[:controller] ===  'admin/polls/polls') ? 'active' : '' %>">
@@ -53,7 +53,7 @@
         </a>
         <ul class="treeview-menu">
           <li class="<%= (params[:controller] === 'admin/polls/polls' && params[:action] === 'index' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i>Liste".html_safe, admin_surveys_path %></li>
-          <li class="<%= (params[:controller] === 'admin/polls/polls' && params[:action] === 'create' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i>Nouveau".html_safe, new_admin_survey_path %></li>
+          <li class="<%= (params[:controller] === 'admin/polls/polls' && params[:action] === 'create' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i>Nouveau sondage".html_safe, new_admin_survey_path %></li>
         </ul>
       </li>
       <li class="treeview <%= (params[:controller] === 'admin/users/users') ? 'active' : ''  %>">
@@ -64,7 +64,7 @@
           <li class="<%= (params[:controller] === 'admin/users/users' && params[:action] === 'index' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i>Liste".html_safe, admin_users_url %></li>
         </ul>
       </li>
-      <li><a href="../../documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
+      <li><a href="../../admin/documentation"><i class="fa fa-book"></i> <span>Documentation</span></a></li>
       <li class="header">LABELS</li>
       <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
       <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>

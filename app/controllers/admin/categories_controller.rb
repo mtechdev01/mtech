@@ -47,16 +47,23 @@ class Admin::CategoriesController < Admin::AdminController
       else
         flash[:notice] = "Formulaire invalide"
         flash[:class]= "danger"
+        redirect_to :back
       end
     end
   end
 
   def destroy
     @category = Category.friendly.find(params[:id])
-    @category.destroy
-    flash[:notice] = "Suppression de la catégorie enregistré"
-    flash[:class] = "success"
-    redirect_to :back
+    if Project.where(category: @category).last || Article.where(category: @category).last
+      flash[:notice] = "Suppression impossible: catgéorie utilisée"
+      flash[:class] = "danger"
+      redirect_to :back
+    else
+      @category.destroy
+      flash[:notice] = "Suppression de la catégorie enregistré"
+      flash[:class] = "success"
+      redirect_to :back
+    end
   end
 
   private

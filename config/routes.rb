@@ -50,6 +50,7 @@ Rails.application.routes.draw do
     post '/redirecttoFacebook/:id', to: 'articles#redirecttofacebook', as: 'redirectToFacebook'
     get '/publishtoFacebook/:id', to: 'articles#publishtofacebook', as: 'PublishtoFacebook'
     post '/articles/publish', to: 'articles#publish', as:'articlepublish'
+    get '/documentation', to: 'pages#documentation', as: 'documentation'
     resources :articles do
       resources :comments, only: :create
     end
