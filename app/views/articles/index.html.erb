@@ -1,5 +1,5 @@
 <% @articles.each do | article | %>
-  <h1><%= link_to article.title, article_path( article.friendly_id )%></h1>
+  <h1><%= link_to article.title, blog_path( article.friendly_id )%></h1>
   <p>
     <%= article.content %>
   </p>
@@ -9,5 +9,3 @@
     <li>Catégorie: <%= article.category.name %></li>
   </ul>
 <% end %>
-
-  <%= will_paginate @articles %>

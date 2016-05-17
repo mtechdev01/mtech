@@ -42,7 +42,6 @@ class Admin::ProjectsController < Admin::AdminController
 
   def new
     @project = Project.new
-    @categories = Category.all
   end
 
   def create
@@ -51,7 +50,7 @@ class Admin::ProjectsController < Admin::AdminController
     if request.post?
       @project = Project.new project_params
       if @project.valid?
-        @project.owner = current_user
+        @project.user = current_user
         if @project.save
           flash[:notice] ="Votre projet a été ajouté."
           flash[:class] ="success"

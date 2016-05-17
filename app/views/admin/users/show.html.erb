@@ -7,7 +7,7 @@
       <div class="box box-primary">
         <div class="box-body">
           <%= image_tag(@user.avatar, :class => "profile-user-img img-responsive img-circle") %>
-          <h3 class="profile-username text-center"><%= @user.username %> <%= @user.is_banned ? "Banni(e)" : "" %></h3>
+          <h3 class="profile-username text-center"><%= @user.name %> <%= @user.is_banned ? "Banni(e)" : "" %></h3>
           <ul class="list-group list-group-unbordered">
             <li class="list-group-item"><i class="fa fa-map-marker margin-r-5"></i> <%= @user.address %> <%= @user.cp %> <%= @user.city %></li>
             <li class="list-group-item"><i class="fa fa-envelope-o margin-r-5"></i> <%= mail_to(@user.email) %></li>

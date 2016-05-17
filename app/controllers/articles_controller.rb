@@ -1,11 +1,13 @@
 # encoding: utf-8
 class ArticlesController  < ApplicationController
 
+  include Likeable
+
   def index
     @articles = Article.published.page(params[:page]).order('created_at DESC')
   end
 
-  def show 
+  def show
     @article = Article.friendly.published.find( params[:id] )
     if !@article
       setFlashAndRedirect( "L'url appelée n'existe pas",  "danger", root_path)

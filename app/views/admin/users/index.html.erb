@@ -25,7 +25,7 @@
             <tbody>
               <% @users.each do |user| %>
                 <tr>
-                  <td><%= image_tag user.avatar, width: "40px",class:"user-image img-circle", height: "40px" %> <%= user.username %></td>
+                  <td><%= image_tag user.avatar, width: "40px",class:"user-image img-circle", height: "40px" %> <%= user.name %></td>
                   <td><%= user.email %></td>
                   <td><%= user.city %></td>
                   <td><%= time_tag(user.created_at) %></td>

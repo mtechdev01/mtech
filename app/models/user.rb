@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :surveysResponses, class_name: "SurveysResponse"
   has_many :likes
-  has_many :interactions
 
   validates_presence_of :city, :cp, :username, :email, :country, :territory_attachment, :first_name, :last_name, :message => "Ce champ est obligatoire"
   validates_uniqueness_of :email, :username, :message => "Déjà utilisé"
@@ -29,15 +28,6 @@ class User < ActiveRecord::Base
         user.email = data["email"] if user.email.blank?
       end
     end
-  end
-
-  def self.to_csv
-   CSV.generate do |csv|
-     csv << column_names
-     all.each do |row|
-       csv << row.attributes.values_at(*column_names)
-     end
-   end
   end
 
 end

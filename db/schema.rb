@@ -11,19 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512084242) do
+ActiveRecord::Schema.define(version: 20160509090535) do
 
   create_table "articles", force: :cascade do |t|
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.string   "title",                        null: false
-    t.string   "slug",                         null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "title",                          null: false
+    t.string   "slug",                           null: false
     t.string   "thumb"
-    t.text     "content",                      null: false
+    t.text     "content",                        null: false
     t.datetime "published_at"
-    t.integer  "category_id",                  null: false
-    t.integer  "author_id",                    null: false
-    t.boolean  "published",    default: false
+    t.integer  "category_id",                    null: false
+    t.integer  "author_id",                      null: false
+    t.boolean  "published",      default: false
+    t.integer  "likes_count",    default: 0
+    t.integer  "comments_count", default: 0
   end
 
   add_index "articles", ["author_id"], name: "index_articles_on_author_id"
@@ -41,6 +43,7 @@ ActiveRecord::Schema.define(version: 20160512084242) do
     t.integer  "user_id"
     t.integer  "commentable_id"
     t.string   "commentable_type"
+    t.integer  "likes_count",      default: 0
     t.boolean  "is_valid",         default: false
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
@@ -61,12 +64,6 @@ ActiveRecord::Schema.define(version: 20160512084242) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
-  create_table "interactions", force: :cascade do |t|
-    t.string  "role"
-    t.integer "user_id"
-    t.integer "project_id"
-  end
-
   create_table "likes", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "likeable_id"
@@ -78,18 +75,20 @@ ActiveRecord::Schema.define(version: 20160512084242) do
   add_index "likes", ["likeable_type", "likeable_id"], name: "index_likes_on_likeable_type_and_likeable_id"
 
   create_table "projects", force: :cascade do |t|
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
     t.integer  "owner_id"
     t.integer  "category_id"
-    t.boolean  "published",    default: false
+    t.boolean  "published",      default: false
     t.datetime "published_at"
-    t.string   "name",         default: "",        null: false
-    t.string   "slug",                             null: false
-    t.string   "thumb",                            null: false
-    t.text     "content",      default: "",        null: false
-    t.string   "state",        default: "Proposé"
-    t.string   "location",     default: "Verdun"
+    t.string   "name",           default: "",        null: false
+    t.string   "slug",                               null: false
+    t.string   "thumb",                              null: false
+    t.text     "content",        default: "",        null: false
+    t.string   "state",          default: "Proposé"
+    t.string   "location",       default: "Verdun"
+    t.integer  "likes_count",    default: 0
+    t.integer  "comments_count", default: 0
   end
 
   add_index "projects", ["category_id"], name: "index_projects_on_category_id"

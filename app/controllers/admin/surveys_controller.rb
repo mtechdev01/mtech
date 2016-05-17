@@ -162,30 +162,6 @@ class Admin::SurveysController < Admin::AdminController
     end
   end
 
-  def svexport
-    @surveys = Survey.all
-    respond_to do |format|
-      format.html
-      format.csv { send_data @surveys.to_csv, filename: "surveys-#{Date.today}.csv" }
-    end
-  end
-
-  def svfldexport
-    @survey_fields = SurveysField.all
-    respond_to do |format|
-      format.html
-      format.csv { send_data @survey_fields.to_csv, filename: "survey_fields-#{Date.today}.csv" }
-    end
-  end
-
-  def svrpexport
-    @survey_responses = SurveysResponse.all
-    respond_to do |format|
-      format.html
-      format.csv { send_data @survey_responses.to_csv, filename: "survey_responses-#{Date.today}.csv" }
-    end
-  end
-
   private
 
   def survey_params
