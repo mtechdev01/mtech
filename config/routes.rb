@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get '/a-propos', to: 'pages#about', as: 'about'
   get '/callback', to: 'pages#callback', as: 'fbcallback'
-  resources :blogs, controller: 'articles' do
+  resources :articles do
     resources :comments, only: :create
   end
 
@@ -49,7 +49,7 @@ Rails.application.routes.draw do
     get '/', to: 'pages#dashboard', as: "dashboard"
     post '/redirecttoFacebook/:id', to: 'articles#redirecttofacebook', as: 'redirectToFacebook'
     get '/publishtoFacebook/:id', to: 'articles#publishtofacebook', as: 'PublishtoFacebook'
-    resources :blogs, controller: 'articles' do
+    resources :articles do
       resources :comments, only: :create
     end
 

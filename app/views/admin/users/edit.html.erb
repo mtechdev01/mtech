@@ -107,7 +107,7 @@
                   <tr>
                     <td>le <%= time_tag(comment.created_at) %></td>
                     <td><%= f.text_field :content, class: "form-control" %></td>
-                    <td><%= comment.blog_article_id != nil ? comment.blog_article.title : "" %></td>
+                    <td><%= comment.article_id != nil ? comment.article.title : "" %></td>
                     <td><%= comment.project_id != nil ? comment.project.name : "" %></td>
                     <td><%= f.submit :valider , class: "btn btn-primary" %> <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, admin_commentsAdminDestroy_url(comment.id), method: :delete, class: "btn btn-danger" %></td>
                   </tr>
