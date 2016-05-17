@@ -64,6 +64,7 @@ class Admin::ProjectsController < Admin::AdminController
       else
         flash[:notice] = "Formulaire invalide"
         flash[:class]= "danger"
+        redirect_to :back
       end
     end
   end
@@ -105,7 +106,7 @@ class Admin::ProjectsController < Admin::AdminController
         end
       end
     end
-    
+
   private
 
   def project_params

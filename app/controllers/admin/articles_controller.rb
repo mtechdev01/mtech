@@ -19,11 +19,10 @@ class Admin::ArticlesController < Admin::AdminController
       if request.post?
         @article = Article.new article_params
         if @article.valid?
-          @article.user = current_user
+          @article.author = current_user
           if @article.save
             flash[:notice] ="Votre article a été ajouté."
             flash[:class] ="success"
-            @article= nil
             redirect_to admin_articles_path
           else
             flash[:notice] = "Une erreur est survenue lors de l'ajout de votre article"
@@ -33,6 +32,7 @@ class Admin::ArticlesController < Admin::AdminController
         else
           flash[:notice] = "Formulaire invalide"
           flash[:class]= "danger"
+          redirect_to :back
         end
       end
     end
@@ -114,7 +114,7 @@ class Admin::ArticlesController < Admin::AdminController
     private
 
     def article_params
-      params.require(:articles).permit(:title, :content, :user_id, :category_id, :thumb, :remove_thumb, :published)
+      params.require(:articles).permit(:title, :content, :author_id, :category_id, :thumb, :remove_thumb, :published)
     end
 
 end

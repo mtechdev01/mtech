@@ -73,11 +73,12 @@ class Admin::SurveysController < Admin::AdminController
       else
         flash[:notice] = "Formulaire invalide"
         flash[:class]= "danger"
+        redirect_to :back
       end
     end
   end
 
-  def delete
+  def destroy
     if params[:id]
       @survey = Survey.find(params[:id])
       if @survey
