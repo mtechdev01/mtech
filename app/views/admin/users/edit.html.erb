@@ -8,7 +8,7 @@
     <div class="box box-primary">
       <div class="box-body">
         <%= image_tag(@user.avatar, :class => "profile-user-img img-responsive img-circle") %>
-        <h3 class="profile-username text-center"><%= @user.name %> <%= @user.is_banned ? "Banni(e)" : "" %></h3>
+        <h3 class="profile-username text-center"><%= @user.username %> <%= @user.is_banned ? "Banni(e)" : "" %></h3>
         <section id="user-infos_fields" class="form-horizontal " style="margin-top: 50px;">
           <%= form_for :user, :url => admin_user_url( @user.id ), :method => :put do |f| %>
             <div class="form-group">
@@ -107,7 +107,7 @@
                   <tr>
                     <td>le <%= time_tag(comment.created_at) %></td>
                     <td><%= f.text_field :content, class: "form-control" %></td>
-                    <td><%= comment.blog_article_id != nil ? comment.blog_article.title : "" %></td>
+                    <td><%= comment.article_id != nil ? comment.article.title : "" %></td>
                     <td><%= comment.project_id != nil ? comment.project.name : "" %></td>
                     <td><%= f.submit :valider , class: "btn btn-primary" %> <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, admin_commentsAdminDestroy_url(comment.id), method: :delete, class: "btn btn-danger" %></td>
                   </tr>
