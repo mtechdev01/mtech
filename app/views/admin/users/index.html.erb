@@ -62,7 +62,7 @@
             </tbody>
           </table>
           <div class="csv_export">
-            <a href="/admin/users.csv"><%= image_tag "export_csv.png", height: "50px", alt: "exporter en csv" %></a>
+            <%= link_to (image_tag "export_csv.png", alt: "exporter en csv", height: "50px"), admin_userexport_url(format: :csv)  %>
           </div>
         </div>
       </div>

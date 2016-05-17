@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160517092040) do
+=======
+ActiveRecord::Schema.define(version: 20160517084247) do
+>>>>>>> f0b1763bf651e8f70df768f415bf908cd3b854ec
 
   create_table "articles", force: :cascade do |t|
     t.datetime "created_at",                   null: false
@@ -86,7 +90,7 @@ ActiveRecord::Schema.define(version: 20160517092040) do
     t.datetime "published_at"
     t.string   "name",         default: "",        null: false
     t.string   "slug",                             null: false
-    t.string   "thumb",                            null: false
+    t.string   "thumb"
     t.text     "content",      default: "",        null: false
     t.string   "state",        default: "Proposé"
     t.string   "location",     default: "Verdun"
@@ -177,6 +181,9 @@ ActiveRecord::Schema.define(version: 20160517092040) do
     t.string   "last_name"
     t.string   "first_name"
     t.string   "country"
+    t.integer  "failed_attempts",        default: 0
+    t.string   "unlock_token"
+    t.datetime "locked_at"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

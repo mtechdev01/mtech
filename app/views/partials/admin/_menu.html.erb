@@ -33,7 +33,7 @@
         </a>
         <ul class="treeview-menu">
           <li class="<%= (params[:controller] === 'admin/blogs/articles' && params[:action] === 'index' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i>Liste".html_safe, admin_articles_path %></li>
-          <li class="<%= (params[:controller] === 'admin/blogs/articles' && params[:action] === 'create' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i> Créer un article".html_safe, admin_articles_path %></li>
+          <li class="<%= (params[:controller] === 'admin/blogs/articles' && params[:action] === 'create' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i> Créer un article".html_safe, new_admin_article_path %></li>
         </ul>
       </li>
       <li class="treeview <%= (params[:controller] ===  'admin/projects/projects') ? 'active' : '' %>">

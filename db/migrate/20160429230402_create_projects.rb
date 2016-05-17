@@ -9,7 +9,7 @@ class CreateProjects < ActiveRecord::Migration
       t.datetime    :published_at
       t.string      :name, null: false, default: ""
       t.string      :slug, :null => false
-      t.string      :thumb, :null => false
+      t.string      :thumb
       t.text        :content, null: false, default: ""
       t.string      :state, default: "Proposé"
       t.string      :location, default: "Verdun"

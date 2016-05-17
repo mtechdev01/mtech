@@ -6,7 +6,7 @@ class Project < ActiveRecord::Base
   belongs_to  :owner, class_name: "User"
   has_many    :comments, as: :commentable
   has_many    :interactions
-
+  mount_uploader :thumb, ThumbUploader
   self.per_page = 4
 
   scope :published, -> { where(published: true) }
@@ -30,7 +30,7 @@ class Project < ActiveRecord::Base
     most_active = Array.new
     self.all.each do |project|
       if project.published
-        score = ((project.comments.count)*8)+(project.interactions.where(role: "support").count)+((project.interactions.where(role: "participation").count)*3)    
+        score = ((project.comments.count)*8)+(project.interactions.where(role: "support").count)+((project.interactions.where(role: "participation").count)*3)
         hash[project] = score
       end
     end

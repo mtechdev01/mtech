@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :confirmable, :validatable
+         :recoverable, :rememberable, :trackable, :confirmable, :validatable, :lockable
   devise :omniauthable, :omniauth_providers => [:facebook, :google_oauth2, :twitter]
   mount_uploader :avatar, AvatarUploader
 

@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   #end
 
   namespace :admin do
-    get '/userexport', to: 'users#userexport'
+    get '/userexport', to: 'users#userexport', as: "userexport"
     get '/svexport', to: 'surveys#svexport'
     get '/svfldexport', to: 'surveys#svfldexport'
     get '/svrpexport', to: 'surveys#svrpexport'
