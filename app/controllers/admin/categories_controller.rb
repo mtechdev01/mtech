@@ -14,7 +14,7 @@ class Admin::CategoriesController < Admin::AdminController
 
   def update
     @category = Category.friendly.find(params[:id])
-    if @category.update_attributes(article_params)
+    if @category.update_attributes(category_params)
       flash[:notice] = "La mise à jour à été effectuée"
       flash[:class]= "success"
       redirect_to admin_categories_path
