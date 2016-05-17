@@ -15,7 +15,7 @@ class CreateSurveys < ActiveRecord::Migration
       t.string      :input_type
       t.boolean     :is_required
       t.string      :question
-      t.string      :options
+      t.string      :options, default: nil
       t.string      :rules
     end
 

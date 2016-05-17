@@ -18,9 +18,13 @@ class Admin::SurveysController < Admin::AdminController
       @statsResponse[index] = { :label     => field.question, :rsp => Array.new }
       @Allresponses.each do | response |
         if field.options
-          @rspFormatted = field.optionsFormated[response.response.to_i]
+          if !field.options.empty?
+            @rspFormatted = field.optionsFormated[response.response.to_i]
+          else
+            @rspFormatted = response.response.to_s
+          end
         else
-          @rspFormatted = response.response
+          @rspFormatted = response.response.to_s
         end
         @statsResponse[index][:rsp] << {
           :response  => @rspFormatted,

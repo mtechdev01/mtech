@@ -55,7 +55,7 @@
               </div>
               <div class="col-xs-10">
                  <div class="">
-                    <h4><%= user.name %></h4>
+                    <h4><%= user.username %></h4>
                  </div>
                 <% user.surveysResponses.each do | rsp | %>
                      <div class="">
@@ -83,7 +83,7 @@
               <% @a = 0 %>
               <% @statsResponse.each do | response | %>
                 <div class="col-xs-6">
-                <h4><%= response[:question] %></h4>
+                <h4><%= response[:label] %></h4>
                 <canvas id="Charts<%= @a %>" ></canvas>
                  <script>
                  var Chart<%= @a %>, ChartCanvas<%= @a %>, Data<%= @a %>, Options<%= @a %>;

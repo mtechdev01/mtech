@@ -35,8 +35,6 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   # Better visibility of error
-  gem "better_errors"
-  gem "binding_of_caller"
 end
 
 group :development do
@@ -67,3 +65,5 @@ gem 'omniauth-twitter'
 gem "omniauth-google-oauth2"
 gem 'omniauth-facebook'
 gem 'coffee-script-source', '~> 1.8.0'
+gem "better_errors"
+gem "binding_of_caller"

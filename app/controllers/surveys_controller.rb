@@ -45,23 +45,55 @@ class SurveysController < ApplicationController
   def reponse
     if request.post?
       @fields = params[:fields]
-      @fields[:questions].each_with_index do | value, index |
-        @response = SurveysResponse.new
-        @response.user_id = current_user.id
-        @response.survey_id = @fields[:survey_id]
-        @response.surveys_field_id = value[0]
-        @response.response = value[1].to_s
-        @response.save
+      @haveCheckbox = Array.new
+      SurveysField.where(survey_id: @fields[:survey_id]).find_each do | field |
+        if field.input_type == "checkbox"
+          @haveCheckbox << field
+        end
       end
-      if @response.save
-        flash[:notice] = "Votre sondage a bien été enregistré, merci pour votre participation."
-        flash[:class]= "success"
-        redirect_to surveyStats_url( @response.id )
+      if @fields.size <= 1
+        if @haveCheckbox.size > 0
+          @haveCheckbox.each_with_index do | value, index |
+            @response = SurveysResponse.new response_params
+            @response.user_id = current_user.id
+            @response.survey_id = @fields[:survey_id]
+            @response.surveys_field_id = value.id
+            @response.response = "non"
+            @response.save
+          end
+          if @response.save
+            flash[:notice] = "Votre sondage a bien été enregistré, merci pour votre participation."
+            flash[:class]= "success"
+            redirect_to surveyStats_url( @response.id )
+          else
+            flash[:notice] = "Une erreur est survenue."
+            flash[:class]= "danger"
+            redirect_to :back
+          end
+        end
       else
-        flash[:notice] = "Une erreur est survenue."
-        flash[:class]= "danger"
-        redirect_to :back
+        @fields[:questions].each_with_index do | value, index |
+          @response = SurveysResponse.new response_params
+          @response.user_id = current_user.id
+          @response.survey_id = @fields[:survey_id]
+          @response.surveys_field_id = value[0]
+          @response.response = value[1].to_s
+          @response.save
+          byebug
+
+        end
+
+        if @response.save
+          flash[:notice] = "Votre sondage a bien été enregistré, merci pour votre participation."
+          flash[:class]= "success"
+          redirect_to surveyStats_url( @response.id )
+        else
+          flash[:notice] = "Une erreur est survenue."
+          flash[:class]= "danger"
+          redirect_to :back
+        end
       end
+
     end
   end
 
