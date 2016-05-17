@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/ambethia/recaptcha
+  revision: e8f292bc60a423323c4e8d9ac91856c11d12799f
+  branch: master
+  specs:
+    recaptcha (1.3.0)
+      json
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -267,6 +275,7 @@ DEPENDENCIES
   omniauth-google-oauth2
   omniauth-twitter
   rails (= 4.2.6)
+  recaptcha!
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
@@ -278,3 +287,6 @@ DEPENDENCIES
   web-console (~> 2.0)
   will_paginate (~> 3.1.0)
   will_paginate-bootstrap
+
+BUNDLED WITH
+   1.11.2
