@@ -31,8 +31,8 @@
       <% end %>
     <% end %>
 
-    <%= form_for :comment, :url => artiles_comments_path(@project) do |f| %>
-      <input id="comment[commentable_type]" name="comment[commentable_type]" type="hidden" value="Article" />
+    <%= form_for :comment, :url => article_comments_path(@project) do |f| %>
+      <input id="comment[commentable_type]" name="comment[commentable_type]" type="hidden" value="Project" />
       <input id="comment[commentable_id]" name="comment[commentable_id]" type="hidden" value="<%= @project.id %>" />
       <%= f.text_area :content, class: "form-control", rows: "6", cols: "100"%>
       <%= f.submit :valider %>
@@ -41,6 +41,7 @@
 
   <div class="comments-one">
     <h2>Commentaires</h2>
+    <% @project.comments.inspect %>
     <% @project.comments.each do | comment | %>
     <p>
       <%= comment.content %>
