@@ -49,10 +49,13 @@ Rails.application.routes.draw do
     get '/', to: 'pages#dashboard', as: "dashboard"
     post '/redirecttoFacebook/:id', to: 'articles#redirecttofacebook', as: 'redirectToFacebook'
     get '/publishtoFacebook/:id', to: 'articles#publishtofacebook', as: 'PublishtoFacebook'
+    post '/articles/publish', to: 'articles#publish', as:'articlepublish'
     resources :articles do
       resources :comments, only: :create
     end
 
+    post '/projects/publish', to: 'projects#publish', as:'projectpublish'
+    post '/projects/labelize', to: 'projects#labelize', as: 'projectlabelize'
     resources :projects, controller: 'projects' do
       resources :comments, only: :create
     end
@@ -66,6 +69,8 @@ Rails.application.routes.draw do
 
     resources :categories, controller: 'categories'
     resources :users, controller: 'users'
+    post '/users/ban', to: 'users#ban', as:'userban'
+    post '/users/cancomment', to: 'users#cancomment', as:'usercancomment'
 
   end
 

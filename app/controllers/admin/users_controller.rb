@@ -41,6 +41,44 @@ class Admin::UsersController < Admin::AdminController
     redirect_to admin_users_url
   end
 
+  def ban
+    @user = User.find(params[:id])
+      if @user.is_banned === true
+        @user.is_banned = false
+        if @user.save
+          flash[:notice] ="Cet utilisateur n'est plus banni"
+          flash[:class] = "success"
+          redirect_to :back
+        end
+      elsif @user.is_banned === false
+        @user.is_banned = true
+          if @user.save
+          flash[:notice] ="Cet utilisateur a été banni"
+          flash[:class] = "success"
+          redirect_to :back
+          end
+      end
+  end
+
+  def cancomment
+    @user = User.find(params[:id])
+      if @user.can_comment === true
+        @user.can_comment = false
+        if @user.save
+          flash[:notice] ="Cet utilisateur ne peut plus commenter"
+          flash[:class] = "success"
+          redirect_to :back
+        end
+      elsif @user.can_comment === false
+        @user.can_comment = true
+          if @user.save
+          flash[:notice] ="Cet utilisateur peut commenter"
+          flash[:class] = "success"
+          redirect_to :back
+          end
+      end
+  end
+
   def userexport
     @users = User.all
     respond_to do |format|

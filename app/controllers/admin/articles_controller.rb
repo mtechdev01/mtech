@@ -45,7 +45,7 @@ class Admin::ArticlesController < Admin::AdminController
     def update
       @article = Article.friendly.find(params[:id])
       if @article.update_attributes( article_params )
-        flash[:notice] = "La mise à jour à été effectuée"
+        flash[:notice] = "La mise à jour a été effectuée"
         flash[:class]= "success"
         redirect_to admin_articles_path
       else
@@ -59,7 +59,7 @@ class Admin::ArticlesController < Admin::AdminController
       @article = Article.friendly.find(params[:id])
       if @article != nil
         @article.destroy
-        flash[:notice] ="Cet article à été supprimé"
+        flash[:notice] ="Cet article a été supprimé"
         flash[:class] = "success"
         redirect_to :back
       else
@@ -67,6 +67,25 @@ class Admin::ArticlesController < Admin::AdminController
         flash[:class] = "danger"
         redirect_to :back
       end
+    end
+
+    def publish
+          @article = Article.friendly.find(params[:id])
+          if @article.published === true
+            @article.published = false
+            if @article.save
+              flash[:notice] ="Cet article n'est plus en ligne"
+              flash[:class] = "success"
+              redirect_to :back
+            end
+          elsif @article.published === false
+            @article.published = true
+            if @article.save
+              flash[:notice] ="Cet article a été publié"
+              flash[:class] = "success"
+              redirect_to :back
+            end
+          end
     end
 
     def redirecttofacebook
@@ -95,7 +114,7 @@ class Admin::ArticlesController < Admin::AdminController
     private
 
     def article_params
-      params.require(:articles).permit(:title, :content, :user_id, :category_id, :thumb, :remove_thumb)
+      params.require(:articles).permit(:title, :content, :user_id, :category_id, :thumb, :remove_thumb, :published)
     end
 
 end

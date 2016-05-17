@@ -68,6 +68,44 @@ class Admin::ProjectsController < Admin::AdminController
     end
   end
 
+  def publish
+        @project = Project.friendly.find(params[:id])
+        if @project.published === true
+          @project.published = false
+          if @project.save
+            flash[:notice] ="Ce projet n'est plus en ligne"
+            flash[:class] = "success"
+            redirect_to :back
+          end
+        elsif @project.published === false
+          @project.published = true
+          if @project.save
+            flash[:notice] ="Ce projet a été publié"
+            flash[:class] = "success"
+            redirect_to :back
+          end
+        end
+  end
+
+  def labelize
+      @project = Project.friendly.find(params[:id])
+        if @project.labelized === true
+        @project.labelized = false
+        if @project.save
+          flash[:notice] ="Ce projet n'est plus labélisé"
+          flash[:class] = "success"
+          redirect_to :back
+        end
+      elsif @project.labelized === false
+        @project.labelized = true
+          if @project.save
+          flash[:notice] ="Ce projet a été labélisé"
+          flash[:class] = "success"
+          redirect_to :back
+        end
+      end
+    end
+    
   private
 
   def project_params

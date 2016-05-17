@@ -15,6 +15,9 @@
             Nom du projet
           </th>
           <th>
+            En ligne ?
+          </th>
+          <th>
             Catégorie
           </th>
           <th> <!--colonne icône-->
@@ -32,6 +35,9 @@
             Avancement
           </th>
           <th>
+            Labélisé?
+          </th>
+          <th>
             Actions
           </th>
         </tr>
@@ -41,6 +47,16 @@
           <tr>
             <td>
               <h4><%= truncate(project.name.html_safe) %></h4>
+            </td>
+            <td>
+              <%= form_tag admin_projectpublish_url do %>
+                <%= hidden_field_tag "id", project.id %>
+                <% if project.published %>
+                  <%= submit_tag "Oui" %>
+                <% else %>
+                  <%= submit_tag "Non" %>
+                <% end %>
+              <% end %>
             </td>
             <td>
               <%= project.category.name %>
@@ -60,6 +76,16 @@
             </td>
             <td>
               <%= project.state %>
+            </td>
+            <td>
+                <%= form_tag admin_projectlabelize_url do %>
+                <%= hidden_field_tag "id", project.id %>
+                <% if project.labelized %>
+                      <%= submit_tag "Oui" %>
+                    <% else %>
+                      <%= submit_tag "Non" %>
+                    <% end %>
+                  <% end %>
             </td>
             <td>
               <%= link_to "<i class='fa fa-pencil'></i>".html_safe, edit_admin_project_url(project.friendly_id), class:'btn btn-warning'%>

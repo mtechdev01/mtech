@@ -34,7 +34,16 @@
               <% @articles.each do | article | %>
               <tr>
                 <td style="line-height:64px;"><%= article.id %></td>
-                <td style="line-height:64px;font-weight: bold"><%= (article.published) ? '<span class="text-success">Oui</span>'.html_safe : '<span class="text-danger">Non</span>'.html_safe  %></td>
+                <td>
+                  <%= form_tag admin_articlepublish_url do %>
+                    <%= hidden_field_tag "id", article.id %>
+                    <% if article.published %>
+                      <%= submit_tag "Oui" %>
+                    <% else %>
+                      <%= submit_tag "Non" %>
+                    <% end %>
+                  <% end %>
+                </td>
                 <td style="line-height:64px;"><%= image_tag(article.thumb, size: "64x64", alt: "image article")%></td>
                 <td style="line-height:64px;"><%= image_tag(article.category.icon, size: "32x32", alt: "image category")%></td>
                 <td style="line-height:64px;"><%= article.title %></td>
