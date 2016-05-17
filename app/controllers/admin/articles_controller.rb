@@ -8,8 +8,13 @@ class Admin::ArticlesController < Admin::AdminController
       @articles = Article.all
     end
 
-    def create
+    def new
       @article = Article.new
+      @categories = Category.all
+    end
+
+    def create
+      @article = Article.new(article_params)
       @categories = Category.all
       if request.post?
         @article = Article.new article_params
@@ -42,7 +47,7 @@ class Admin::ArticlesController < Admin::AdminController
       if @article.update_attributes( article_params )
         flash[:notice] = "La mise à jour à été effectuée"
         flash[:class]= "success"
-        redirect_to admin_blogs_path
+        redirect_to admin_articles_path
       else
         flash[:notice] = "Erreur lors de la mise à jour"
         flash[:class]= "danger"
@@ -80,7 +85,7 @@ class Admin::ArticlesController < Admin::AdminController
                                                     :name => @article.title,
                                                     :description => @article.category.name,
                                                     :picture => "http://#{request.host}:#{request.port}/#{@article.thumb}",
-                                                    :link => blog_url( @article.friendly_id )
+                                                    :link => article_url( @article.friendly_id )
                                                     )
         flash[:notice] = "Article publié sur le mur de votre page Facebook"
         flash[:class]= "success"
