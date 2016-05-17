@@ -2,7 +2,7 @@
 <%= tinymce :language => "fr_FR" %>
 <div class="container">
   <div class="article_form">
-    <%= form_for :articles, :url => admin_blog_url, method: "put" do |f| %>
+    <%= form_for :articles, :url => admin_article_url, method: "put" do |f| %>
       <div class="form-group">
         <%= label_tag :category_id, 'Categorie' %>
         <%= f.select :category_id, options_from_collection_for_select( @categories, "id", "name", @articles.category.id ), class: "form-control" %>

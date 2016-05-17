@@ -6,13 +6,18 @@ Rails.application.routes.draw do
 
   get '/a-propos', to: 'pages#about', as: 'about'
   get '/callback', to: 'pages#callback', as: 'fbcallback'
-  resources :blogs, controller: 'articles' do
+  resources :articles do
     resources :comments, only: :create
   end
 
   resources :projects, controller: 'projects' do
-    resources :comments, only: :create
+      resources :comments, only: :create
   end
+
+  resources :interactions
+  resources :likes
+  post '/projects/new_support', to: 'projects#new_support'
+  post '/projects/new_participation', to: 'projects#new_participation'
 
   resources :surveys, controller: 'surveys'
   post '/reponse', to: 'surveys#reponse', as: 'surveyReponse'
@@ -37,10 +42,14 @@ Rails.application.routes.draw do
   #end
 
   namespace :admin do
+    get '/userexport', to: 'users#userexport'
+    get '/svexport', to: 'surveys#svexport'
+    get '/svfldexport', to: 'surveys#svfldexport'
+    get '/svrpexport', to: 'surveys#svrpexport'
     get '/', to: 'pages#dashboard', as: "dashboard"
     post '/redirecttoFacebook/:id', to: 'articles#redirecttofacebook', as: 'redirectToFacebook'
     get '/publishtoFacebook/:id', to: 'articles#publishtofacebook', as: 'PublishtoFacebook'
-    resources :blogs, controller: 'articles' do
+    resources :articles do
       resources :comments, only: :create
     end
 

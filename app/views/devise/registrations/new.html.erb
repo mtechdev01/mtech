@@ -39,7 +39,7 @@
   <div class="field">
     <div id="locationField">
       <%= label("",:Coordonnées) %><br />
-      <%= text_field_tag(:autocomplete) %>
+      <%= text_field_tag 'autocomplete', 'Coordonnées'%>
     </div>
 
     <%= f.hidden_field :city, id:"locality" %>
@@ -65,17 +65,4 @@
   </div>
 <% end %>
 
-<script>
-    function changeHiddenInput(select)
-        {
-            if (select.value == "Autre") {
-                document.getElementById("hiddenDiv").style.display = "block";
-                document.getElementById("hiddenInput").value = "";
-            }
-            else {
-                document.getElementById("hiddenDiv").style.display = "none";
-                document.getElementById("hiddenInput").value = select.value;
-            }
-        }
-</script>
 <%= render "devise/shared/links" %>
