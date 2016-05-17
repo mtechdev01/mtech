@@ -56,8 +56,9 @@
   <div class="field", style="display:none", id="hiddenDiv">
     <%= f.label :territory_attachment, "Précisez :" %><br />
     <%= f.text_field :territory_attachment, id:"hiddenInput" %>
- </div><br/>
+  </div><br/>
 
+  <%= raw recaptcha_tags %>
 
 
   <div class="actions">
