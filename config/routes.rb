@@ -7,13 +7,13 @@ Rails.application.routes.draw do
   get '/a-propos', to: 'pages#about', as: 'about'
   get '/callback', to: 'pages#callback', as: 'fbcallback'
   resources :articles do
-    resources :comments, only: :create
+    resources :comments
   end
 
-  resources :projects, controller: 'projects' do
-      resources :comments, only: :create
+  resources :projects do
+    resources :comments
   end
-
+    
   resources :interactions
   resources :likes
   post '/projects/new_support', to: 'projects#new_support'
@@ -78,11 +78,13 @@ Rails.application.routes.draw do
   namespace :users do
     get '/mon-compte', to: 'account#account', as: 'Account'
     get '/mon-compte/editer', to: 'account#edit', as: 'Edit'
-    post '/mon-compte/update', to: 'account#update', as: 'Update'
+    patch '/mon-compte/editer', to: 'account#update'
     get '/mon-compte/projets', to: 'account#projects', as: 'Projects'
     get '/mon-compte/commentaires', to: 'account#comments', as: 'Comments'
     get '/mon-compte/sondages', to: 'account#sondages', as: 'Surveys'
     get '/mon-compte/notifications', to: 'account#notifications', as: 'Notifs'
+      
+    resources :projects, controller: 'projects'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

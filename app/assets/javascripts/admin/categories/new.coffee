@@ -1,1 +1,0 @@
-$ -> $('.colorpicker').minicolors theme: 'bootstrap'

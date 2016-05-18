@@ -4,8 +4,10 @@
     <%= project.content %>
   </p>
   <ul>
-    <li>Créé le:  <%= project.published_at %></li>
+    <li>Créé le:  <%= project.created_at %></li>
     <li>Auteur:   <%= project.owner.username %></li>
     <li>Catégorie: <%= project.category.name %></li>
   </ul>
 <% end %>
+
+<%= link_to 'Créer un nouveau projet', new_project_path, class: "btn btn-info" %>

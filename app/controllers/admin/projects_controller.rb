@@ -14,7 +14,7 @@ class Admin::ProjectsController < Admin::AdminController
   def update
     @project = Project.friendly.find(params[:id])
     if @project.update_attributes(project_params)
-      flash[:notice] = "La mise à jour à été effectuée"
+      flash[:notice] = "La mise à jour a été effectuée"
       flash[:class]= "success"
       redirect_to admin_projects_url
     else
@@ -30,7 +30,7 @@ class Admin::ProjectsController < Admin::AdminController
     @project = Project.friendly.find(params[:id])
     if @project != nil
       @project.destroy
-      flash[:notice] ="Ce projet à été supprimé"
+      flash[:notice] ="Ce projet a été supprimé"
       flash[:class] = "success"
       redirect_to :back
     else
@@ -73,6 +73,7 @@ class Admin::ProjectsController < Admin::AdminController
         @project = Project.friendly.find(params[:id])
         if @project.published === true
           @project.published = false
+          @project.published_at = nil
           if @project.save
             flash[:notice] ="Ce projet n'est plus en ligne"
             flash[:class] = "success"
@@ -80,6 +81,7 @@ class Admin::ProjectsController < Admin::AdminController
           end
         elsif @project.published === false
           @project.published = true
+          @project.published_at = Time.now
           if @project.save
             flash[:notice] ="Ce projet a été publié"
             flash[:class] = "success"

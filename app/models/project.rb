@@ -18,7 +18,7 @@ class Project < ActiveRecord::Base
   validates_associated :owner
 
   def self.lastProjects user
-    where( author_id: user.id ).order( created_at: :desc)
+      where(owner: user ).order( created_at: :desc)
   end
 
   def self.lasts

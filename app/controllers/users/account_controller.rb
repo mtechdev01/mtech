@@ -6,15 +6,25 @@ class Users::AccountController < ApplicationController
   end
 
   def projects
-    @projects = Project.lastProjects(current_user)
+    @created_projects = Project.lastProjects(current_user)
+    @supported_projects = Array.new
+    @participated_projects = Array.new
+    Interaction.where(user: current_user).each do |interaction|
+        @project = interaction.project
+        if interaction.role == "support"
+          @supported_projects.push(@project)
+        else
+          @participated_projects.push(@project)
+        end
+    end
   end
 
   def comments
-    @comments = Comment.lastComments(current_user)
+     @comments = Comment.all.where(user: current_user).order(created_at: "desc")
   end
 
   def sondages
-    @responses = PollsFieldsResponse.responsed(current_user)
+    @responses = SurveysResponse.responsed(current_user)
   end
 
   def edit
@@ -30,7 +40,7 @@ class Users::AccountController < ApplicationController
     if @user.update_attributes(user_params)
       flash[:notice] = "La mise à jour à été effectuée"
       flash[:class]= "success"
-      redirect_to userAccount_url
+      redirect_to users_Account_url
     else
       flash[:notice] = "Erreur lors de la mise à jour"
       flash[:class]= "danger"
