@@ -1,6 +1,6 @@
 # encoding: utf-8
 class ProjectsController < ApplicationController
-  before_action :authenticate_user!, only: [:create]
+    before_action :authenticate_user!
 
 
   def index
@@ -17,6 +17,67 @@ class ProjectsController < ApplicationController
     @project = Project.friendly.find( params[:id] )
     if !@project
       setFlashAndRedirect( "L'url appelée n'existe pas",  "danger", root_path)
+    end
+  end
+    
+  def new
+    @project = Project.new
+    @categories = Category.all
+  end
+
+  def create
+    @project = Project.new
+    @categories = Category.all
+    if request.post?
+      @project = Project.new project_params
+      if @project.valid?
+        @project.owner = current_user
+        if @project.save
+          flash[:notice] ="Votre projet a été ajouté."
+          flash[:class] ="success"
+          redirect_to project_path(@project.id)
+        else
+          flash[:notice] = "Une erreur est survenue lors de l'ajout de votre projet"
+          flash[:class] = "danger"
+          redirect_to projects_path
+        end
+      else
+        flash[:notice] = "Formulaire invalide"
+        flash[:class]= "danger"
+        redirect_to new_project_path
+      end
+    end
+  end
+    
+  def edit
+    @project = Project.friendly.find(params[:id])
+    @categories = Category.all
+  end
+
+  def update
+    @project = Project.friendly.find(params[:id])
+    if @project.update_attributes(project_params)
+      flash[:notice] = "La mise à jour a été effectuée"
+      flash[:class]= "success"
+      redirect_to project_url(@project.id)
+    else
+      flash[:notice] = "Erreur lors de la mise à jour"
+      flash[:class]= "danger"
+      redirect_to :back
+    end
+  end
+
+  def destroy
+    @project = Project.friendly.find(params[:id])
+    if @project != nil
+      @project.destroy
+      flash[:notice] ="Ce projet a été supprimé"
+      flash[:class] = "success"
+      redirect_to :back
+    else
+      flash[:notice] ="Ce projet est inexistant"
+      flash[:class] = "danger"
+      redirect_to :back
     end
   end
     
@@ -78,6 +139,10 @@ class ProjectsController < ApplicationController
     else
       return false
     end
+  end
+    
+  def project_params
+    params.require(:project).permit(:name, :content, :category_id, :thumb, :location, :state)
   end
 
 end

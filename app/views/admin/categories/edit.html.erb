@@ -1,3 +1,8 @@
+<% content_for :script do %>
+  <%= javascript_include_tag 'categories', 'data-turbolinks-track' => true %>   
+<% end %>
+
+
 <div class="container">
   <div class="article_form">
     <%= form_for :category, url: admin_category_path(@category), method:'put' do |f| %>
@@ -27,3 +32,4 @@
     </div>
   </div>
 </div>
+

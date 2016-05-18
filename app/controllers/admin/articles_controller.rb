@@ -73,6 +73,7 @@ class Admin::ArticlesController < Admin::AdminController
           @article = Article.friendly.find(params[:id])
           if @article.published === true
             @article.published = false
+            @article.published_at = nil
             if @article.save
               flash[:notice] ="Cet article n'est plus en ligne"
               flash[:class] = "success"
@@ -80,6 +81,7 @@ class Admin::ArticlesController < Admin::AdminController
             end
           elsif @article.published === false
             @article.published = true
+            @article.published_at = Time.now
             if @article.save
               flash[:notice] ="Cet article a été publié"
               flash[:class] = "success"

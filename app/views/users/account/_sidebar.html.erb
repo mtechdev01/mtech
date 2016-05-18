@@ -1,0 +1,29 @@
+<div class="user-sidebar">
+  <div class="user-sidebar_infos">
+    <div class="user-sidebar_infos--avatar">
+      <%= image_tag(current_user.avatar, size: "250x250", alt: "Avatar", class:'img-responsive center-block img-circle user-avatar')%>
+    </div>
+    <div class="user-sidebar_infos--username">
+      <h1><%= current_user.username%></h1>
+    </div>
+    <div class="user-sidebar_infos--name">
+      <%= current_user.first_name%> <%= current_user.last_name %>
+    </div>
+    <div class="user-sidebar_infos--email">
+      <%= current_user.email %>
+    </div>
+  </div>
+  <div class="user-sidebar_links">
+    <%= link_to "Mes informations".html_safe, users_Account_url , class: "btn btn-block btn-default" %>
+    <%= link_to "Mes projets".html_safe, users_Projects_url, class: "btn btn-block btn-default" %>
+      <%= link_to "Mes sondages".html_safe, users_Surveys_url, class: "btn btn-block btn-default" %>
+    <%= link_to "Mes commentaires".html_safe, users_Comments_url, class: "btn btn-block btn-default" %>
+    <%= link_to "Mes notifications".html_safe, users_Notifs_url, class: "btn btn-block btn-default" %>
+      <%= link_to "<i class='fa fa-pencil'></i> Editer mes informations".html_safe, edit_user_registration_url, class: "btn btn-block btn-primary" %>
+    <% if current_user.is_admin %>
+      <%= link_to "<i class='fa fa-tachometer'></i> Administration".html_safe, admin_adminDashboard_url, class: "btn btn-block btn-warning" %>
+    <% else %>
+      <%= link_to "<i class='fa fa-trash-o'></i> Supprimer mon compte".html_safe, registration_path(current_user), :data => { :confirm => t('.are_you_sure', :default => "Etes-vous certain de vouloir supprimer votre compte?") }, :method => 'delete', class: "btn btn-block btn-danger" %>
+    <% end %>
+  </div>
+</div>
