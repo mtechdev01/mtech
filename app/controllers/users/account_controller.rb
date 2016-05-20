@@ -23,16 +23,16 @@ class Users::AccountController < ApplicationController
      @comments = Comment.all.where(user: current_user).order(created_at: "desc")
   end
 
+  def likes
+    @likes = Like.all.where(user: current_user).order(created_at: "desc")
+  end
+
   def sondages
     @responses = SurveysResponse.responsed(current_user)
   end
 
   def edit
     @user = current_user
-  end
-
-  def notifications
-    @notifications = Notification.where(receiver: current_user)
   end
 
   def update

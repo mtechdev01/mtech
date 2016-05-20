@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
 
   validates_presence_of :city, :cp, :username, :email, :country, :territory_attachment, :first_name, :last_name, :message => "Ce champ est obligatoire"
   validates_uniqueness_of :email, :username, :message => "Déjà utilisé"
+  validates :username, :first_name, :last_name, length: { maximum: 30, too_long: "Ce champ ne doit pas dépasser les %{count} caractères" }
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div id="user-block_title">
+      <h1>Mes likes</h1>
+    </div>
+    <div class="block" id="user-block_content">
+      <div class="block-content">
+        <table class="table table-hovered">
+          <thead>
+            <tr>
+              <th>
+                Sujet
+              </th>
+              <th>
+                Date
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @likes.each do |like|  %>
+              <tr>
+                <td>
+                    <% if like.likeable_type == "Article" %>
+                      <%= link_to like.likeable.title, polymorphic_url(like.likeable_type.tableize.singularize, :id => like.likeable_id) %>
+                    <% end %>
+                </td>
+                <td>
+                  <%= time_tag(like.created_at) %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

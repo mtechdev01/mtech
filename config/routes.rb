@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :projects do
     resources :comments
   end
-    
+
   resources :interactions
   resources :likes
   post '/projects/new_support', to: 'projects#new_support'
@@ -83,7 +83,8 @@ Rails.application.routes.draw do
     get '/mon-compte/commentaires', to: 'account#comments', as: 'Comments'
     get '/mon-compte/sondages', to: 'account#sondages', as: 'Surveys'
     get '/mon-compte/notifications', to: 'account#notifications', as: 'Notifs'
-      
+    get '/mon-compte/likes', to: 'account#likes', as: 'Likes'
+
     resources :projects, controller: 'projects'
   end
 
