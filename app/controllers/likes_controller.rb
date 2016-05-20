@@ -16,7 +16,7 @@ class LikesController < ApplicationController
       redirect_to :back
     end
   end
-    
+
   def liked?
     @like = Like.where(user: current_user).where(like_params).last
     if @like
