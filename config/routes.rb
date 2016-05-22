@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'notifications/notify'
+
+  get 'notifications/read'
+
+  get 'notifications/destroy'
+
   root to: "pages#home"
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", registrations: 'registrations' }
