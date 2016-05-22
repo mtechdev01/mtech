@@ -16,10 +16,11 @@
   <div class="user-sidebar_links">
     <%= link_to "Mes informations".html_safe, users_Account_url , class: "btn btn-block btn-default" %>
     <%= link_to "Mes projets".html_safe, users_Projects_url, class: "btn btn-block btn-default" %>
-      <%= link_to "Mes sondages".html_safe, users_Surveys_url, class: "btn btn-block btn-default" %>
+    <%= link_to "Mes sondages".html_safe, users_Surveys_url, class: "btn btn-block btn-default" %>
     <%= link_to "Mes commentaires".html_safe, users_Comments_url, class: "btn btn-block btn-default" %>
     <%= link_to "Mes likes".html_safe, users_Likes_url, class: "btn btn-block btn-default" %>
     <%= link_to "Mes notifications".html_safe, users_Notifs_url, class: "btn btn-block btn-default" %>
+    <%= link_to "Mes conversations".html_safe, users_Notifs_url, class: "btn btn-block btn-default" %>
       <%= link_to "<i class='fa fa-pencil'></i> Editer mes informations".html_safe, edit_user_registration_url, class: "btn btn-block btn-primary" %>
     <% if current_user.is_admin %>
       <%= link_to "<i class='fa fa-tachometer'></i> Administration".html_safe, admin_adminDashboard_url, class: "btn btn-block btn-warning" %>

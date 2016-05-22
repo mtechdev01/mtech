@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments
   end
+  
+  get '/message', to: 'pages#message', as: 'message'
+  resources :conversations do
+    resources :messages
+  end
 
   resources :projects do
     resources :comments
