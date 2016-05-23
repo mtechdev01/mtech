@@ -5,6 +5,21 @@ class CommentsController  < ApplicationController
     @comment = Comment.new comment_params
     @comment.user = current_user
     if @comment.save
+      @receivers = []
+      User.where(is_admin: true).each do |admin|
+        if admin != @comment.user
+          @receivers.push(admin)
+        end
+      end
+      @comment.commentable.comments.each do |comment|
+        if !@receivers.include?(comment.user) && comment.user != @comment.user
+          @receivers.push(comment.user)
+        end
+      end
+      if @comment.commentable_type == "Project" && @comment.commentable.owner != @comment.user && !@receivers.include?(comment.user)
+         @receivers.push(@comment.commentable.owner)
+      end
+      Notification.notify("Nouveau Commentaire", @comment.commentable_id, @comment.commentable_type, @receivers)
       flash[:notice]  = "Commentaire enregistré"
       flash[:class]   = "success"
       redirect_to :back
@@ -14,7 +29,7 @@ class CommentsController  < ApplicationController
       redirect_to :back
     end
   end
-    
+
   def edit
     @comment = Comment.find(params[:id])
   end
@@ -30,9 +45,9 @@ class CommentsController  < ApplicationController
       flash[:class]= "danger"
       redirect_to :back
     end
-  end    
-    
-    
+  end
+
+
 
   def destroy
     @comment = Comment.find(params[:id])
@@ -47,10 +62,10 @@ class CommentsController  < ApplicationController
       redirect_to :back
     end
   end
-    
-    
-    
-    
+
+
+
+
   private
 
   def comment_params

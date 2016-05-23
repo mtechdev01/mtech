@@ -19,7 +19,7 @@ class ProjectsController < ApplicationController
       setFlashAndRedirect( "L'url appelée n'existe pas",  "danger", root_path)
     end
   end
-    
+
   def new
     @project = Project.new
     @categories = Category.all
@@ -33,6 +33,7 @@ class ProjectsController < ApplicationController
       if @project.valid?
         @project.owner = current_user
         if @project.save
+          Notification.notify("Nouveau Projet", @project.id, "Project", User.where(is_admin: true))
           flash[:notice] ="Votre projet a été ajouté."
           flash[:class] ="success"
           redirect_to project_path(@project.id)
@@ -48,7 +49,7 @@ class ProjectsController < ApplicationController
       end
     end
   end
-    
+
   def edit
     @project = Project.friendly.find(params[:id])
     @categories = Category.all
@@ -57,6 +58,7 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.friendly.find(params[:id])
     if @project.update_attributes(project_params)
+      Notification.notify("Edition de Projet", @project.id, "Project", User.where(is_admin: true))
       flash[:notice] = "La mise à jour a été effectuée"
       flash[:class]= "success"
       redirect_to project_url(@project.id)
@@ -70,6 +72,16 @@ class ProjectsController < ApplicationController
   def destroy
     @project = Project.friendly.find(params[:id])
     if @project != nil
+      @receivers = []
+        User.where(is_admin: true).each do |admin|
+            @receivers.push(admin)
+        end
+        @project.interactions.each do |interaction|
+          if !@receivers.include?(interaction.user)
+            @receivers.push(interaction.user)
+          end
+        end
+      Notification.notify("Suppression de Projet", @project.id, @project.name, @receivers)
       @project.destroy
       flash[:notice] ="Ce projet a été supprimé"
       flash[:class] = "success"
@@ -80,7 +92,7 @@ class ProjectsController < ApplicationController
       redirect_to :back
     end
   end
-    
+
   def new_support
     if !supported?
       @interaction = Interaction.new
@@ -88,6 +100,9 @@ class ProjectsController < ApplicationController
       @interaction.user = current_user
       @interaction.project = Project.find(params[:id])
       @interaction.save
+      if @interaction.user != @interaction.project.onwer
+        Notification.notify("Nouveau Soutien", @interaction.project.id, "Project", [@interaction.project.owner])
+      end
       flash[:notice]  = "Merci pour votre soutien!"
       flash[:class]   = "success"
       redirect_to :back
@@ -100,7 +115,7 @@ class ProjectsController < ApplicationController
       redirect_to :back
     end
   end
-    
+
   def supported?
     @project = Project.find(params[:id])
     @interaction = Interaction.where(user: current_user, project: @project, role: "support").last
@@ -110,7 +125,7 @@ class ProjectsController < ApplicationController
       return false
     end
   end
-    
+
   def new_participation
     if !participated?
       @interaction = Interaction.new
@@ -118,6 +133,10 @@ class ProjectsController < ApplicationController
       @interaction.user = current_user
       @interaction.project = Project.find(params[:id])
       @interaction.save
+      if @interaction.user != @interaction.project.onwer
+        Notification.notify("Nouveau Participant", @interaction.project.id, "Project", [@interaction.project.owner])
+      end
+
       flash[:notice]  = "Merci pour votre participation!"
       flash[:class]   = "success"
       redirect_to :back
@@ -130,7 +149,7 @@ class ProjectsController < ApplicationController
       redirect_to :back
     end
   end
-    
+
   def participated?
     @project = Project.find(params[:id])
     @interaction = Interaction.where(user: current_user, project: @project, role: "participation").last
@@ -140,7 +159,7 @@ class ProjectsController < ApplicationController
       return false
     end
   end
-    
+
   def project_params
     params.require(:project).permit(:name, :content, :category_id, :thumb, :location, :state)
   end
