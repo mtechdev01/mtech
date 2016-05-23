@@ -55,12 +55,12 @@ class Admin::CategoriesController < Admin::AdminController
   def destroy
     @category = Category.friendly.find(params[:id])
     if Project.where(category: @category).last || Article.where(category: @category).last
-      flash[:notice] = "Suppression impossible: catgéorie utilisée"
+      flash[:notice] = "Suppression impossible: catégorie utilisée"
       flash[:class] = "danger"
       redirect_to :back
     else
       @category.destroy
-      flash[:notice] = "Suppression de la catégorie enregistré"
+      flash[:notice] = "Suppression de la catégorie enregistrée"
       flash[:class] = "success"
       redirect_to :back
     end

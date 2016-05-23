@@ -16,10 +16,18 @@ class CommentsController  < ApplicationController
           @receivers.push(comment.user)
         end
       end
-      if @comment.commentable_type == "Project" && @comment.commentable.owner != @comment.user && !@receivers.include?(comment.user)
+      # NotificationController.notify(@comment, "msg")
+      if @comment.commentable.owner != @comment.user && !@receivers.include?(@comment.commentable.owner)
          @receivers.push(@comment.commentable.owner)
       end
-      Notification.notify("Nouveau Commentaire", @comment.commentable_id, @comment.commentable_type, @receivers)
+      if @comment.commentable_type == "Project"
+       @comment.commentable.interactions.each do |interaction|
+         if !@receivers.include?(interaction.user)
+           @receivers.push(interaction.user)
+         end
+       end
+      end
+      Notification.notify("Nouveau Commentaire", @comment.commentable_id, @comment.commentable_type, @receivers, current_user.id)
       flash[:notice]  = "Commentaire enregistré"
       flash[:class]   = "success"
       redirect_to :back

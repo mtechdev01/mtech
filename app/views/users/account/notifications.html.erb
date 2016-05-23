@@ -23,7 +23,7 @@
             <% @notifications.each do | notif |  %>
               <tr>
                 <td>
-                  <%= notif.type_de_notif %>
+                  <%= notif.message %>
                 </td>
                 <td>
                   <%= time_ago_in_words notif.created_at %>
