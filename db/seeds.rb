@@ -200,9 +200,9 @@ cat10.save!
 
 puts "CREATION DES ARTICLES"
 article1 = Article.new(
-  author: admin,
+  owner: admin,
   category: cat1,
-  title: "Article numero 1",
+  name: "Article numero 1",
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   published: true,
   published_at: "2016-06-11 11:40:07.431666",
@@ -211,9 +211,9 @@ article1 = Article.new(
 article1.save!
 
 article2 = Article.new(
-  author: admin,
+  owner: admin,
   category: cat1,
-  title: "Article numero 2",
+  name: "Article numero 2",
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   published: true,
   published_at: "2016-06-11 11:40:07.431666",
@@ -222,9 +222,9 @@ article2 = Article.new(
 article2.save!
 
 article3 = Article.new(
-  author: admin,
+  owner: admin,
   category: cat1,
-  title: "Article numero 3",
+  name: "Article numero 3",
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   published: true,
   published_at: "2016-06-11 11:40:07.431666",
@@ -233,9 +233,9 @@ article3 = Article.new(
 article3.save!
 
 article4 = Article.new(
-  author: admin,
+  owner: admin,
   category: cat2,
-  title: "Article numero 4",
+  name: "Article numero 4",
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   published: false,
   thumb: "http://www.azurelite.net/photo/gal/pic/gal-2412236.jpg"
@@ -243,9 +243,9 @@ article4 = Article.new(
 article4.save!
 
 article5 = Article.new(
-  author: admin,
+  owner: admin,
   category: cat3,
-  title: "Article numero 5",
+  name: "Article numero 5",
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   published: false,
   thumb: "http://www.azurelite.net/photo/gal/pic/gal-2412236.jpg"
@@ -253,9 +253,9 @@ article5 = Article.new(
 article5.save!
 
 article6 = Article.new(
-  author: admin,
+  owner: admin,
   category: cat4,
-  title: "Article numero 6",
+  name: "Article numero 6",
   content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   published: false,
   thumb: "http://www.azurelite.net/photo/gal/pic/gal-2412236.jpg"
