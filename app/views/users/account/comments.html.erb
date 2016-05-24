@@ -26,11 +26,7 @@
             <% @comments.each do | comment |  %>
               <tr>
                 <td>
-                    <% if comment.commentable_type == "Article" %>
-                      <%= link_to comment.commentable.title, polymorphic_url(comment.commentable_type.tableize.singularize, :id => comment.commentable_id) %>
-                    <% else %>
-                      <%= link_to comment.commentable.name, polymorphic_url(comment.commentable_type.tableize.singularize, :id => comment.commentable_id) %>
-                    <% end %>
+                  <%= link_to comment.commentable.name, polymorphic_url(comment.commentable_type.tableize.singularize, :id => comment.commentable_id) %>
                 </td>
                 <td>
                   <%= time_tag(comment.created_at) %>

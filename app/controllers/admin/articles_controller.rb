@@ -19,7 +19,7 @@ class Admin::ArticlesController < Admin::AdminController
       if request.post?
         @article = Article.new article_params
         if @article.valid?
-          @article.author = current_user
+          @article.owner = current_user
           if @article.save
             flash[:notice] ="Votre article a été ajouté."
             flash[:class] ="success"
@@ -103,7 +103,7 @@ class Admin::ArticlesController < Admin::AdminController
         @page_graph = Koala::Facebook::API.new(@page_token)
         @article = Article.friendly.find(params[:id])
         @page_graph.put_connections( @page_id, 'feed',  :message => @article.messageSanitized,
-                                                    :name => @article.title,
+                                                    :name => @article.name,
                                                     :description => @article.category.name,
                                                     :picture => "http://#{request.host}:#{request.port}/#{@article.thumb}",
                                                     :link => article_url( @article.friendly_id )
@@ -116,7 +116,7 @@ class Admin::ArticlesController < Admin::AdminController
     private
 
     def article_params
-      params.require(:articles).permit(:title, :content, :author_id, :category_id, :thumb, :remove_thumb, :published)
+      params.require(:articles).permit(:name, :content, :owner_id, :category_id, :thumb, :remove_thumb, :published)
     end
 
 end

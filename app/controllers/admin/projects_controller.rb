@@ -14,6 +14,16 @@ class Admin::ProjectsController < Admin::AdminController
   def update
     @project = Project.friendly.find(params[:id])
     if @project.update_attributes(project_params)
+      @receivers = []
+      if @project.owner != current_user
+        @receivers.push(@project.owner)
+      end
+      @project.interactions.each do |interaction|
+        if !@receivers.include?(interaction.user)
+          @receivers.push(interaction.user)
+        end
+      end
+      Notification.notify("Edition de Projet", @project.id, "Project", @receivers, current_user.id)
       flash[:notice] = "La mise à jour a été effectuée"
       flash[:class]= "success"
       redirect_to admin_projects_url
@@ -29,6 +39,16 @@ class Admin::ProjectsController < Admin::AdminController
   def destroy
     @project = Project.friendly.find(params[:id])
     if @project != nil
+      @receivers = []
+      if @project.owner != current_user
+        @receivers.push(@project.owner)
+      end
+      @project.interactions.each do |interaction|
+        if !@receivers.include?(interaction.user)
+          @receivers.push(interaction.user)
+        end
+      end
+      Notification.notify("Suppression de Projet", @project.id, @project.name, @receivers, current_user.id)
       @project.destroy
       flash[:notice] ="Ce projet a été supprimé"
       flash[:class] = "success"
@@ -83,6 +103,11 @@ class Admin::ProjectsController < Admin::AdminController
           @project.published = true
           @project.published_at = Time.now
           if @project.save
+            @receivers = []
+            if @project.owner != current_user
+              @receivers.push(@project.owner)
+            end
+            Notification.notify("Publication de Projet", @project.id, "Project", @receivers, current_user.id)
             flash[:notice] ="Ce projet a été publié"
             flash[:class] = "success"
             redirect_to :back
@@ -101,7 +126,12 @@ class Admin::ProjectsController < Admin::AdminController
         end
       elsif @project.labelized === false
         @project.labelized = true
-          if @project.save
+        if @project.save
+          @receivers = []
+          if @project.owner != current_user
+            @receivers.push(@project.owner)
+          end
+          Notification.notify("Labélisation de Projet", @project.id, "Project", @receivers, current_user.id)
           flash[:notice] ="Ce projet a été labélisé"
           flash[:class] = "success"
           redirect_to :back

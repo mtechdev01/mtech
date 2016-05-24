@@ -21,7 +21,7 @@
               <tr>
                 <td>
                     <% if like.likeable_type == "Article" %>
-                      <%= link_to like.likeable.title, polymorphic_url(like.likeable_type.tableize.singularize, :id => like.likeable_id) %>
+                      <%= link_to like.likeable.name, polymorphic_url(like.likeable_type.tableize.singularize, :id => like.likeable_id) %>
                     <% end %>
                 </td>
                 <td>

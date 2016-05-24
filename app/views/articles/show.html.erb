@@ -1,11 +1,11 @@
 <article class="article-one">
-  <h1><%= link_to @article.title, article_path( @article.friendly_id ) %></h1>
+  <h1><%= link_to @article.name, article_path( @article.friendly_id ) %></h1>
   <p>
     <%= @article.content %>
   </p>
   <ul>
     <li>Créé le:  <%= @article.published_at %></li>
-    <li>Auteur:   <%= @article.author.username %></li>
+    <li>Auteur:   <%= @article.owner.username %></li>
     <li>Catégorie: <%= @article.category.name %></li>
   </ul>
 </article>

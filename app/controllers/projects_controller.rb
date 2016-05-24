@@ -33,7 +33,7 @@ class ProjectsController < ApplicationController
       if @project.valid?
         @project.owner = current_user
         if @project.save
-          Notification.notify("Nouveau Projet", @project.id, "Project", User.where(is_admin: true))
+          Notification.notify("Nouveau Projet", @project.id, "Project", User.where(is_admin: true), current_user.id)
           flash[:notice] ="Votre projet a été ajouté."
           flash[:class] ="success"
           redirect_to project_path(@project.id)
@@ -58,7 +58,7 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.friendly.find(params[:id])
     if @project.update_attributes(project_params)
-      Notification.notify("Edition de Projet", @project.id, "Project", User.where(is_admin: true))
+      Notification.notify("Edition de Projet", @project.id, "Project", User.where(is_admin: true), current_user.id)
       flash[:notice] = "La mise à jour a été effectuée"
       flash[:class]= "success"
       redirect_to project_url(@project.id)
@@ -81,7 +81,7 @@ class ProjectsController < ApplicationController
             @receivers.push(interaction.user)
           end
         end
-      Notification.notify("Suppression de Projet", @project.id, @project.name, @receivers)
+      Notification.notify("Suppression de Projet", @project.id, @project.name, @receivers, current_user.id)
       @project.destroy
       flash[:notice] ="Ce projet a été supprimé"
       flash[:class] = "success"
@@ -100,8 +100,8 @@ class ProjectsController < ApplicationController
       @interaction.user = current_user
       @interaction.project = Project.find(params[:id])
       @interaction.save
-      if @interaction.user != @interaction.project.onwer
-        Notification.notify("Nouveau Soutien", @interaction.project.id, "Project", [@interaction.project.owner])
+      if @interaction.user != @interaction.project.owner
+        Notification.notify("Nouveau Soutien", @interaction.project.id, "Project", [@interaction.project.owner], current_user.id)
       end
       flash[:notice]  = "Merci pour votre soutien!"
       flash[:class]   = "success"
@@ -134,7 +134,7 @@ class ProjectsController < ApplicationController
       @interaction.project = Project.find(params[:id])
       @interaction.save
       if @interaction.user != @interaction.project.onwer
-        Notification.notify("Nouveau Participant", @interaction.project.id, "Project", [@interaction.project.owner])
+        Notification.notify("Nouveau Participant", @interaction.project.id, "Project", [@interaction.project.owner], current_user.id)
       end
 
       flash[:notice]  = "Merci pour votre participation!"

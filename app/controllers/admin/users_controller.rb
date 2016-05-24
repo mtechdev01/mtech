@@ -72,6 +72,7 @@ class Admin::UsersController < Admin::AdminController
       elsif @user.can_comment === false
         @user.can_comment = true
           if @user.save
+          Notification.notify("Autorisation de commenter", @user.id, "User", @user, current_user.id)
           flash[:notice] ="Cet utilisateur peut commenter"
           flash[:class] = "success"
           redirect_to :back

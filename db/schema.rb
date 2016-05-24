@@ -11,23 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160520092258) do
+ActiveRecord::Schema.define(version: 20160523122514) do
 
   create_table "articles", force: :cascade do |t|
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
-    t.string   "title",                        null: false
+    t.string   "name",                         null: false
     t.string   "slug",                         null: false
     t.string   "thumb"
     t.text     "content",                      null: false
     t.datetime "published_at"
     t.integer  "category_id",                  null: false
-    t.integer  "author_id",                    null: false
+    t.integer  "owner_id",                     null: false
     t.boolean  "published",    default: false
   end
 
-  add_index "articles", ["author_id"], name: "index_articles_on_author_id"
   add_index "articles", ["category_id"], name: "index_articles_on_category_id"
+  add_index "articles", ["owner_id"], name: "index_articles_on_owner_id"
 
   create_table "categories", force: :cascade do |t|
     t.string "name",  null: false
@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(version: 20160520092258) do
     t.string   "notifiable_type"
     t.datetime "created_at"
     t.boolean  "read"
+    t.integer  "sender_id"
   end
 
 
