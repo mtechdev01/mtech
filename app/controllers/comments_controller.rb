@@ -45,7 +45,7 @@ class CommentsController  < ApplicationController
   def update
     @comment = Comment.find(params[:id])
     if @comment.update_attributes(comment_params)
-        flash[:notice] = "Le commentaire a été mis à jour"
+      flash[:notice] = "Le commentaire a été mis à jour"
       flash[:class]= "success"
       redirect_to :back
     else
@@ -65,7 +65,7 @@ class CommentsController  < ApplicationController
       flash[:class] = "success"
       redirect_to :back
     else
-        flash[:notice] ="Ce commentaire est inexistant"
+      flash[:notice] ="Ce commentaire est inexistant"
       flash[:class] = "danger"
       redirect_to :back
     end
