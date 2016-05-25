@@ -1,0 +1,32 @@
+<h1>Notifications</h1>
+
+
+            <p>Vous avez <%= @notifications.count %> notification(s)</p>
+              <% if @notifications.count > 0 %>
+                <p><a href="../../admin/mark-as-read" class="btn btn-info">Tout marquer comme lu</a></p>
+              <% end %>
+              <ul>
+                <% @notifications.limit(5).each do | notif | %>
+                <li>
+                    <% if notif.message == "Suppression de Projet" %>
+                      <a>
+                        <i class="fa fa-users text-aqua"></i>
+                        <%= notif.message %> : <%= notif.notifiable_type %>
+                        </br> par <%= User.find(notif.sender_id).username %>
+                      </a>
+                    <% elsif notif.message == "Nouveau Projet" %>
+                      <a href= <%= "/#{notif.notifiable_type.downcase}s/#{notif.notifiable_id}" %> >
+                        <i class="fa fa-users text-aqua"></i>
+                        <%= notif.message %> : <%= notif.notifiable.name %>
+                        </br> par <%= User.find(notif.sender_id).username %>
+                      </a>  
+                    <% else %>
+                      <a href= <%= "/#{notif.notifiable_type.downcase}s/#{notif.notifiable_id}" %> >
+                        <i class="fa fa-users text-aqua"></i>
+                        <%= notif.message %> sur <%= notif.notifiable.name %>
+                        </br> par <%= User.find(notif.sender_id).username %>
+                      </a>  
+                    <% end %>
+                </li>
+                <% end %>
+              </ul>

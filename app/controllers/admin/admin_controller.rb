@@ -6,7 +6,7 @@ class Admin::AdminController < ApplicationController
   before_filter :isAdmin
 
   layout "admin"
-
+    
   protected
 
   def isAdmin

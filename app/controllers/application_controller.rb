@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   layout :layout_by_resource
   before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_filter :getnotifs 
 
   protected
 
@@ -16,6 +17,13 @@ class ApplicationController < ActionController::Base
       "application"
     end
   end
+    
+  def getnotifs
+      if user_signed_in?
+        @notifications = current_user.notifications.where(read: false).order(created_at: "desc")
+      end
+  end
+    
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :country, :cp, :last_name, :first_name, :city, :territory_attachment, :email, :password, :password_confirmation, :remember_me) }

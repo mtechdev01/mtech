@@ -72,16 +72,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project = Project.friendly.find(params[:id])
     if @project != nil
-      @receivers = []
-        User.where(is_admin: true).each do |admin|
-            @receivers.push(admin)
-        end
-        @project.interactions.each do |interaction|
-          if !@receivers.include?(interaction.user)
-            @receivers.push(interaction.user)
-          end
-        end
-      Notification.notify("Suppression de Projet", @project.id, @project.name, @receivers, current_user.id)
+      Notification.notify("Suppression de Projet", @project.id, @project.name, notification_receivers, current_user.id)
       @project.destroy
       flash[:notice] ="Ce projet a été supprimé"
       flash[:class] = "success"
@@ -101,7 +92,7 @@ class ProjectsController < ApplicationController
       @interaction.project = Project.find(params[:id])
       @interaction.save
       if @interaction.user != @interaction.project.owner
-        Notification.notify("Nouveau Soutien", @interaction.project.id, "Project", [@interaction.project.owner], current_user.id)
+        Notification.notify("Nouveau Soutien", @interaction.project.id, "Project", @interaction.project.owner, current_user.id)
       end
       flash[:notice]  = "Merci pour votre soutien!"
       flash[:class]   = "success"
@@ -134,7 +125,7 @@ class ProjectsController < ApplicationController
       @interaction.project = Project.find(params[:id])
       @interaction.save
       if @interaction.user != @interaction.project.onwer
-        Notification.notify("Nouveau Participant", @interaction.project.id, "Project", [@interaction.project.owner], current_user.id)
+        Notification.notify("Nouveau Participant", @interaction.project.id, "Project", @interaction.project.owner, current_user.id)
       end
 
       flash[:notice]  = "Merci pour votre participation!"
@@ -160,8 +151,23 @@ class ProjectsController < ApplicationController
     end
   end
 
+  private    
+    
   def project_params
     params.require(:project).permit(:name, :content, :category_id, :thumb, :location, :state)
+  end
+     
+  def notification_receivers
+    @receivers = []
+    User.where(is_admin: true).each do |admin|
+      @receivers.push(admin) #ADMINS
+    end
+    @project.interactions.each do |interaction|
+      if !@receivers.include?(interaction.user)
+        @receivers.push(interaction.user) #INTERAGISSANTS
+      end
+    end
+    return @receivers
   end
 
 end
