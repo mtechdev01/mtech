@@ -5,13 +5,7 @@ class LikesController < ApplicationController
       @like = Like.new like_params
       @like.user = current_user
       @like.save
-      @receivers = []
-      User.where(is_admin: true).each do |admin|
-        if admin != @like.user
-          @receivers.push(admin)
-        end
-      end
-      Notification.notify("Nouveau Like", @like.likeable_id, @like.likeable_type, @receivers, current_user.id)
+      Notification.notify("Nouveau Like", @like.likeable_id, @like.likeable_type, notification_receivers, current_user.id)
       flash[:notice]  = "Vous aimez."
       flash[:class]   = "success"
       redirect_to :back
@@ -38,6 +32,16 @@ class LikesController < ApplicationController
   def like_params
     params.require(:like)
       .permit( :likeable_id, :likeable_type )
+  end
+
+  def notification_receivers
+    @receivers = []
+    User.where(is_admin: true).each do |admin|
+      if admin != @like.user
+        @receivers.push(admin)
+      end
+    end
+    return @receivers
   end
 
 end

@@ -2,7 +2,7 @@
 <section class="content-header">
   <% if @notifications.count > 0 %>
     <p>Vous avez <%= @notifications.count %> notification(s)</p>
-    <p><%= link_to "Tout marquer comme lu".html_safe, users_Readed_url, class: "btn btn-info" %></p>
+    <p><a href="../../admin/mark-as-read" class="btn btn-info">Tout marquer comme lu</a></p>
   <% else %>
     <p>Vous n'avez aucune notification</p>
   <% end %>

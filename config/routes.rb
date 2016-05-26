@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'notifications/notify'
-
-  get 'notifications/read'
-
-  get 'notifications/destroy'
 
   root to: "pages#home"
 
@@ -15,7 +10,7 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments
   end
-  
+
   get '/message', to: 'pages#message', as: 'message'
   resources :conversations do
     resources :messages
@@ -62,6 +57,8 @@ Rails.application.routes.draw do
     get '/publishtoFacebook/:id', to: 'articles#publishtofacebook', as: 'PublishtoFacebook'
     post '/articles/publish', to: 'articles#publish', as:'articlepublish'
     get '/documentation', to: 'pages#documentation', as: 'documentation'
+    get '/notifications', to: 'pages#notifications'
+    get '/mark-as-read', to: 'pages#mark_as_read'
     resources :articles do
       resources :comments, only: :create
     end
@@ -94,6 +91,7 @@ Rails.application.routes.draw do
     get '/mon-compte/commentaires', to: 'account#comments', as: 'Comments'
     get '/mon-compte/sondages', to: 'account#sondages', as: 'Surveys'
     get '/mon-compte/notifications', to: 'account#notifications', as: 'Notifs'
+    get '/mon-compte/mark-as-read', to: 'account#mark_as_read', as: 'Readed'
     get '/mon-compte/likes', to: 'account#likes', as: 'Likes'
 
     resources :projects, controller: 'projects'
