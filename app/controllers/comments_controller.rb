@@ -67,16 +67,16 @@ class CommentsController  < ApplicationController
       end
     end
     @comment.commentable.comments.each do |comment|
-      if !@receivers.include?(comment.user) && comment.user != @comment.user
+      if (!@receivers.include?(comment.user)) && (comment.user != @comment.user)
         @receivers.push(comment.user) #PERSONNES AYANT DEJA COMMENTé
       end
     end
-    if @comment.commentable.owner != @comment.user && !@receivers.include?(@comment.commentable.owner)
+    if (@comment.commentable.owner != @comment.user) && (!@receivers.include?(@comment.commentable.owner))
       @receivers.push(@comment.commentable.owner) #PROPRIETAIRE (article ou projet)
     end
     if @comment.commentable_type == "Project"
       @comment.commentable.interactions.each do |interaction|
-        if !@receivers.include?(interaction.user)
+        if !@receivers.include?(interaction.user) && (interaction.user != @comment.user)
           @receivers.push(interaction.user) #INTERAGISSANTS
         end
       end   
