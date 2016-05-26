@@ -92,7 +92,7 @@ class ProjectsController < ApplicationController
       @interaction.project = Project.find(params[:id])
       @interaction.save
       if @interaction.user != @interaction.project.owner
-        Notification.notify("Nouveau Soutien", @interaction.project.id, "Project", @interaction.project.owner, current_user.id)
+        Notification.notify("Nouveau Soutien", @interaction.project.id, "Project", [@interaction.project.owner], current_user.id)
       end
       flash[:notice]  = "Merci pour votre soutien!"
       flash[:class]   = "success"
@@ -124,8 +124,8 @@ class ProjectsController < ApplicationController
       @interaction.user = current_user
       @interaction.project = Project.find(params[:id])
       @interaction.save
-      if @interaction.user != @interaction.project.onwer
-        Notification.notify("Nouveau Participant", @interaction.project.id, "Project", @interaction.project.owner, current_user.id)
+      if @interaction.user != @interaction.project.owner
+        Notification.notify("Nouveau Participant", @interaction.project.id, "Project", [@interaction.project.owner], current_user.id)
       end
 
       flash[:notice]  = "Merci pour votre participation!"
