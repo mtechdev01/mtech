@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'notifications/notify'
-
-  get 'notifications/read'
-
-  get 'notifications/destroy'
-
   root to: "pages#home"
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", registrations: 'registrations' }
@@ -62,6 +56,8 @@ Rails.application.routes.draw do
     get '/publishtoFacebook/:id', to: 'articles#publishtofacebook', as: 'PublishtoFacebook'
     post '/articles/publish', to: 'articles#publish', as:'articlepublish'
     get '/documentation', to: 'pages#documentation', as: 'documentation'
+    get '/notifications', to: 'pages#notifications'
+    get '/mark-as-read', to: 'pages#mark_as_read'
     resources :articles do
       resources :comments, only: :create
     end
