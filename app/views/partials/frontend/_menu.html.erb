@@ -83,6 +83,7 @@
             <ul class="dropdown-menu multi-level">
               <% if current_user.is_admin %>
                 <li><%= link_to "<i class='fa fa-dashboard' aria-hidden='true'></i> Administration".html_safe, admin_dashboard_url %></li>
+                <li><%= link_to "<i class='fa fa-user' aria-hidden='true'></i> Mon espace perso".html_safe, users_Account_url %></li>
               <% else %>
                 <li><%= link_to "<i class='fa fa-user' aria-hidden='true'></i> Mon espace perso".html_safe, users_Account_url %></li>
               <% end %>

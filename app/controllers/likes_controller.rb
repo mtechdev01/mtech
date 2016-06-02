@@ -38,7 +38,7 @@ class LikesController < ApplicationController
     @receivers = []
     User.where(is_admin: true).each do |admin|
       if admin != @like.user
-        @receivers.push(admin)
+        @receivers.push(admin)  #ADMINS
       end
     end
     return @receivers

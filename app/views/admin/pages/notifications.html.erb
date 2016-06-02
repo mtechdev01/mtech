@@ -29,8 +29,7 @@
                     <strong><%= notif.message %></strong> sur <%= notif.notifiable.name %>
                      par <%= User.find(notif.sender_id).username %>
                   </a>
-              <% end %>
-              </ul>
+                <% end %>
             </div>
         <% end %>
     </div>

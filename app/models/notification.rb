@@ -16,5 +16,5 @@ class Notification < ActiveRecord::Base
         @notification.read = false
         @notification.save
       end
-    end
+    end    
 end

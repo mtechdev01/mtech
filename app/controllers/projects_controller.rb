@@ -160,6 +160,19 @@ private
   def notification_receivers
     @receivers = []
     User.where(is_admin: true).each do |admin|
+      @receivers.push(admin) #ADMINS
+    end
+    @project.interactions.each do |interaction|
+      if !@receivers.include?(interaction.user)
+        @receivers.push(interaction.user) #INTERAGISSANTS
+      end
+    end
+    return @receivers
+  end
+
+  def notification_receivers
+    @receivers = []
+    User.where(is_admin: true).each do |admin|
         @receivers.push(admin) #admin
     end
     @project.interactions.each do |interaction|
