@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :newsletters
   root to: "pages#home"
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", registrations: 'registrations' }
@@ -47,11 +48,15 @@ Rails.application.routes.draw do
   #end
 
   namespace :admin do
-    get '/userexport', to: 'users#userexport', as: "userexport"
-    get '/svexport', to: 'surveys#svexport'
-    get '/svfldexport', to: 'surveys#svfldexport'
-    get '/svrpexport', to: 'surveys#svrpexport'
-    get '/', to: 'pages#dashboard', as: "dashboard"
+    get '/userexport', to: 'users#userexport', as: 'userexport'
+    get '/articleexport', to: 'articles#articleexport', as: 'articleexport'
+    get '/projectexport', to: 'projects#projectexport', as: 'projectexport'
+    get '/nwsletterexport', to: 'newsletters#nwsletterexport', as: 'nwsletterexport'
+    get '/commentexport', to: 'comments#commentexport', as: 'commentexport'
+    get '/svexport', to: 'surveys#svexport', as: 'svexport'
+    get '/svfldexport', to: 'surveys#svfldexport', as: 'svfldexport'
+    get '/svrpexport', to: 'surveys#svrpexport', as: 'svrpexport'
+    get '/', to: 'pages#dashboard', as: 'dashboard'
     post '/redirecttoFacebook/:id', to: 'articles#redirecttofacebook', as: 'redirectToFacebook'
     get '/publishtoFacebook/:id', to: 'articles#publishtofacebook', as: 'PublishtoFacebook'
     post '/articles/publish', to: 'articles#publish', as:'articlepublish'
@@ -95,6 +100,8 @@ Rails.application.routes.draw do
 
     resources :projects, controller: 'projects'
   end
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

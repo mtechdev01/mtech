@@ -113,6 +113,14 @@ class Admin::ArticlesController < Admin::AdminController
         redirect_to :back
     end
 
+    def articleexport
+      @articles = Article.all
+      respond_to do |format|
+        format.html
+        format.csv { send_data @articles.to_csv, filename: "articles-#{Date.today}.csv" }
+      end
+    end
+
     private
 
     def article_params
