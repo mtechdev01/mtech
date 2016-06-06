@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   has_many :interactions
   has_many :notifications
   has_many :conversations, :foreign_key => :sender_id
-  
+
   validates_presence_of :city, :cp, :username, :email, :country, :territory_attachment, :first_name, :last_name, :message => "Ce champ est obligatoire"
   validates_uniqueness_of :email, :username, :message => "Déjà utilisé"
   validates :username, :first_name, :last_name, length: { maximum: 30, too_long: "Ce champ ne doit pas dépasser les %{count} caractères" }

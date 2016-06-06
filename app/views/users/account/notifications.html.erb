@@ -1,41 +1,37 @@
-<div class="row">
-  <div class="col-sm-12">
-    <div id="user-block_title">
-      <h1>Mes notifications</h1>
+<h1>Notifications</h1>
+<section class="content-header">
+  <% if @notifications.count > 0 %>
+    <p>Vous avez <%= @notifications.count %> notification(s)</p>
+    <p><%= link_to "Tout marquer comme lu".html_safe, users_Readed_url, class: "btn btn-info" %></p>
+  <% else %>
+    <p>Vous n'avez aucune notification</p>
+  <% end %>
+</section>
+<section class="content">
+    <div>
+        <% @notifications.limit(5).each do | notif | %>
+            <div class="well">
+                <% if notif.message == "Suppression de Projet" %>
+                  <a>
+                    <i class="fa fa-users text-aqua"></i>
+                    <strong><%= notif.message %></strong> : <%= notif.notifiable_type %>
+                     par <%= User.find(notif.sender_id).username %>
+                  </a>
+                <% elsif notif.message == "Nouveau Projet" %>
+                  <a href= <%= "/#{notif.notifiable_type.downcase}s/#{notif.notifiable_id}" %> >
+                    <i class="fa fa-users text-aqua"></i>
+                    <strong><%= notif.message %></strong> : <%= notif.notifiable.name %>
+                     par <%= User.find(notif.sender_id).username %>
+                  </a>
+                <% else %>
+                  <a href= <%= "/#{notif.notifiable_type.downcase}s/#{notif.notifiable_id}" %> >
+                    <i class="fa fa-users text-aqua"></i>
+                    <strong><%= notif.message %></strong> sur <%= notif.notifiable.name %>
+                     par <%= User.find(notif.sender_id).username %>
+                  </a>
+              <% end %>
+              </ul>
+            </div>
+        <% end %>
     </div>
-    <div class="block" id="user-block_content">
-      <div class="block-content">
-        <table class="table table-hovered">
-          <thead>
-            <tr>
-              <th>
-                Sujet
-              </th>
-              <th>
-                Date
-              </th>
-              <th>
-                Actions
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @notifications.each do | notif |  %>
-              <tr>
-                <td>
-                  <%= notif.message %>
-                </td>
-                <td>
-                  <%= time_ago_in_words notif.created_at %>
-                </td>
-                <td>
-                  <a href="#" class="btn btn-danger"><i class="fa fa-trash-o"></i>Vu</a>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
+</section>

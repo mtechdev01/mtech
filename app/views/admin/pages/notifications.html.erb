@@ -1,9 +1,11 @@
+<h1>Notifications</h1>
 <section class="content-header">
-    <h1>Notifications</h1>
+  <% if @notifications.count > 0 %>
     <p>Vous avez <%= @notifications.count %> notification(s)</p>
-    <% if @notifications.count > 0 %>
-        <p><a href="../../admin/mark-as-read" class="btn btn-info">Tout marquer comme lu</a></p></br>
-    <% end %>
+    <p><a href="../../admin/mark-as-read" class="btn btn-info">Tout marquer comme lu</a></p>
+  <% else %>
+    <p>Vous n'avez aucune notification</p>
+  <% end %>
 </section>
 <section class="content">
     <div>
@@ -20,13 +22,13 @@
                     <i class="fa fa-users text-aqua"></i>
                     <strong><%= notif.message %></strong> : <%= notif.notifiable.name %>
                      par <%= User.find(notif.sender_id).username %>
-                  </a>  
+                  </a>
                 <% else %>
                   <a href= <%= "/#{notif.notifiable_type.downcase}s/#{notif.notifiable_id}" %> >
                     <i class="fa fa-users text-aqua"></i>
                     <strong><%= notif.message %></strong> sur <%= notif.notifiable.name %>
                      par <%= User.find(notif.sender_id).username %>
-                  </a>  
+                  </a>
                 <% end %>
             </div>
         <% end %>

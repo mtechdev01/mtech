@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments
   end
-  
+
   get '/message', to: 'pages#message', as: 'message'
   resources :conversations do
     resources :messages
@@ -90,6 +90,7 @@ Rails.application.routes.draw do
     get '/mon-compte/commentaires', to: 'account#comments', as: 'Comments'
     get '/mon-compte/sondages', to: 'account#sondages', as: 'Surveys'
     get '/mon-compte/notifications', to: 'account#notifications', as: 'Notifs'
+    get '/mon-compte/mark-as-read', to: 'account#mark_as_read', as: 'Readed'
     get '/mon-compte/likes', to: 'account#likes', as: 'Likes'
 
     resources :projects, controller: 'projects'

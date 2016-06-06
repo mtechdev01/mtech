@@ -137,4 +137,23 @@ class Admin::ProjectsController < Admin::AdminController
     return @receivers  
   end
 
+  def notification_receivers(method)
+
+    @project = Project.friendly.find(params[:id])
+    @receivers = []
+    if method != "publish"
+      if @project.owner != current_user
+        @receivers.push(@project.owner)
+      end
+      @project.interactions.each do |interaction|
+        if !@receivers.include?(interaction.user)
+          @receivers.push(interaction.user)
+        end
+      end
+    elsif @project.owner != current_user
+      @receivers.push(@project.owner)
+    end
+    return @receivers
+  end
+
 end

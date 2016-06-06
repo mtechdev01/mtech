@@ -151,12 +151,12 @@ class ProjectsController < ApplicationController
     end
   end
 
-  private    
-    
+private
+
   def project_params
     params.require(:project).permit(:name, :content, :category_id, :thumb, :location, :state)
   end
-     
+
   def notification_receivers
     @receivers = []
     User.where(is_admin: true).each do |admin|

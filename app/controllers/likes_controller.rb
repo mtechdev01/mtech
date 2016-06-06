@@ -43,5 +43,5 @@ class LikesController < ApplicationController
     end
     return @receivers
   end
-    
+
 end
