@@ -34,7 +34,10 @@ class ProjectsController < ApplicationController
         @project.owner = current_user
         if @project.save
           Notification.notify("Nouveau Projet", @project.id, "Project", User.where(is_admin: true), current_user.id)
-          flash[:notice] ="Votre projet a été ajouté."
+          User.where(is_admin: true).each do |admin|
+            AdminMailer.new_project(admin, @project).deliver_now
+          end
+          flash[:notice] ="Votre projet a été enregistré, il sera mis en ligne par un administrateur."
           flash[:class] ="success"
           redirect_to project_path(@project.id)
         else

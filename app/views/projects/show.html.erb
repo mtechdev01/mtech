@@ -41,15 +41,18 @@
 
   <div class="comments-one">
     <h2>Commentaires</h2>
-    <% @project.comments.inspect %>
     <% @project.comments.each do | comment | %>
-    <p>
-      <%= comment.content %>
-    </p>
-    <ul>
-      <li>par: <%= comment.user.username %></li>
-      <li>il y a: <%= time_ago_in_words(comment.created_at) %></li>
-    </ul>
+        <% if comment.is_valid === true %>
+            <p>
+                <%= comment.content %>
+            </p>
+            <ul>
+              <li>par: <%= comment.user.username %></li>
+              <li>il y a: <%= time_ago_in_words(comment.created_at) %></li>
+            </ul>
+        <% elsif comment.user === current_user %>
+            <p>Votre commentaire est en attente de validation par un administrateur</p>
+        <% end %>
     <% end %>
   </div>
 

@@ -1,53 +1,32 @@
-class Admin::CommentsController  < Admin::ApplicationController
 
-  def create
-    @comment = Comment.new comment_params
-    @comment.user = current_user
-    if @comment.save
-      Notification.notify("Nouveau Commentaire", @comment.commentable_id, @comment.commentable_type, notification_receivers, current_user.id)
-      flash[:notice]  = "Commentaire enregistré"
-      flash[:class]   = "success"
-      redirect_to :back
-    else
-      flash[:notice]  = "erreur sur l'enregistrement du commentaire"
-      flash[:class]   = "danger"
-      redirect_to :back
-    end
+class Admin::CommentsController < Admin::AdminController
+  def index
+    @comments = Comment.all
   end
 
-  def edit
+  def validate
     @comment = Comment.find(params[:id])
+    if @comment.is_valid === true
+      @comment.is_valid = false
+        if @comment.save
+          flash[:notice] ="Ce commentaire n'est plus valide."
+          flash[:class] = "success"
+          redirect_to :back
+        end
+      elsif @comment.is_valid === false
+        @comment.is_valid = true
+        if @comment.save
+          Notification.notify("Validation du Commentaire", @comment.id, "Comment", [@comment.user], current_user.id)
+          Notification.notify("Nouveau Commentaire", @comment.id, "Comment", notification_receivers, @comment.user)
+          flash[:notice] ="Le commentaire a été validé, les prochains commentaires seront directement mis en ligne"
+          flash[:class] = "success"
+          redirect_to :back
+          end
+      end
   end
-
-  def update
-    @comment = Comment.find(params[:id])
-    if @comment.update_attributes(comment_params)
-      flash[:notice] = "Le commentaire a été mis à jour"
-      flash[:class]= "success"
-      redirect_to :back
-    else
-      flash[:notice] = "Erreur lors de la mise à jour"
-      flash[:class]= "danger"
-      redirect_to :back
-    end
-  end
-
-
-  def destroy
-    @comment = Comment.find(params[:id])
-    if @comment != nil
-      @comment.destroy
-      flash[:notice] ="Ce commentaire a été supprimé"
-      flash[:class] = "success"
-      redirect_to :back
-    else
-      flash[:notice] ="Ce commentaire est inexistant"
-      flash[:class] = "danger"
-      redirect_to :back
-    end
-  end
-
-
+    
+  private
+    
   def commentexport
     @comments = Comment.all
     respond_to do |format|
@@ -66,27 +45,23 @@ class Admin::CommentsController  < Admin::ApplicationController
 
   def notification_receivers
     @receivers = []
-    User.where(is_admin: true).each do |admin|
-      if admin != @comment.user
-        @receivers.push(admin) #ADMINS
-      end
-    end
     @comment.commentable.comments.each do |comment|
       if (!@receivers.include?(comment.user)) && (comment.user != @comment.user)
         @receivers.push(comment.user) #PERSONNES AYANT DEJA COMMENTé
       end
     end
-    if (@comment.commentable.owner != @comment.user) && (!@receivers.include?(@comment.commentable.owner))
-      @receivers.push(@comment.commentable.owner) #PROPRIETAIRE (comments ou projet)
+    if (@comment.commentable.owner != @comment.user) && (!@receivers.include?(@comment.commentable.owner)) && (!@comment.commentable.owner.is_admin)  
+      @receivers.push(@comment.commentable.owner) #PROPRIETAIRE (article ou projet)
     end
     if @comment.commentable_type == "Project"
       @comment.commentable.interactions.each do |interaction|
         if !@receivers.include?(interaction.user) && (interaction.user != @comment.user)
           @receivers.push(interaction.user) #INTERAGISSANTS
         end
-      end
-    end
+      end   
+    end 
     return @receivers
   end
+
   
 end

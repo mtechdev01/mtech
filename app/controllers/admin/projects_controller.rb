@@ -55,7 +55,7 @@ class Admin::ProjectsController < Admin::AdminController
       if @project.valid?
         @project.owner = current_user
         if @project.save
-          flash[:notice] ="Votre projet a été ajouté."
+          flash[:notice] ="Votre projet a été enregistré."
           flash[:class] ="success"
           redirect_to :back
         else

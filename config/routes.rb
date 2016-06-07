@@ -83,6 +83,8 @@ Rails.application.routes.draw do
 
     resources :categories, controller: 'categories'
     resources :users, controller: 'users'
+    resources :comments, controller: 'comments'
+    post '/comments/validate', to: 'comments#validate', as:'validatecomment'
     post '/users/ban', to: 'users#ban', as:'userban'
     post '/users/cancomment', to: 'users#cancomment', as:'usercancomment'
 

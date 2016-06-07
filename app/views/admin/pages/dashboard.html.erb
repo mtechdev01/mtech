@@ -1,1 +1,49 @@
-<h1>Je suis sur la dashboard</h1>
+<section class="content-header">
+    <h1>Accueil</h1>
+</section>
+<section class="content">
+    <div class="box">
+      <div class="box-body">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>
+                Projets
+              </th>
+              <th>
+                Articles
+              </th>
+              <th>
+                Commentaires
+              </th>
+              <th>
+                Commentaires en attente de validation
+              </th>
+              <th>
+                Utilisateurs inscrits
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr>
+                <td>
+                  <%= @projects.count %>
+                </td>
+                <td>
+                  <%= @articles.count %>
+                </td>
+                <td>
+                  <%= @comments.count %>
+                </td>
+                <td>
+                  <%= @comments.where(is_valid: false).count %>
+                </td>
+                <td>
+                  <%= @users.count %>
+                </td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</section>

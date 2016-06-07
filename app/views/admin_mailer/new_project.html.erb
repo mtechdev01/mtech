@@ -1,0 +1,8 @@
+    <h1>Un nouveau projet a été déposé sur le site de MeuseTech!</h1>
+    <p>
+        L'utilisateur <%= @project.owner.username %> vient de déposer le projet : <%= @project.name %> <br>
+    </p>
+    <p>
+        Pour voir ce projet, suivez ce <%= link_to "Lien", project_path(@project.id) %>.
+    </p>
+    <p>Bonne journée!</p>
