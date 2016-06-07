@@ -2,7 +2,6 @@
 class PagesController < ApplicationController
 
   def home
-    @session = session
     @most_active_projects = Project.mostActive
     @last_projects = Project.lasts
   end
