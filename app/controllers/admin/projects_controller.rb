@@ -55,7 +55,7 @@ class Admin::ProjectsController < Admin::AdminController
       if @project.valid?
         @project.owner = current_user
         if @project.save
-          flash[:notice] ="Votre projet a été ajouté."
+          flash[:notice] ="Votre projet a été enregistré."
           flash[:class] ="success"
           redirect_to :back
         else
@@ -135,25 +135,6 @@ class Admin::ProjectsController < Admin::AdminController
       @receivers.push(@project.owner)
     end
     return @receivers  
-  end
-
-  def notification_receivers(method)
-
-    @project = Project.friendly.find(params[:id])
-    @receivers = []
-    if method != "publish"
-      if @project.owner != current_user
-        @receivers.push(@project.owner)
-      end
-      @project.interactions.each do |interaction|
-        if !@receivers.include?(interaction.user)
-          @receivers.push(interaction.user)
-        end
-      end
-    elsif @project.owner != current_user
-      @receivers.push(@project.owner)
-    end
-    return @receivers
   end
 
 end

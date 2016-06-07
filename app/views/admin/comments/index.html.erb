@@ -1,0 +1,59 @@
+<section class="content-header">
+    <h1>Liste des commentaires</h1>
+</section>
+
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-body">
+          <table id="commentsTable" class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Utilisateur</th>
+                <th>Contenu</th>
+                <th>Sujet</th>
+                <th>Date Enregistrement</th>
+                <th>Validé ?</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% @comments.each do |comment| %>
+                <tr>
+                  <td><%= comment.id %></td>
+                  <td><%= comment.user.email %></td>
+                  <td><%= comment.content %></td>
+                  <td>
+                      <%= link_to comment.commentable.name, polymorphic_url(comment.commentable_type.tableize.singularize, :id => comment.commentable_id) %>
+                  </td>
+                  <td><%= time_tag(comment.created_at) %></td>
+                  <td>
+                    <%= form_tag admin_validatecomment_url do %>
+                      <%= hidden_field_tag "id", comment.id %>
+                      <% if comment.is_valid %>
+                        <%= submit_tag "Oui" %>
+                      <% else %>
+                        <%= submit_tag "Non" %>
+                      <% end %>
+                    <% end %>
+                  </td>
+                  <td>
+                      <% if comment.commentable_type == "Article" %>
+                        <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_article_comment_path(comment.commentable_id, comment.id), class: "btn btn-warning" %>
+                        <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, article_comment_path(comment.commentable_id, comment.id), :method => 'delete', class: "btn btn-danger" %>
+                      <% else %>
+                        <%= link_to '<i class="fa fa-pencil"></i>'.html_safe, edit_project_comment_path(comment.commentable_id, comment.id), class: "btn btn-warning" %>
+                        <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, project_comment_path(comment.commentable_id, comment.id), :method => 'delete', class: "btn btn-danger" %>
+                      <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

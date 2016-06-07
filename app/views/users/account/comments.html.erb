@@ -18,6 +18,9 @@
                 Commentaire
               </th>
               <th>
+                Validé par un admin?
+              </th>
+              <th>
                 Actions
               </th>
             </tr>
@@ -33,6 +36,13 @@
                 </td>
                 <td>
                   <%= comment.content %>
+                </td>
+                <td>
+                  <% if comment.is_valid %>
+                    <%= "Oui" %>
+                  <% else %>
+                    <%= "Non" %>
+                  <% end %>
                 </td>
                 <td>
                   <% if comment.commentable_type == "Article" %>

@@ -7,5 +7,4 @@ class Comment < ActiveRecord::Base
   validates :content, presence: { message: "Votre commentaire ne peut pas être vide" }, length: { maximum: 1500, too_long: "Votre commentaire ne peut pas dépasser les %{count} caractères" }
   validates_associated :user
 
-
 end

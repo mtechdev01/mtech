@@ -15,7 +15,7 @@
       <ul class="nav navbar-nav">
         <!-- Notifications: style can be found in dropdown.less -->
         <li class="dropdown notifications-menu">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <a href="../../admin/mark-as-read" class="dropdown-toggle" data-toggle="dropdown">
             <i class="fa fa-bell-o"></i>
             <% if @notifications.count > 0 %>
               <span class="label label-warning"><%= @notifications.count %></span>
@@ -34,7 +34,17 @@
               <ul class="menu">
                 <% @notifications.limit(5).each do | notif | %>
                 <li>
-                    <% if notif.message == "Suppression de Projet" %>
+                    <% if notif.message == "Nouveau Commentaire" || notif.message == "Validation du Commentaire" || notif.message == "Nouveau Commentaire en attente de validation" %>
+                        <% if notif.message == "Nouveau Commentaire en attente de validation" %>
+                          <%= link_to "<i class='fa fa-users text-aqua'></i>#{notif.message} sur #{notif.notifiable.commentable.name}</br> par #{User.find(notif.sender_id).username}".html_safe, admin_comments_url %>
+                        <% else %>
+                          <a href= <%= "/#{notif.notifiable.commentable_type.downcase}s/#{notif.notifiable.commentable_id}" %> >
+                            <i class="fa fa-users text-aqua"></i>
+                              <%= notif.message %> sur <%= notif.notifiable.commentable.name %>
+                            </br> par <%= User.find(notif.sender_id).username %>
+                          </a>
+                        <% end %>
+                    <% elsif notif.message == "Suppression de Projet" %>
                       <a>
                         <i class="fa fa-users text-aqua"></i>
                         <%= notif.message %> : <%= notif.notifiable_type %>
