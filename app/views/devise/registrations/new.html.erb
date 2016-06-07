@@ -50,7 +50,7 @@
 
   <div class="field">
     <%= f.label :territory_attachment, "Attachement au territoire" %><br />
-    <%= f.select :territory_attachment, options_for_select(["Domicile", "Travail", "Loisirs", "Originaire du territoire", "Autre"]), {}, :onChange=>"javascript: changeHiddenInput(this);"  %><br />
+    <%= f.select :territory_attachment, options_for_select(["Domicile", "Travail", "Loisirs", "Originaire du territoire", "Autre"], :selected => "Domicile"), {}, :onChange=>"javascript: changeHiddenInput(this);"  %><br />
   </div>
 
   <div class="field", style="display:none", id="hiddenDiv">

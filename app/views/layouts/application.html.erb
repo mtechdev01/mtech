@@ -9,10 +9,8 @@
 <body>
   <% #= render "partials/frontend/sidebar_left" %>
   <%= render "partials/frontend/menu" %>
-  <div class="container">
-    <%= render "partials/alert" %>
-    <%= yield %>
-  </div>
-  
+  <%= render "partials/alert" %>
+  <%= yield %>
+
 </body>
 </html>

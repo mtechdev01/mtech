@@ -1,3 +1,4 @@
+
 class Admin::CommentsController < Admin::AdminController
   def index
     @comments = Comment.all
@@ -26,6 +27,22 @@ class Admin::CommentsController < Admin::AdminController
     
   private
     
+  def commentexport
+    @comments = Comment.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @comments.to_csv, filename: "comments-#{Date.today}.csv" }
+    end
+  end
+
+
+  private
+
+  def comment_params
+    params.require(:comment)
+      .permit( :content, :commentable_id, :commentable_type )
+  end
+
   def notification_receivers
     @receivers = []
     @comment.commentable.comments.each do |comment|
@@ -45,5 +62,6 @@ class Admin::CommentsController < Admin::AdminController
     end 
     return @receivers
   end
-    
+
+  
 end

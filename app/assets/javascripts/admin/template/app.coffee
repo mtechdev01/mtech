@@ -604,6 +604,5 @@ ready = ->
     return
   ) jQuery
 
-
 $(document).ready ready
 $(document).on "turbolinks:load", ->

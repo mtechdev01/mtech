@@ -113,16 +113,24 @@ class Admin::ProjectsController < Admin::AdminController
       end
     end
 
+    def projectexport
+      @projects = Project.all
+      respond_to do |format|
+        format.html
+        format.csv { send_data @projects.to_csv, filename: "projects-#{Date.today}.csv" }
+      end
+    end
+
   private
 
   def project_params
     params.require(:project).permit(:name, :content, :category_id, :thumb, :location, :state)
   end
-    
+
   def notification_receivers(method)
     @project = Project.friendly.find(params[:id])
     @receivers = []
-    if method != "publish"    
+    if method != "publish"
       if @project.owner != current_user
         @receivers.push(@project.owner)
        end
@@ -134,7 +142,7 @@ class Admin::ProjectsController < Admin::AdminController
     elsif @project.owner != current_user
       @receivers.push(@project.owner)
     end
-    return @receivers  
+    return @receivers
   end
 
 end

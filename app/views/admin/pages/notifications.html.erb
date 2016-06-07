@@ -11,35 +11,45 @@
     <div>
         <% @notifications.limit(5).each do | notif | %>
             <div class="well">
-                    <% if notif.message == "Nouveau Commentaire" || notif.message == "Validation du Commentaire" || notif.message == "Nouveau Commentaire en attente de validation" %>
-                        <% if notif.message == "Nouveau Commentaire en attente de validation" %>
+              <% if notif.message == "Nouveau Commentaire" || notif.message == "Validation du Commentaire" || notif.message == "Nouveau Commentaire en attente de validation" %>
+                    <% if notif.message == "Nouveau Commentaire en attente de validation" %>
                           <%= link_to "<i class='fa fa-users text-aqua'></i>#{notif.message} sur #{notif.notifiable.commentable.name}</br> par #{User.find(notif.sender_id).username}".html_safe, admin_comments_url %>
-                        <% else %>
+                    <% else %>
                           <a href= <%= "/#{notif.notifiable.commentable_type.downcase}s/#{notif.notifiable.commentable_id}" %> >
                             <i class="fa fa-users text-aqua"></i>
                               <%= notif.message %> sur <%= notif.notifiable.commentable.name %>
                             </br> par <%= User.find(notif.sender_id).username %>
                           </a>
-                        <% end %>
-                    <% elsif notif.message == "Suppression de Projet" %>
+                    <% end %>
+               <% elsif notif.message == "Suppression de Projet" %>
                       <a>
                         <i class="fa fa-users text-aqua"></i>
                         <strong><%= notif.message %></strong> : <%= notif.notifiable_type %>
                          par <%= User.find(notif.sender_id).username %>
                       </a>
-                    <% elsif notif.message == "Nouveau Projet" %>
+               <% elsif notif.message == "Nouveau Projet" %>
                       <a href= <%= "/#{notif.notifiable_type.downcase}s/#{notif.notifiable_id}" %> >
                         <i class="fa fa-users text-aqua"></i>
                         <strong><%= notif.message %></strong> : <%= notif.notifiable.name %>
                          par <%= User.find(notif.sender_id).username %>
                       </a>
-                    <% else %>
-                      <a href= <%= "/#{notif.notifiable_type.downcase}s/#{notif.notifiable_id}" %> >
-                        <i class="fa fa-users text-aqua"></i>
-                        <strong><%= notif.message %></strong> sur <%= notif.notifiable.name %>
+               <% elsif notif.message == "Nouvelle souscription à la Newsletter" %>
+                        <a href= "#">
+                          <i class="fa fa-users text-aqua"></i>
+                          <strong><%= notif.message %></strong>
+                        </a>
+               <% elsif notif.message == "Nouvel utilisateur" %>
+                        <a href= "#">
+                          <i class="fa fa-users text-aqua"></i>
+                          <strong><%= notif.message %></strong>
+                        </a>
+               <% else %>
+                 <a href= <%= "/#{notif.notifiable_type.downcase}s/#{notif.notifiable_id}" %> >
+                 <i class="fa fa-users text-aqua"></i>
+                 <strong><%= notif.message %></strong> sur <%= notif.notifiable.name %>
                          par <%= User.find(notif.sender_id).username %>
-                      </a>
-                    <% end %>
+                 </a>
+               <% end %>
             </div>
         <% end %>
     </div>

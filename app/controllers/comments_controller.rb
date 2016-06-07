@@ -44,7 +44,6 @@ class CommentsController  < ApplicationController
   end
 
 
-
   def destroy
     @comment = Comment.find(params[:id])
     if @comment != nil
@@ -65,6 +64,7 @@ class CommentsController  < ApplicationController
 
 
 
+
   private
     
   def is_first
@@ -79,31 +79,6 @@ class CommentsController  < ApplicationController
   def comment_params
     params.require(:comment)
       .permit( :content, :commentable_id, :commentable_type )
-  end
-    
-  def notification_receivers
-    @receivers = []
-    User.where(is_admin: true).each do |admin|
-      if admin != @comment.user
-        @receivers.push(admin) #ADMINS
-      end
-    end
-    @comment.commentable.comments.each do |comment|
-      if (!@receivers.include?(comment.user)) && (comment.user != @comment.user)
-        @receivers.push(comment.user) #PERSONNES AYANT DEJA COMMENTé
-      end
-    end
-    if (@comment.commentable.owner != @comment.user) && (!@receivers.include?(@comment.commentable.owner))
-      @receivers.push(@comment.commentable.owner) #PROPRIETAIRE (article ou projet)
-    end
-    if @comment.commentable_type == "Project"
-      @comment.commentable.interactions.each do |interaction|
-        if !@receivers.include?(interaction.user) && (interaction.user != @comment.user)
-          @receivers.push(interaction.user) #INTERAGISSANTS
-        end
-      end   
-    end 
-    return @receivers
   end
 
 end

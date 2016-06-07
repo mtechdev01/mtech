@@ -1,6 +1,6 @@
 # encoding: utf-8
 class ProjectsController < ApplicationController
-    before_action :authenticate_user!
+    before_action :authenticate_user!,  only: [:create, :new, :edit, :destroy, :update, :new_support, :new_participation]
 
 
   def index
