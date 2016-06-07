@@ -21,7 +21,7 @@
     <%= link_to "Mes likes".html_safe, users_Likes_url, class: "btn btn-block btn-default" %>
     <%= link_to "Mes notifications".html_safe, users_Notifs_url, class: "btn btn-block btn-default" %>
     <!--<%= link_to "Mes conversations".html_safe, users_Notifs_url, class: "btn btn-block btn-default" %>-->
-      <%= link_to "<i class='fa fa-pencil'></i> Editer mes informations".html_safe, edit_user_registration_url, class: "btn btn-block btn-primary" %>
+      <%= link_to "<i class='fa fa-pencil'></i> Editer mes informations".html_safe, users_Edit_url, class: "btn btn-block btn-primary" %>
     <% if current_user.is_admin %>
       <%= link_to "<i class='fa fa-tachometer'></i> Administration".html_safe, admin_dashboard_url, class: "btn btn-block btn-warning" %>
     <% else %>

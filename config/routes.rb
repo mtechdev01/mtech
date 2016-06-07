@@ -90,7 +90,7 @@ Rails.application.routes.draw do
   namespace :users do
     get '/mon-compte', to: 'account#account', as: 'Account'
     get '/mon-compte/editer', to: 'account#edit', as: 'Edit'
-    patch '/mon-compte/editer', to: 'account#update'
+    patch '/mon-compte/editer', to: 'account#update', as: "Update"
     get '/mon-compte/projets', to: 'account#projects', as: 'Projects'
     get '/mon-compte/commentaires', to: 'account#comments', as: 'Comments'
     get '/mon-compte/sondages', to: 'account#sondages', as: 'Surveys'
