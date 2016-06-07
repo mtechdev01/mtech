@@ -1,5 +1,8 @@
 class Newsletter < ActiveRecord::Base
 
+  validates_presence_of :email, :message => "Une adresse mail est nécessaire !"
+  validates_uniqueness_of :email, :message => "Vous avez déjà souscrit à la Newsletter!"
+
   def self.to_csv
    CSV.generate do |csv|
      csv << column_names
@@ -8,5 +11,5 @@ class Newsletter < ActiveRecord::Base
      end
    end
   end
-  
+
 end

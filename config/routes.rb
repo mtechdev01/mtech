@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :newsletters
+  post 'newsletters/new', to: 'newsletters#new', as: 'sub_newsletter'
   root to: "pages#home"
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", registrations: 'registrations' }

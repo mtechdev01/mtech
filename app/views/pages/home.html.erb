@@ -1040,6 +1040,13 @@
     </svg>
   </div>
 </section>
+<section id="newsletter">
+  <%= form_for :newsletter, :url => sub_newsletter_path do |f| %>
+    <%= label_tag 'inscription', "Souscrire à la Newsletter" %> <br>
+    <%= f.email_field :email, placeholder: "Votre adresse mail" %>
+    <%= f.submit :valider, class: "btn btn-info" %>
+  <% end %>
+</section>
 <section id="most-active" class="raw" style="position: absolute;top: 15%;bottom: 15%;left: 15%;right: 15%;">
   <% @most_active_projects.each do | project | %>
   <div class="project col-md-4">
