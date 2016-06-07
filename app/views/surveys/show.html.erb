@@ -10,7 +10,7 @@ meta title: "Meusetech - #{@survey.title}",
     <% @survey.fields.each do | field | %>
       <div class="form-group">
         <label for="fields[<%= field.id %>]"><%= field.question %></label>
-        <% if field.optionsFormated.size > 0 && field.input_type == "select"%> <!-- Corrigé-->
+        <% if field.input_type == "select" && field.optionsFormated.size > 0 %>
           <select name="fields[questions][<%= field.id %>]" class="form-control" <%= field.is_required ? "required" : "" %>>
             <% field.optionsFormated.each_with_index do | value, key | %>
               <option value="<%= key %>"> <%= value %></option>
