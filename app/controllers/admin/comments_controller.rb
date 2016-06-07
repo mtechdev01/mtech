@@ -1,5 +1,4 @@
-# encoding: utf-8
-class CommentsController  < ApplicationController
+class Admin::CommentsController  < Admin::ApplicationController
 
   def create
     @comment = Comment.new comment_params
@@ -49,7 +48,13 @@ class CommentsController  < ApplicationController
   end
 
 
-
+  def commentexport
+    @comments = Comment.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @comments.to_csv, filename: "comments-#{Date.today}.csv" }
+    end
+  end
 
 
   private
@@ -72,7 +77,7 @@ class CommentsController  < ApplicationController
       end
     end
     if (@comment.commentable.owner != @comment.user) && (!@receivers.include?(@comment.commentable.owner))
-      @receivers.push(@comment.commentable.owner) #PROPRIETAIRE (article ou projet)
+      @receivers.push(@comment.commentable.owner) #PROPRIETAIRE (comments ou projet)
     end
     if @comment.commentable_type == "Project"
       @comment.commentable.interactions.each do |interaction|
