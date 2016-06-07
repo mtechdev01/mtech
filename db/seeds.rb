@@ -37,8 +37,8 @@ jc = User.new(
   is_banned: false,
   can_comment: true,
   territory_attachment: "Domicile",
-  last_name: "Dus",
-  first_name: "Jean-Claude",
+  last_name: "Papa",
+  first_name: "jean-christophe",
   country: "France",
 )
 jc.save!
@@ -58,8 +58,8 @@ cecile = User.new(
   is_banned: false,
   can_comment: true,
   territory_attachment: "Domicile",
-  last_name: "Dus",
-  first_name: "Jean-Claude",
+  last_name: "Maman",
+  first_name: "Cécile",
   country: "France",
 )
 cecile.save!
@@ -79,8 +79,8 @@ john = User.new(
   is_banned: false,
   can_comment: true,
   territory_attachment: "Domicile",
-  last_name: "Dus",
-  first_name: "Jean-Claude",
+  last_name: "Yolo",
+  first_name: "John",
   country: "France",
 )
 john.save!
@@ -100,8 +100,8 @@ jerome = User.new(
   is_banned: false,
   can_comment: true,
   territory_attachment: "Domicile",
-  last_name: "Dus",
-  first_name: "Jean-Claude",
+  last_name: "Brodude",
+  first_name: "Jerome",
   country: "France",
 )
 jerome.save!
@@ -121,8 +121,8 @@ benjamin = User.new(
   is_banned: false,
   can_comment: true,
   territory_attachment: "Domicile",
-  last_name: "Dus",
-  first_name: "Jean-Claude",
+  last_name: "Prism",
+  first_name: "Benjamin",
   country: "France",
 )
 benjamin.save!
@@ -362,4 +362,3 @@ fields3 = SurveysField.new(
   question: "Quelle chaîne regardez vous le plus ?"
 )
 fields3.save!
-
