@@ -34,14 +34,11 @@
                          par <%= User.find(notif.sender_id).username %>
                       </a>
                <% elsif notif.message == "Nouvelle souscription à la Newsletter" %>
-                        <a href= "#">
-                          <i class="fa fa-users text-aqua"></i>
-                          <strong><%= notif.message %></strong>
-                        </a>
+                       <%= link_to "<i class='fa fa-users text-aqua'></i>#{notif.message}".html_safe, admin_newsletters_url %>
                <% elsif notif.message == "Nouvel utilisateur" %>
-                        <a href= "#">
-                          <i class="fa fa-users text-aqua"></i>
-                          <strong><%= notif.message %></strong>
+                        <a href= <%= "/admin/#{notif.notifiable_type.downcase}s/#{notif.notifiable_id}" %> >
+                            <i class="fa fa-users text-aqua"></i>
+                              <%= notif.message %>
                         </a>
                <% else %>
                  <a href= <%= "/#{notif.notifiable_type.downcase}s/#{notif.notifiable_id}" %> >
