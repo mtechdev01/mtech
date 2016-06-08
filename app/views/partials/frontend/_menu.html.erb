@@ -7,7 +7,7 @@
   </ul>
 </nav>
 
-<!-- <nav class="navbar navbar-default">
+<nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -71,12 +71,9 @@
                         <%= notif.message %> : <%= notif.notifiable.name %>
                         </br> par <%= User.find(notif.sender_id).username %>
                       </a>
-                      <% elsif notif.message == "Nouvelle souscription à la Newsletter" %>
-                      <a href= "#">
-                        <i class="fa fa-users text-aqua"></i>
-                        <strong><%= notif.message %></strong>
-                      </a>
-                      <% elsif notif.message == "Nouvel utilisateur" %>
+                    <% elsif notif.message == "Nouvelle souscription à la Newsletter" %>
+                      <%= link_to "<i class='fa fa-users text-aqua'></i>#{notif.message}".html_safe, admin_newsletters_url %>
+                    <% elsif notif.message == "Nouvel utilisateur" %>
                       <a href= "#">
                         <i class="fa fa-users text-aqua"></i>
                         <strong><%= notif.message %></strong>
@@ -136,5 +133,5 @@
       </ul>
 
     </div>
-  </div> -->
+  </div>
 </nav>

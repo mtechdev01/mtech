@@ -65,12 +65,21 @@
         </ul>
       </li>
         
-        <li class="treeview <%= (params[:controller] === 'admin/comments/comments') ? 'active' : ''  %>">
+      <li class="treeview <%= (params[:controller] === 'admin/comments/comments') ? 'active' : ''  %>">
         <a href="#">
           <i class="fa fa-comments" aria-hidden="true"></i> <span>Commentaires</span> <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="treeview-menu">
             <li class="<%= (params[:controller] === 'admin/comments/comments' && params[:action] === 'index' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i>Liste".html_safe, admin_comments_url %></li>
+        </ul>
+      </li>
+        
+        <li class="treeview <%= (params[:controller] === 'admin/newsletters/newsletters') ? 'active' : ''  %>">
+        <a href="#">
+          <i class="fa fa-envelope-o" aria-hidden="true"></i> <span>Newsletter</span> <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+            <li class="<%= (params[:controller] === 'admin/newsletters/newsletters' && params[:action] === 'index' ) ? 'active' : ''  %>"><%= link_to "<i class='fa fa-circle-o'></i>Liste".html_safe, admin_newsletters_url %></li>
         </ul>
       </li>
           

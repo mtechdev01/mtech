@@ -1,0 +1,32 @@
+<section class="content-header">
+    <h1>Liste des inscrits à la newsletter</h1>
+</section>
+
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-body">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>E-mail</th>
+                <th>Date Enregistrement</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @members.each do |member| %>
+                <tr>
+                  <td><%= member.email %></td>
+                  <td><%= time_tag(member.created_at) %></td>
+                  <td><%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, admin_newsletter_path(member.id), :method => 'delete', class: "btn btn-danger" %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

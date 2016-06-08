@@ -1,65 +1,23 @@
-class Admin::NewslettersController < Admin::ApplicationController
-  before_action :set_newsletter, only: [:show, :edit, :update, :destroy]
+class Admin::NewslettersController < Admin::AdminController
 
-  # GET /newsletters
-  # GET /newsletters.json
   def index
-    @newsletters = Newsletter.all
+    @members = Newsletter.all
   end
-
-  # GET /newsletters/1
-  # GET /newsletters/1.json
-  def show
-  end
-
-  # GET /newsletters/new
-  def new
-    @newsletter = Newsletter.new
-  end
-
-  # GET /newsletters/1/edit
-  def edit
-  end
-
-  # POST /newsletters
-  # POST /newsletters.json
-  def create
-    @newsletter = Newsletter.new(newsletter_params)
-
-    respond_to do |format|
-      if @newsletter.save
-        format.html { redirect_to @newsletter, notice: 'Newsletter was successfully created.' }
-        format.json { render :show, status: :created, location: @newsletter }
-      else
-        format.html { render :new }
-        format.json { render json: @newsletter.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /newsletters/1
-  # PATCH/PUT /newsletters/1.json
-  def update
-    respond_to do |format|
-      if @newsletter.update(newsletter_params)
-        format.html { redirect_to @newsletter, notice: 'Newsletter was successfully updated.' }
-        format.json { render :show, status: :ok, location: @newsletter }
-      else
-        format.html { render :edit }
-        format.json { render json: @newsletter.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /newsletters/1
-  # DELETE /newsletters/1.json
+ 
   def destroy
-    @newsletter.destroy
-    respond_to do |format|
-      format.html { redirect_to newsletters_url, notice: 'Newsletter was successfully destroyed.' }
-      format.json { head :no_content }
+    @member = Newsletter.find(params[:id])
+      if @member != nil
+      @member.destroy 
+      flash[:notice] ="Ce membre a été supprimé"
+      flash[:class] = "success"
+      redirect_to :back
+    else
+      flash[:notice] ="Ce membre est inexistant"
+      flash[:class] = "danger"
+      redirect_to :back
     end
   end
+
 
   def nwsletterexport
     @newsletters = Newsletter.all
