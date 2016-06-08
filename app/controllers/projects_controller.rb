@@ -57,6 +57,15 @@ class ProjectsController < ApplicationController
     @project = Project.friendly.find(params[:id])
     @categories = Category.all
   end
+    
+  def participations
+    @project = Project.friendly.find(params[:id])
+    @participations = Interaction.where({role: "participation", project: @project})
+    @participants = Array.new
+    @participations.each do |participation|
+        @participants.push(participation.user)    
+    end
+  end
 
   def update
     @project = Project.friendly.find(params[:id])

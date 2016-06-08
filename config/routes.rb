@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   resources :likes
   post '/projects/new_support', to: 'projects#new_support'
   post '/projects/new_participation', to: 'projects#new_participation'
+  get '/project/:id/participations', to: 'projects#participations', as: 'project_participations'
 
   resources :surveys, controller: 'surveys'
   post '/reponse', to: 'surveys#reponse', as: 'surveyReponse'
