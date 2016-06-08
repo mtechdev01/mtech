@@ -5,4 +5,8 @@
 @import "admin/template/AdminLTE";
 @import "admin/template/notifications";
 @import "admin/template/skins/_all-skins";
-@import "jquery.minicolors"
+@import "jquery.minicolors";
+@import "admin/template/plugins/datatables/jquery.dataTables";
+@import "admin/template/plugins/datatables/dataTables.bootstrap";
+@import "admin/template/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css";
+@import "admin/template/plugins/datatables/extensions/Responsive/css/dataTables.responsive.scss"
