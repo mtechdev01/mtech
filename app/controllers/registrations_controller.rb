@@ -4,7 +4,7 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     super
     if resource.save
-      Notification.notify("Nouvel utilisateur", nil, nil, User.where(is_admin: true), nil)
+      Notification.notify("Nouvel utilisateur", resource.id, "User", User.where(is_admin: true), nil)
     end
   end
 
