@@ -17,8 +17,12 @@ class NewslettersController  < ApplicationController
     
   def unsuscribe
     @newsletters = Newsletter.all
+    @users = User.all
     @newsletter = Newsletter.find_by newsletter_params
     if @newsletters.include?(@newsletter)
+      if @users.include?(User.where(email: @newsletter.email).first)
+        User.find_by(email: @newsletter.email).update(is_registered: false)
+      end
       @newsletter.destroy
       flash[:notice]  = "Vous vous êtes désinscrit de la newsletter"
       flash[:class]   = "success"
