@@ -16,7 +16,7 @@
           <h3 class="box-title">Liste de mes categories</h3>
         </div><!-- /.box-header -->
         <div class="box-body">
-          <table id="articlesListe" class="table table-bordered table-hover">
+          <table id="categoriesListe" class="table table-hover table-striped table-responsive table-condensed no-margin">
             <thead>
               <tr>
                 <th>#</th>
@@ -43,7 +43,40 @@
           </table>
         </div><!-- /.box-body -->
       </div><!-- /.box -->
+      <script type="text/javascript">
+        $(document).ready(function(){
+          $('#categoriesListe').DataTable({
+                  "responsive": true,
+                  "sScrollX": "100%", // retrait de la barre de scroll horizontale en responsive
+                  "language": { // mise en Français du pluggin.
+                      "sProcessing": "Traitement en cours...",
+                      "sSearch": "Rechercher&nbsp;:",
+                      "sLengthMenu": "Afficher _MENU_ &eacute;l&eacute;ments",
+                      "sInfo": "Affichage de l'&eacute;l&eacute;ment _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
+                      "sInfoEmpty": "Affichage de l'&eacute;l&eacute;ment 0 &agrave; 0 sur 0 &eacute;l&eacute;ment",
+                      "sInfoFiltered": "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
+                      "sInfoPostFix": "",
+                      "sLoadingRecords": "Chargement en cours...",
+                      "sZeroRecords": "Aucun &eacute;l&eacute;ment &agrave; afficher",
+                      "sEmptyTable": "Aucune donn&eacute;e disponible dans le tableau",
+                      "oPaginate": {
+                          "sFirst": "Premier",
+                          "sPrevious": "Pr&eacute;c&eacute;dent",
+                          "sNext": "Suivant",
+                          "sLast": "Dernier"
+                      },
 
+                      "oAria": {
+                          "sSortAscending": ": activer pour trier la colonne par ordre croissant",
+                          "sSortDescending": ": activer pour trier la colonne par ordre d&eacute;croissant"
+                      }
+                  },
+                  "pageLength": 25, // Affichage de 100 éléments de base au chargement de la page
+                  "lengthMenu": [ [25, 50, 100, 1000, -1], [25, 50, 100, 1000, "tous les"] ], // Changement du menu de base pour la sélection de l'affichage du nombre d'éléments : [nombres d'éléments à afficher] [libellés]
+                  "order": [[1, 'asc']]
+              });
+        });
+      </script>
     </div><!-- /.col -->
   </div><!-- /.row -->
 </section><!-- /.content -->
