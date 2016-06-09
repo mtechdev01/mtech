@@ -10,10 +10,14 @@ meta title: "Meusetech - Sondages",
           <%= raw survey.description %>
         </p>
         <%= survey.nbUsersResponded.size %> utilisateur<%= (survey.nbUsersResponded.size > 1 ) ? "s": "" %> <%= (survey.nbUsersResponded.size > 1 ) ? "ont": "a" %> répondu<%= (survey.nbUsersResponded.size > 1 ) ? "s": "" %></li>
-        <% if user_signed_in? %>
-          <%= link_to "Participer au sondage" , survey_url( survey.id ), class: "pull-right btn btn-default" %>
+        <% if survey.end_at > Date.today %>
+          <% if user_signed_in? %>
+            <%= link_to "Participer au sondage" , survey_url( survey.id ), class: "pull-right btn btn-default" %>
+          <% else %>
+            <%= link_to "Participer au sondage" , new_session_path(:user), class:'pull-right btn btn-default' %>
+          <% end %>
         <% else %>
-          <%= link_to "Participer au sondage" , new_session_path(:user), class:'pull-right btn btn-default' %>
+          <%= link_to "Voir les résultats" , surveyStats_url( survey.id ), class: "pull-right btn btn-default" %>
         <% end %>
   <% end %>
 </section>

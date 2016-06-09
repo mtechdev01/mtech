@@ -79,8 +79,6 @@ class SurveysController < ApplicationController
           @response.surveys_field_id = value[0]
           @response.response = value[1].to_s
           @response.save
-          byebug
-
         end
 
         if @response.save
