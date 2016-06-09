@@ -58,8 +58,12 @@
     <%= f.text_field :territory_attachment, id:"hiddenInput" %>
   </div><br/>
 
-  <%= raw recaptcha_tags %>
+  <div class="field">
+      <%= f.label :is_registered, "Recevoir la newsletter" %>
+      <%= f.check_box(:is_registered, {checked: true}) %>
+  </div>
 
+  <%= raw recaptcha_tags %>
 
   <div class="actions">
     <%= f.submit "Sign up" %>

@@ -4,6 +4,12 @@ class RegistrationsController < Devise::RegistrationsController
   def create
     super
     if resource.save
+      if resource.is_registered === true
+        @new_member = Newsletter.new
+        @new_member.email = resource.email
+        @new_member.created_at = DateTime.now
+        @new_member.save
+      end
       Notification.notify("Nouvel utilisateur", resource.id, "User", User.where(is_admin: true), nil)
     end
   end
