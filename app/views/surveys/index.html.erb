@@ -7,7 +7,7 @@ meta title: "Meusetech - Sondages",
   <% @surveys.each do | survey | %>
         <h2><%= link_to survey.title , survey_path( survey.id ) %> <%= (survey.end_at > Date.today) ? "<span class='label label-warning pull-right'>En cours</span>".html_safe : "<span class='label label-danger pull-right'>Terminé</span>".html_safe %></h2>
         <p>
-          <%= survey.description %>
+          <%= raw survey.description %>
         </p>
         <%= survey.nbUsersResponded.size %> utilisateur<%= (survey.nbUsersResponded.size > 1 ) ? "s": "" %> <%= (survey.nbUsersResponded.size > 1 ) ? "ont": "a" %> répondu<%= (survey.nbUsersResponded.size > 1 ) ? "s": "" %></li>
         <% if user_signed_in? %>
