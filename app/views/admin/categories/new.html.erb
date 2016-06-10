@@ -1,5 +1,5 @@
 <% content_for :script do %>
-  <%= javascript_include_tag 'categories', 'data-turbolinks-track' => true %>   
+  <%= javascript_include_tag 'categories', 'data-turbolinks-track' => true %>
 <% end %>
 
 <div class="container">
@@ -7,11 +7,15 @@
     <%= form_for :category, url: admin_categories_path, method:'post' do |f| %>
       <div class="form-group">
         <%= label_tag 'name', "Nom de la catégorie" %>
-        <%= f.text_field :name, class: "form-control" %>
+        <%= f.text_field :name %>
       </div>
       <div class="form-group">
         <%= label_tag 'icon', "Icon" %>
-        <%= f.file_field :icon %>
+        <%= f.file_field :icon, :required => true %>
+      </div>
+      <div class="form-group">
+        <%= label_tag 'image', "Image" %>
+        <%= f.file_field :image, :required => true %>
       </div>
       <div class="form-group">
         <%= label_tag 'color', "Couleur de la catégorie" %>
@@ -31,4 +35,3 @@
     </div>
   </div>
 </div>
-

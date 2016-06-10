@@ -20,7 +20,11 @@
           <th>
             Catégorie
           </th>
-          <th> <!--colonne icône-->
+          <th>
+            Icône
+          </th>
+          <th>
+            Image
           </th>
           <th>
             Lieu
@@ -62,7 +66,10 @@
               <%= project.category.name %>
             </td>
             <td>
-              <img class="logo_size" style=width:25px src="<%= project.category.icon %>" alt="category icon"/>
+              <img class="logo_size" style=width:40px src="<%= project.category.icon %>" alt="category icon"/>
+            </td>
+            <td>
+              <img class="image_size" style=width:40px src="<%= project.thumb ? project.thumb : project.category.image %>"" alt="project thumb"/>
             </td>
             <td>
               <%= project.location %>
