@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   resources :newsletters
   post 'newsletters/new', to: 'newsletters#new', as: 'sub_newsletter'
-  get '/unsuscribe', to: 'pages#unsuscribe', as: 'unsuscribe'
-  post 'newsletters/unsuscribe', to: 'newsletters#unsuscribe', as: 'unsuscribe_newsletter'
+  get '/se-desinscrire', to: 'pages#unsubscribe', as: 'unsubscribe'
+  post 'newsletters/unsubscribe', to: 'newsletters#unsubscribe', as: 'unsubscribe_newsletter'
   root to: "pages#home"
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", registrations: 'registrations' }
