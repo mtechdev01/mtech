@@ -95,6 +95,16 @@ class SurveysController < ApplicationController
     end
   end
 
+  def send_results
+    @surveys = Survey.all
+    @users = User.all
+      @surveys.each do | survey |
+        if survey.end_at > Date.today
+          SurveyMailer.survey_end(@users, survey).deliver_now
+        end
+      end
+    end
+
   private
   def response_params
     params.require(:fields).permit(:survey_id,
