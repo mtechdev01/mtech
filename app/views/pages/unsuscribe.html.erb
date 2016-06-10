@@ -1,0 +1,9 @@
+<div class="container">
+    <section id="newsletter">
+      <%= form_for :newsletter, :url => unsuscribe_newsletter_path do |f| %>
+        <%= label_tag "Se désinscrire de la Newsletter" %> <br>
+        <%= f.email_field :email, placeholder: "Votre adresse mail" %>
+        <%= f.submit :valider, class: "btn btn-info" %>
+      <% end %>
+    </section>
+</div>

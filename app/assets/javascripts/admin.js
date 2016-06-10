@@ -18,6 +18,7 @@
 //= require admin/template/plugins/fastclick/fastclick.min.js
 //= require admin/template/plugins/datatables/jquery.dataTables.js
 //= require admin/template/plugins/datatables/dataTables.bootstrap.js
+//= require admin/template/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js
 //= require admin/template/plugins/iCheck/icheck.min.js
 //= require jquery.minicolors
 //= require admin/template/app

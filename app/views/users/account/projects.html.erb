@@ -20,6 +20,9 @@
                 Date de création
               </th>
               <th>
+                Mis en ligne par un admin?
+              </th>
+              <th>
                 Actions
               </th>
             </tr>
@@ -35,6 +38,13 @@
                 </td>
                 <td>
                   <%= time_tag(project.created_at) %>
+                </td>
+                <td>
+                    <% if project.published === true %>
+                        <%= "Oui" %>
+                    <% else %>
+                        <%= "En attente" %>
+                    <% end %>
                 </td>
                 <td>
                   <%= link_to '<i class="fa fa-users"></i>'.html_safe, project_participations_path(project.id), class: "btn btn-success" %>
