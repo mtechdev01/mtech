@@ -35,6 +35,10 @@
             <%= label_tag 'end_at', "Fin du sondage" %>
             <%= f.date_field :end_at %>
           </div>
+          <div class="form-group">
+            <%= label_tag 'pdf', "Upload des résultats en PDF" %>
+            <%= f.file_field :pdf_file %>
+          </div>
           <%= f.submit :valider, class: "btn btn-primary" %>
         <% end %>
 

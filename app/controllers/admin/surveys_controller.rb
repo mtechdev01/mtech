@@ -190,7 +190,7 @@ class Admin::SurveysController < Admin::AdminController
   private
 
   def survey_params
-    params.require(:survey).permit(:title, :description, :start_at, :end_at)
+    params.require(:survey).permit(:title, :description, :start_at, :end_at, :pdf_file)
   end
 
   def field_params

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160610085519) do
+ActiveRecord::Schema.define(version: 20160610142428) do
 
   create_table "articles", force: :cascade do |t|
     t.datetime "created_at",                   null: false
@@ -159,6 +159,7 @@ ActiveRecord::Schema.define(version: 20160610085519) do
     t.integer  "nb_responses"
     t.datetime "start_at"
     t.datetime "end_at"
+    t.string   "pdf_file"
   end
 
   create_table "surveys_fields", force: :cascade do |t|
