@@ -15,7 +15,7 @@ class NewslettersController  < ApplicationController
     end
   end
     
-  def unsuscribe
+  def unsubscribe
     @newsletters = Newsletter.all
     @users = User.all
     @newsletter = Newsletter.find_by newsletter_params
