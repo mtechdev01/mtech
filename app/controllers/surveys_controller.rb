@@ -79,8 +79,6 @@ class SurveysController < ApplicationController
           @response.surveys_field_id = value[0]
           @response.response = value[1].to_s
           @response.save
-          byebug
-
         end
 
         if @response.save
@@ -96,6 +94,16 @@ class SurveysController < ApplicationController
 
     end
   end
+
+  def send_results
+    @surveys = Survey.all
+    @users = User.all
+      @surveys.each do | survey |
+        if survey.end_at > Date.today
+          SurveyMailer.survey_end(@users, survey).deliver_now
+        end
+      end
+    end
 
   private
   def response_params

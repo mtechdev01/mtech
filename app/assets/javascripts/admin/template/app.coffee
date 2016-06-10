@@ -605,4 +605,4 @@ ready = ->
   ) jQuery
 
 $(document).ready ready
-$(document).on "turbolinks:load", ->
+$(document).on('turbolinks:load', ready)
