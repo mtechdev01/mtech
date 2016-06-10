@@ -13,12 +13,8 @@
       </div>
       <div class="form-group">
         <%= label_tag 'thumb', "Photo" %>
-        <%= f.file_field :thumb %>
+        <%= f.file_field :thumb, :required => true  %>
       </div>
-      <div class="form-group">
-       <%= label_tag 'removethumb', "Photo par défaut" %>
-         <%= f.check_box :remove_thumb %>
-     </div>
       <div class="form-group">
         <%= label_tag 'article', "Rédaction de l'article" %>
         <%= f.text_area :content, :class => "tinymce", :rows => 25, :cols => 120 %>

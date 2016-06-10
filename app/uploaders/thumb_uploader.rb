@@ -25,6 +25,10 @@ class ThumbUploader < CarrierWave::Uploader::Base
      process resize_to_fill: [120, 120]
   end
 
+  version :image do
+     process resize_to_fill: [250, 175]
+  end
+
   def extension_white_list
      %w(jpg jpeg gif png)
   end

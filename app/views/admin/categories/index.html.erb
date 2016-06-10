@@ -22,6 +22,7 @@
                 <th>#</th>
                 <th>Nom</th>
                 <th>Icône</th>
+                <th>Image</th>
                 <th>Couleur</th>
                 <th>Actions</th>
               </tr>
@@ -31,7 +32,8 @@
               <tr>
                 <td><%= category.id %></td>
                 <td><%= category.name%></td>
-                <td><%= image_tag category.icon, size: "36x36", class: "img-responsive"%></td>
+                <td><%= image_tag category.icon, size: "36x36", class: "img-responsive center-block"%></td>
+                <td><%= image_tag category.image, size: "36x36", class: "img-responsive center-block"%></td>
                 <td style="background-color: <%= category.color %>; width: 80px;"></td>
                 <td>
                   <%= link_to "<i class='fa fa-pencil'></i>".html_safe, edit_admin_category_path(category.friendly_id), class: "btn btn-warning" %>

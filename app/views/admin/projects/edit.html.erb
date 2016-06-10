@@ -33,7 +33,7 @@
       </div>
       <div class="form-group">
         <%= f.label :thumb, 'Image'%>
-        <%= image_tag(@project.thumb, size: "200x200", class:'img-responsive')%>
+        <%= image_tag(@project.thumb ? @project.thumb : @project.category.image, size: "200x200", class:'img-responsive')%>
         <div >
           <%= f.file_field :thumb %>
         </div>

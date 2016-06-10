@@ -44,7 +44,7 @@
                     <% end %>
                   <% end %>
                 </td>
-                <td style="line-height:64px;"><%= image_tag(article.thumb, size: "64x64", alt: "image article")%></td>
+                <td style="line-height:64px;"><%= image_tag(article.thumb ? article.thumb : article.category.image, size: "64x64", alt: "image article")%></td>
                 <td style="line-height:64px;"><%= image_tag(article.category.icon, size: "32x32", alt: "image category")%></td>
                 <td style="line-height:64px;"><%= article.name %></td>
                 <td style="line-height:64px;"><%= time_tag(article.created_at) %></td>

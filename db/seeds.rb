@@ -131,70 +131,80 @@ puts "CREATION DES CATEGORIES"
 cat1 = Category.new(
   name: "Agriculture",
   icon: "https://image.freepik.com/icones-gratuites/tracteur_318-102062.png",
-  color: "#FACC2E"
+  color: "#FACC2E",
+  image: "https://image.freepik.com/icones-gratuites/tracteur_318-102062.png"
 )
 cat1.save!
 
 cat2 = Category.new(
   name: "Développement durable",
   icon: "https://image.freepik.com/icones-gratuites/planter-un-arbre_318-41630.png",
-  color: "#0EA723"
+  color: "#0EA723",
+  image: "https://image.freepik.com/icones-gratuites/planter-un-arbre_318-41630.png"
 )
 cat2.save!
 
 cat3 = Category.new(
   name: "Economie",
   icon: "https://image.freepik.com/icones-gratuites/tirelire_318-37219.png",
-  color: "#0AA0EB"
+  color: "#0AA0EB",
+  image: "https://image.freepik.com/icones-gratuites/tirelire_318-37219.png"
 )
 cat3.save!
 
 cat4 = Category.new(
   name: "Emploi/Formation",
   icon: "https://image.freepik.com/icones-gratuites/homme-en-bureau-avec-ordinateur_318-29805.png",
-  color: "#FE0404"
+  color: "#FE0404",
+  image: "https://image.freepik.com/icones-gratuites/homme-en-bureau-avec-ordinateur_318-29805.png"
 )
 cat4.save!
 
 cat5 = Category.new(
   name: "Habitat",
   icon: "https://image.freepik.com/icones-gratuites/la-maison-avant_318-49828.png",
-  color: "#68A49E"
+  color: "#68A49E",
+  image: "https://image.freepik.com/icones-gratuites/la-maison-avant_318-49828.png"
 )
 cat5.save!
 
 cat6 = Category.new(
   name: "Service à la personne",
   icon: "https://image.freepik.com/icones-gratuites/aider-les-personnes-agees_318-80096.png",
-  color: "#F43095"
+  color: "#F43095",
+  image: "https://image.freepik.com/icones-gratuites/aider-les-personnes-agees_318-80096.png"
 )
 cat6.save!
 
 cat7 = Category.new(
   name: "Tourisme/Culture",
   icon: "https://image.freepik.com/icones-gratuites/comiques-et-dramatiques-masques_318-61635.png",
-  color: "#FF6200"
+  color: "#FF6200",
+  image: "https://image.freepik.com/icones-gratuites/comiques-et-dramatiques-masques_318-61635.png"
 )
 cat7.save!
 
 cat8 = Category.new(
   name: "Numérique",
   icon: "https://image.freepik.com/icones-gratuites/reseau-informatique-sur-la-bande_318-39449.png",
-  color: "#0400FF"
+  color: "#0400FF",
+  image: "https://image.freepik.com/icones-gratuites/reseau-informatique-sur-la-bande_318-39449.png"
 )
 cat8.save!
 
 cat9 = Category.new(
   name: "Santé",
   icon: "https://image.freepik.com/icones-gratuites/battements-cardiaques_318-71082.png",
-  color: "#FA58F4"
+  color: "#FA58F4",
+  image: "https://image.freepik.com/icones-gratuites/battements-cardiaques_318-71082.png"
 )
 cat9.save!
 
 cat10 = Category.new(
   name: "Autre",
   icon: "https://image.freepik.com/icones-gratuites/chef-d&-39;un-groupe-avec-une-bulle-vide_318-44062.png",
-  color: "#8904B1"
+  color: "#8904B1",
+  image: "https://image.freepik.com/icones-gratuites/chef-d&-39;un-groupe-avec-une-bulle-vide_318-44062.png"
 )
 cat10.save!
 
