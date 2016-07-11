@@ -1,31 +1,105 @@
-<h2>Log in</h2>
 
+<div class="container-fluid">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+  <div class="row">
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+    <div id="feuilleCrayon" class="col-md-5 hidden-xs hidden-sm">
+      <div id="zesheet">
+        <%= inline_svg("svg/Feuille.svg") %>
+      </div>
+      <div id="zepen" class="hidden-md">
+        <%= inline_svg("svg/Pen.svg") %>
+      </div>
+      <div id="zepostit">
+        <ul>
+          <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+            <li><%= link_to "Vous n'avez pas reçu les instructions de confirmation?", new_confirmation_path(resource_name) %></li>
+          <% end -%>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+          <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+            <li><%= link_to "Vous n'avez pas reçu les instructions de déblocage?", user_unlock_path(resource_name) %></li>
+          <% end -%>
+        </ul>
+      </div>
     </div>
-  <% end -%>
+    <div id="phone-form" class="col-md-3 col-xs-12 col-sm-6">
+      <div id="zephone">
+        <div id="horlogeTel">
+          <%time=Time.now%>
+          <%= time.to_s(:time)%>
+        </div>
+        <%= inline_svg("svg/Phone.svg") %>
+      </div>
+      <div id="zeform">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <h3>CONNEXION</h3>
+          <div id="logomtek">
+            <%= image_tag "logomtech.png", alt: "logomtech" %>
+          </div>
+          <div class="input-group margin-bottom-sm" style="margin-top:10px; margin-left:5px; margin-right:5px;">
+            <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+            <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Adresse email"%>
+          </div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+          <div class="input-group"style=" margin-left:5px; margin-right:5px;padding-top:2px;">
+            <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+            <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Mot de passe" %>
+          </div>
+
+          <% if devise_mapping.rememberable? -%>
+            <div class="field" style="margin-left:5px;">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me, style: "font-weight: normal;color: rgb(80,80,80);" %>
+            </div>
+          <% end -%>
+
+          <div class="actions">
+            <%= f.submit "Se connecter", class: "btn btn-block btn-lg fa fa-sign-in", style: "font-weight: bold; font-size: 1.3em; width: 80%; margin-left: 30px; " %>
+          </div>
+
+          <div class="row" id="otherlinks">
+            <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+            <div class="col-xs-5" id="links_left" >
+                <%= link_to "S'enregistrer", new_registration_path(resource_name) %>
+              <% end -%>
+            </div>
+            <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+            <div class="col-xs-7" id="links_right">
+                <%= link_to "Mot de passe oublié ?", new_password_path(resource_name) %>
+              <% end -%>
+            </div>
+          </div>
+        <% end %>
+        <%- if devise_mapping.omniauthable? %>
+        <div class="social-connect">
+          <div id="btn-up-down"><i class="fa fa-chevron-circle-up fa-lg" aria-hidden="true"></i></div>
+          <p>Ou utilisez les réseaux sociaux :</p>
+          <%- resource_class.omniauth_providers.each do |provider| %>
+          <div class="social-login btn-group btn-block">
+            <span class="btn nohover icon-<%= OmniAuth::Utils.camelize(provider).downcase %>"><i class="fa fa-<%= OmniAuth::Utils.camelize(provider) != "GoogleOauth2" ? "#{OmniAuth::Utils.camelize(provider).downcase}" : "google-plus" %> fa-fw"></i></span>
+            <span class="btn nohover social-<%= OmniAuth::Utils.camelize(provider).downcase %>"><%= link_to OmniAuth::Utils.camelize(provider) != "GoogleOauth2" ? "Se connecter avec #{OmniAuth::Utils.camelize(provider)}" : "Se connecter avec Google+", omniauth_authorize_path(resource_name, provider) %></span>
+          </div>
+          <% end -%>
+          <div id="savinglinks">
+            <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+              <%= link_to "Vous n'avez pas reçu les instructions de confirmation?", new_confirmation_path(resource_name) %>
+            <% end -%>
+            <br>
+            <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+              <%= link_to "Vous n'avez pas reçu les instructions de déblocage?", user_unlock_path(resource_name) %>
+            <% end -%>
+          </div>
+        </div>
+        <% end -%>
+      </div>
+
+    </div>
+    <div id="coffeeCup" class="col-md-4 hidden-xs col-sm-6">
+      <div id="zecoffeecup">
+        <%= inline_svg("svg/Tasse.svg") %>
+      </div>
+    </div>
+
   </div>
-<% end %>
 
-
-
-
-
-<%= render "devise/shared/links" %>
+</div>

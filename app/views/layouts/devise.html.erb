@@ -6,7 +6,7 @@
     <title>Forum</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <%= stylesheet_link_tag 'devise', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'devise/registration.js', 'data-turbolinks-track' => true %>
+
     <%= csrf_meta_tags %>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -15,9 +15,10 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body class="hold-transition login-page">
+  <body>
     <%= render "partials/alert" %>
     <%= yield %>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1Sle-FLE8KuTpBvtogMqwXgMCisKj9ME&signed_in=true&libraries=places&callback=initAutocomplete" async defer></script>
+    <%= javascript_include_tag 'devise', media: 'all', 'data-turbolinks-track' => true %>
   </body>
 </html>
