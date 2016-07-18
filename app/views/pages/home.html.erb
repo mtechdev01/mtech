@@ -104,72 +104,57 @@
         </div>
         <div class="row">
           <div class="projets_content">
-            <div class="col-xs-12 col-md-4">
-              <article class="projet-one">
-                <div class="col-xs-2">
-                  <i class="fa fa-user"></i>
+            <div class="last">
+              <% @last_projects.each do | lastProject | %>
+                <div class="col-xs-12 col-md-4">
+                  <article class="projet-one">
+                    <div class="col-xs-2">
+                      <%= image_tag( lastProject.category.icon,  alt: "icone projet")%>
+                    </div>
+                    <div class="col-xs-10">
+                      <%= link_to image_tag( lastProject.thumb,  alt: "image article") , project_path( lastProject.friendly_id )%>
+                    </div>
+                    <div class="projet-one_desc">
+                      <h2><%= link_to lastProject.name , project_path( lastProject.friendly_id )%></h2>
+                      <h4><%= lastProject.owner.first_name %> <%= lastProject.owner.last_name %></h4>
+                      <p class="hidden-xs hidden-sm  hidden-md ">
+                      <%=  truncate(lastProject.content, :length => 180, :omission => "" , :escape => false) %>
+                      </p>
+                      <div class="projet-one_time">
+                        le 15 juillet 2015
+                      </div>
+                      <%= link_to "Voir le projet", project_path( lastProject.friendly_id ),  class:"btn btn-primary btn-projet"%>
+                    </div>
+                  </article>
                 </div>
-                <div class="col-xs-10">
-                  <%= image_tag( "ordinature.JPG",  alt: "image article")%>
-                </div>
-                <div class="projet-one_desc">
-                  <h2>aaaaaaaaaaaa aaaaaaaaaaaa aaaaaaaaaaaa aaaaaaaaaaaa aaaaaaaaaaaa aaaaaaaaaaaa aaaaaaaaaaaa aaaaaaaaaaaa aaaaaaaaaaaa aaaaaaaaaaaa </h2>
-                  <h4>par mouloud</h4>
-                  <p class="hidden-md">
-                    Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression
-                    Le Lorem Ipsum est simplement du faux texte employé
-                  </p>
-                  <div class="projet-one_time">
-                    le 15 juillet 2015
-                  </div>
-                  <a href="#" class="btn btn-primary btn-projet">Voir le projet</a>
-                </div>
-              </article>
+              <% end %>
             </div>
-            <div class="col-xs-12 col-md-4">
-              <article class="projet-one">
-                <div class="col-xs-2">
-                  <i class="fa fa-user"></i>
+            <div class="commented"  style="display: none;">
+              <%@most_active_projects.each do | lastProject | %>
+                <div class="col-xs-12 col-md-4">
+                  <article class="projet-one">
+                    <div class="col-xs-2">
+                      <%= image_tag( lastProject.category.icon,  alt: "icone projet")%>
+                    </div>
+                    <div class="col-xs-10">
+                      <%= link_to image_tag( lastProject.thumb,  alt: "image article") , project_path( lastProject.friendly_id )%>
+                    </div>
+                    <div class="projet-one_desc">
+                      <h2><%= link_to lastProject.name , project_path( lastProject.friendly_id )%></h2>
+                      <h4><%= lastProject.owner.first_name %> <%= lastProject.owner.last_name %></h4>
+                      <p class="hidden-xs hidden-sm  hidden-md ">
+                      <%=  truncate(lastProject.content, :length => 180, :omission => "" , :escape => false) %>
+                      </p>
+                      <div class="projet-one_time">
+                        le 15 juillet 2015
+                      </div>
+                      <%= link_to "Voir le projet", project_path( lastProject.friendly_id ),  class:"btn btn-primary btn-projet"%>
+                    </div>
+                  </article>
                 </div>
-                <div class="col-xs-10">
-                  <%= image_tag( "verdun.jpg",  alt: "image article")%>
-                </div>
-                <div class="projet-one_desc">
-                  <h2>Projet titre</h2>
-                  <h4>par mouloud</h4>
-                  <p>
-                    Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression
-                    Le Lorem Ipsum est simplement du faux texte employé
-                  </p>
-                  <div class="projet-one_time">
-                    le 15 juillet 2015
-                  </div>
-                  <a href="#" class="btn btn-primary btn-projet">Voir le projet</a>
-                </div>
-              </article>
+              <% end %>
             </div>
-            <div class="col-xs-12 col-md-4">
-              <article class="projet-one">
-                <div class="col-xs-2">
-                  <i class="fa fa-user"></i>
-                </div>
-                <div class="col-xs-10">
-                  <%= image_tag( "hdd.jpg",  alt: "image article")%>
-                </div>
-                <div class="projet-one_desc">
-                  <h2>Projet titre</h2>
-                  <h4>par mouloud</h4>
-                  <p>
-                    Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression
-                    Le Lorem Ipsum est simplement du faux texte employé
-                  </p>
-                  <div class="projet-one_time">
-                    le 15 juillet 2015
-                  </div>
-                  <a href="#" class="btn btn-primary btn-projet">Voir le projet</a>
-                </div>
-              </article>
-            </div>
+
           </div>
         </div>
       </div>

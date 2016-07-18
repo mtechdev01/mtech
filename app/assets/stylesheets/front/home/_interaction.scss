@@ -3,7 +3,8 @@
   position: relative;
   #interactionContainer {
     background-color: white;
-    padding: 75px;
+    padding: 45px;
+    padding-top: 45px;
     margin-top: -10%;
     margin-bottom: 10%;
     .interaction-one{
@@ -16,15 +17,17 @@
         display: block;
         margin-bottom:15px;
         img {
+          padding:15%;
           width: 100%;
         }
-        h2  {
-          text-transform: uppercase;
-          color: #404040;
-        }
-        p {
-          color: #404040;
-        }
+      }
+      h2  {
+        text-align: center;
+        text-transform: uppercase;
+        color: #404040;
+      }
+      p {
+        color: #404040;
       }
     }
   }

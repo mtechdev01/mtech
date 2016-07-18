@@ -3,7 +3,7 @@
   #newsBlock-repere {
     position: relative;
     #newsBlock {
-       background-color:$primary;
+       background-color:lighten($primary, 5%);
        #newsBlock-content {
          padding-top:40px;
          padding-bottom:40px;
@@ -16,6 +16,9 @@
            padding:0;
            font-size:2em;
            line-height: 2em;
+         }
+         .btn {
+               vertical-align: super;
          }
        }
     }
@@ -30,7 +33,7 @@
         top:-65px;
         left:0;
          height:100px;right:0;
-         background-color:$primary;
+         background-color:lighten($primary, 5%);
          #newsBlock-content {
            padding-top:0;
            padding-bottom:0;
@@ -85,7 +88,7 @@
         top:-65px;
         left:0;
          height:130px;right:0;
-         background-color:$primary;
+        background-color:lighten($primary, 5%);
          #newsBlock-content {
            margin-left:150px;
            margin-right:150px;

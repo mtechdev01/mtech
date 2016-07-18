@@ -3,7 +3,7 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-md-4">
-            <img src="assets/img/logo.png" alt="" class="img-responsive" width="250px" />
+              <%= image_tag( "logo.png",  alt: "logo meusetech", class:"img-responsive", size: "250x250")%>
           </div>
           <div class="col-xs-12 col-md-4">
             <h3>Informations</h3>
@@ -16,26 +16,11 @@
           </div>
           <div class="col-xs-12 col-md-4 footer-articles">
             <div class="row">
-              <div class="col-xs-4">
-                  <a href="#"><img src="assets/img/verdun.jpg" class="img-responsive"alt="" /></a>
-              </div>
-              <div class="col-xs-4">
-                  <a href="#"><img src="assets/img/verdun.jpg" class="img-responsive"alt="" /></a>
-              </div>
-              <div class="col-xs-4">
-                  <a href="#"><img src="assets/img/verdun.jpg" class="img-responsive"alt="" /></a>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-4">
-                  <a href="#"><img src="assets/img/verdun.jpg" class="img-responsive" alt="" /></a>
-              </div>
-              <div class="col-xs-4">
-                  <a href="#"><img src="assets/img/verdun.jpg" class="img-responsive" alt="" /></a>
-              </div>
-              <div class="col-xs-4">
-                  <a href="#"><img src="assets/img/verdun.jpg" class="img-responsive" alt="" /></a>
-              </div>
+                <% @last_projects.each do | lastProject | %>
+                <div class="col-xs-4">
+                  <%= link_to image_tag( lastProject.thumb, size:"145x145" ), project_path( lastProject.friendly_id )%>
+                </div>
+                <% end %>
             </div>
           </div>
         </div>

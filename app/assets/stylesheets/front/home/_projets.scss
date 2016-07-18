@@ -3,7 +3,7 @@
 @media screen and (min-width: 460px) {
   #projets {
     background: asset-url("clouds-background-light.jpg") no-repeat;
-    background-position: 0 300%;
+    background-position: 0 120%;
     background-color: #A0DAFF;
     margin-bottom: 15%;
     .projets_block-title{
@@ -55,6 +55,7 @@
     .projets_content {
       margin-top: 90px;
       .projet-one {
+        margin-top: 15px;
         i {
           position: absolute;
           top: 0;
@@ -75,7 +76,7 @@
           word-wrap: break-word;
           left: 0;
           width: 60%;
-          height: 50%;
+          height: auto;
           box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
           background-color: white;
           padding-bottom: 20px;
