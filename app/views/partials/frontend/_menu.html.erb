@@ -8,10 +8,17 @@
                 <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
               </div>
               <div id="userBar" class="col-xs-10">
-                <a href="#"><i class="fa fa-user" aria-hidden="true"></i> S'enregistrer</a>
-                <a href="#"><i class="fa fa-home" aria-hidden="true"></i> Adresse</a>
-                <a href="#"><i class="fa fa-mobile" aria-hidden="true"></i> Notifications</a>
-                <a href="#"><i class="fa fa-globe" aria-hidden="true"></i> Espace perso</a>
+                <% if !user_signed_in? %>
+                <%= link_to "<i class='fa fa-user' aria-hidden='true'></i> Se connecter".html_safe, new_session_path(:user) %>
+                <% else %>
+                  <%= link_to "<i class='fa fa-power-off' aria-hidden='true'></i> Deconnexion".html_safe, destroy_user_session_path, :method => :delete %>
+                  <% if current_user.is_admin %>
+                    <%= link_to "<i class='fa fa-dashboard' aria-hidden='true'></i> Administration".html_safe, admin_dashboard_url %>
+                  <% end %>
+                  <a href="#"><i class="fa fa-home" aria-hidden="true"></i> Adresse</a>
+                  <a href="#"><i class="fa fa-mobile" aria-hidden="true"></i> Notifications</a>
+                  <%= link_to "<i class='fa fa-globe' aria-hidden='true'></i> Mon espace perso".html_safe, users_Account_url %>
+                <% end %>
               </div>
             </div>
           </div>
@@ -31,11 +38,11 @@
               </div>
               <div class="collapse navbar-collapse" id="TopMenu">
                 <ul class="nav navbar-nav navbar-right">
-                  <li><a href="#">Accueil</a></li>
-                  <li><a href="#">Articles</a></li>
-                  <li><a href="#">Projets</a></li>
-                  <li><a href="#">Sondages</a></li>
-                  <li><a href="#">Pourquoi ce site ?</a></li>
+                  <li><%= link_to "Accueil", root_path %></li>
+                  <li><%= link_to "Articles", articles_path %></li>
+                  <li><%= link_to "Projets", projects_path %></li>
+                  <li><%= link_to "Sondages", surveys_path %></li>
+                  <li><%= link_to "A propos", about_url %></li>
                 </ul>
               </div>
             </div>
