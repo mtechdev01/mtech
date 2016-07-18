@@ -19,7 +19,6 @@ $navSocialLinkMarge: 7px;
   #socialLink{
     a , a:visited , a:focus, {
       color:white;
-      font-size: 0.4em;
       transition: all 250ms;
       &:hover{
         color:$primary;
@@ -35,9 +34,7 @@ $navSocialLinkMarge: 7px;
     a , a:visited , a:focus, {
       color:white;
       transition: all 250ms;
-      padding-right: $navSocialLinkMarge;
       position: relative;
-      font-size: 0.6em;
       &:after {
         content: " ";
         position: absolute;
@@ -47,15 +44,15 @@ $navSocialLinkMarge: 7px;
         width: 2px;
         background-color: white;
       }
-      &:nth-last-child(1){
+      &:last-child{
         &:after {
-          width: 0;
+          width: 0px;
         }
       }
       i {
         color:$primary;
       }
-      &:hover{
+      &:hover, &:focus:hover{
         color:$primary;
       }
     }
@@ -64,7 +61,7 @@ $navSocialLinkMarge: 7px;
 
 #menu {
   max-height: $navSocialSize*2;
-  background-color: rgba(0,0,0, 0.75);
+  background-color: rgba(0,0,0, 0.35);
   margin: 0;
   padding:0;
   border: none;
@@ -76,7 +73,8 @@ $navSocialLinkMarge: 7px;
 }
 
 #TopMenu {
-  a{
+   li > a{
+    margin-left: $navSocialLinkMarge*4;
     margin-right: $navSocialLinkMarge*8;
     line-height: $navSocialSize;
     position: relative;
@@ -90,18 +88,20 @@ $navSocialLinkMarge: 7px;
     &:after {
       content: " ";
       position: absolute;
-      right: -$navSocialLinkMarge*3;
+      right: -20%;
       top: 20%;
       bottom: 20%;
       width: 2px;
       background-color: white;
     }
+
   }
-  a:nth-last-child(0){
+  li:last-child > a{
     &:after {
-      width: 0;
+      width: 0px;
     }
   }
+
 }
 
 
@@ -121,6 +121,7 @@ $navSocialLinkMarge: 7px;
     font-size: 0.8em;
     #TopMenu {
       a{
+        font-size: 1em;
         margin-right: $navSocialLinkMarge*4;
       }
     }
@@ -130,12 +131,12 @@ $navSocialLinkMarge: 7px;
 
 @media  screen and (min-width: 768px) {
   #navSocial #userBar a {
-    font-size: 1em;
+    font-size: 0.8em;
     padding-right: 10px;
     padding-left: 10px;
   }
   #navSocial #socialLink a {
-    font-size: 1em;
+    font-size: 0.8em;
     i {
       padding-right: 20px;
     }
@@ -145,8 +146,21 @@ $navSocialLinkMarge: 7px;
     font-size: 0.8em;
     #TopMenu {
       a{
+        font-size: 1.2em;
         margin-right: $navSocialLinkMarge*4;
       }
     }
+  }
+}
+
+@media  screen and (min-width: 996px) {
+  #navSocial #userBar a {
+    font-size: 1em;
+  }
+  #navSocial #socialLink a {
+    font-size: 1em;
+  }
+  #menu {
+    font-size: 1em;
   }
 }
