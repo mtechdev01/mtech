@@ -22,8 +22,8 @@ class Project < ActiveRecord::Base
       where(owner: user ).order( created_at: :desc)
   end
 
-  def self.lasts
-    self.all.where(published: "t").order(created_at: :desc).first(3)
+  def self.lasts number
+    self.all.where(published: "t").order(created_at: :desc).first(number)
   end
 
   def self.mostActive
