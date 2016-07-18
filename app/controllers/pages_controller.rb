@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @most_active_projects = Project.mostActive
-    @last_projects = Project.lasts
+    @last_projects = Project.lasts(6)
   end
 
   def about
