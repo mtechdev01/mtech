@@ -1,0 +1,92 @@
+$primary: #EF9A3E;
+$secondary: #4D9AB9;
+$navSocialSize: 35px;
+$navSocialLinkMarge: 7px;
+footer {
+  background:  asset-url("verdun_03.jpg") top left no-repeat;
+  background-size: cover;
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
+  position: relative;
+  .mask {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0,0,0, 0.65);
+    z-index: 1;
+  }
+  .col-xs-4, .col-xs-12 {
+    z-index: 10;
+    color: white;
+    ul {
+      list-style: none;
+      margin:0;
+      padding:0;
+      li {
+        border-bottom: 2px solid $primary;
+        line-height: 45px;
+        font-size: 16px;
+        i{
+          font-size:18px;
+          color:$primary;
+          padding-right: 10px;
+        }
+      }
+    }
+
+  }
+  .footer-articles  {
+    text-align: center;
+    .row {
+      margin-bottom: 20px;
+    }
+    a {
+      position: relative;
+      margin: 10px;
+      width: 100%;
+      display: block;
+      transition: all 250ms;
+      overflow:hidden;
+      &:after {
+        content: ' ';
+        position: absolute;
+        top: 0;left:0;right: 0;bottom: 0;
+        border-radius: 100%;
+        transform: scale(0);
+        background-color: rgba(0,0,0, 0.5);
+        transition: all 250ms;
+      }
+      &:hover {
+          &:after {
+            transform: scale(1.5);
+          }
+      }
+      img {
+        border: 2px solid $primary;
+      }
+    }
+  }
+}
+#copyright {
+  min-height: 50px;
+  background-color: rgb(0,0,0);
+  line-height: 50px;
+  #mentions {
+    color: white;
+    padding-left: 100px;
+    a {
+      color: $primary;
+    }
+    span {
+      padding-right: 100px;
+    }
+  }
+  .socials {
+    font-size: 28px;
+    color: white;
+    padding-right: 100px;
+    i {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+}

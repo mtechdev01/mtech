@@ -1,0 +1,123 @@
+@import "../vars";
+
+@media screen and (min-width: 460px) {
+  #projets {
+    background: asset-url("clouds-background-light.jpg") no-repeat;
+    background-position: 0 300%;
+    background-color: #A0DAFF;
+    margin-bottom: 15%;
+    .projets_block-title{
+      color:rgb(80 , 80, 80);
+      text-align: center;
+      margin-top: 150px;
+      h1  {
+        font-size: 3em;
+        text-transform: uppercase;
+      }
+      p {
+        font-size: 1.5em;
+        width: 50%;
+        margin: 0 auto;
+      }
+    }
+    .projets_navs {
+      color: white;
+      padding-top: 25px;
+      text-align: center;
+      position: relative;
+      i {
+        font-size: 2.5em;
+        line-height: 50px;
+        vertical-align: middle;
+        margin-right: 15px;
+      }
+      div:first-child{
+        text-align: right;
+        > a {
+          &:after {
+            content: ' ';
+            position: absolute;
+            top: 0;
+            right:-20px;
+            width: 4px;
+            bottom: 0;
+            background-color: white;
+          }
+        }
+      }
+
+      div:last-child {
+        text-align: left;
+        padding-left: 40px;
+      }
+    }
+
+    .projets_content {
+      margin-top: 90px;
+      .projet-one {
+        i {
+          position: absolute;
+          top: 0;
+          left:0;
+          font-size: 45px;
+          padding-top: 33%;
+          padding-left: 33%;
+          display : block;
+          margin: 0 auto;
+        }
+        img {
+          width: 100%;
+        }
+        .projet-one_desc {
+
+          position: absolute;
+          top: 33%;
+          word-wrap: break-word;
+          left: 0;
+          width: 60%;
+          height: 50%;
+          box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+          background-color: white;
+          padding-bottom: 20px;
+          padding-left: 15px;
+          h2 {
+            font-size : 17px;
+            font-weight: bold;
+            text-transform: uppercase;
+          }
+          h4 {
+            font-size : 12px;
+            font-style: italic;
+          }
+          .projet-one_time {
+            font-weight: bold;
+            font-size : 12px;
+            padding-bottom: 20px;
+          }
+           .btn-projet {
+                width: 90%;
+          }
+        }
+      }
+
+    }
+
+  }
+}
+@media screen and (min-width: 768px) {
+  #projets{
+    .projets_navs {
+
+    }
+  }
+}
+@media screen and (min-width: 992px) {
+
+}
+@media screen and (min-width: 1200px) {
+  #projets{
+    .projets_navs {
+
+    }
+  }
+}
