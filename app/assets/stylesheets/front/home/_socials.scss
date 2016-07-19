@@ -1,11 +1,16 @@
 @import "../vars";
 #socials {
-  padding-top: 25vh;
+  min-height: 65vh;
   #oiseauMT{
     text-align: right;
-    img {
+    svg {
+      position: absolute;
+      top: 0 ; left:0;
       width: 100%;
-      margin-top: -25%;
+      height:75vh;
     }
+  }
+  #PanneauReseauxSociaux {
+
   }
 }
