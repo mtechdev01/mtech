@@ -16,7 +16,7 @@
           </div>
           <div class="col-xs-12 col-md-4 footer-articles">
             <div class="row">
-                <% @last_projects.each do | lastProject | %>
+                <% @last_projects.each do |lastProject| %>
                 <div class="col-xs-4">
                   <%= link_to image_tag( lastProject.thumb, size:"145x145" ), project_path( lastProject.friendly_id )%>
                 </div>

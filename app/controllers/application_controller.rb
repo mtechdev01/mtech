@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   layout :layout_by_resource
   before_filter :configure_permitted_parameters, if: :devise_controller?
-  before_filter :getnotifs
+  before_filter :getnotifs, :getlastsprojects
 
   protected
 
@@ -24,6 +24,10 @@ class ApplicationController < ActionController::Base
       end
   end
 
+  def getlastsprojects
+    @last_projects = Project.last(6)
+  end
+
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:username, :country, :cp, :last_name, :first_name, :city, :territory_attachment, :email, :password, :password_confirmation, :remember_me, :is_registered) }
@@ -35,12 +39,6 @@ class ApplicationController < ActionController::Base
     flash[:notice]  = msg
     flash[:class]   = msgClass
     redirect_to url
-  end
-
-  def getnotifs
-      if user_signed_in?
-        @notifications = current_user.notifications.where( read: false).order(created_at: "desc")
-      end
   end
 
 end

@@ -1,13 +1,37 @@
-<% @articles.each do | article | %>
-  <h1><%= link_to article.name, article_path( article.friendly_id )%></h1>
-  <p>
-    <%= article.content %>
-  </p>
-  <ul>
-    <li>Créé le:  <%= article.published_at %></li>
-    <li>Auteur:   <%= article.owner.username %></li>
-    <li>Catégorie: <%= article.category.name %></li>
-  </ul>
-<% end %>
+<%= stylesheet_link_tag 'articles', media: 'all', 'data-turbolinks-track' => true %>
 
-  <%= will_paginate @articles %>
+<section id="actualites">
+  <div class="container">
+    <div class="col-md-9">
+      <% @articles.each do | article | %>
+        <h1><%= link_to article.name, article_path( article.friendly_id )%></h1>
+        <p>
+          <%= article.content %>
+        </p>
+        <ul>
+          <li>Créé le:  <%= article.published_at %></li>
+          <li>Auteur:   <%= article.owner.username %></li>
+          <li>Catégorie: <%= article.category.name %></li>
+        </ul>
+      <% end %>
+
+      <%= will_paginate @articles %>
+    </div>
+    <div class="col-md-3 menu-categories">
+      <h3>Catégories :</h3>
+      <ul>
+        <li>Agriculture</li>
+        <li>Aide à la personne</li>
+        <li>High Tech</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+<%= javascript_include_tag 'articles', 'data-turbolinks-track' => true %>
