@@ -1,59 +1,139 @@
-<article class="article-one">
-  <h1><%= link_to @project.name, article_path( @project.friendly_id ) %></h1>
-  <p>
-    <%= @project.content %>
-  </p>
-  <ul>
-    <li>Créé le:  <%= @project.created_at %></li>
-    <li>Auteur:   <%= @project.owner.username %></li>
-    <li>Catégorie: <%= @project.category.name %></li>
-  </ul>
-</article>
-<section id="comments">
-
-  <% if user_signed_in? %>
-
-    <%= form_tag "/projects/new_support" do %>
-      <%= hidden_field_tag "id", @project.id %>
-      <% if @supported_by_user %>
-        <%= submit_tag "Je ne souhaite plus soutenir ce projet" %>
-      <% else %>
-        <%= submit_tag "Je soutiens ce projet" %>
-      <% end %>
-    <% end %>
-
-    <%= form_tag "/projects/new_participation" do %>
-      <%= hidden_field_tag "id", @project.id %>
-    <% if @user_participates %>
-      <%= submit_tag "Je ne souhaite plus participer à ce projet" %>
-    <% else %>
-      <%= submit_tag "Je souhaite participer à ce projet" %>
-      <% end %>
-    <% end %>
-
-    <%= form_for :comment, :url => article_comments_path(@project) do |f| %>
-      <input id="comment[commentable_type]" name="comment[commentable_type]" type="hidden" value="Project" />
-      <input id="comment[commentable_id]" name="comment[commentable_id]" type="hidden" value="<%= @project.id %>" />
-      <%= f.text_area :content, class: "form-control", rows: "6", cols: "100"%>
-      <%= f.submit :valider %>
-    <% end %>
-  <% end %>
-
-  <div class="comments-one">
-    <h2>Commentaires</h2>
-    <% @project.comments.each do | comment | %>
-        <% if comment.is_valid === true %>
-            <p>
-                <%= comment.content %>
-            </p>
-            <ul>
-              <li>par: <%= comment.user.username %></li>
-              <li>il y a: <%= time_ago_in_words(comment.created_at) %></li>
-            </ul>
-        <% elsif comment.user === current_user %>
-            <p>Votre commentaire est en attente de validation par un administrateur</p>
-        <% end %>
-    <% end %>
+<%= stylesheet_link_tag 'front/projets/show', media: 'all', 'data-turbolinks-track' => true %>
+<header>
+  <div class="container">
+    <div class="row" id="header">
+      <div id="projet__arianne">
+        <ul>
+          <li><a href="#">Projets</a> <i class="fa fa-angle-right"></i></li>
+          <li><a href="#"><%= @project.category.name %></a> <i class="fa fa-angle-right"></i></li>
+          <li><a href="#"><%= @project.name %></a></li>
+        </ul>
+      </div>
+      <div id="projet__title">
+        <a href="#" class="btn btn-primary"><%= @project.category.name %></a>
+        <h1><%= link_to @project.name, project_path( @project.friendly_id ) %></h1>
+      </div>
+      <div id="projet__infos">
+        <ul>
+          <li>Par  <a href="#"><%= @project.owner.username %></a></li>
+          <li>Publié le  <%= time_tag @project.created_at, format: "%A %d %B %Y" %> </li>
+          <li><%= @project.comments.count %> commentaires</li>
+        </ul>
+      </div>
+    </div>
   </div>
+</header>
 
+
+<section id="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10">
+        <div id="linksShare">
+          <div class="row">
+            <div class="col-xs-3">
+              <a href="#" class="btn btn-facebook btn-facebook btn-block">Facebook</a>
+            </div>
+            <div class="col-xs-3">
+              <a href="#" class="btn btn-facebook btn-twitter btn-block">Twitter</a>
+            </div>
+            <div class="col-xs-3">
+              <% if user_signed_in? %>
+                <%= form_tag "/projects/new_support" do %>
+                  <%= hidden_field_tag "id", @project.id %>
+                  <% if @supported_by_user %>
+                    <%= submit_tag "Je ne souhaite plus soutenir ce projet", class: "btn btn-support  btn-block" %>
+                  <% else %>
+                    <%= submit_tag "Je soutiens ce projet", class: "btn btn-support  btn-block" %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="col-xs-3">
+              <% if user_signed_in? %>
+                <%= form_tag "/projects/new_participation" do %>
+                  <%= hidden_field_tag "id", @project.id %>
+                  <% if @user_participates %>
+                    <%= submit_tag "Je ne souhaite plus participer à ce projet", class: "btn btn-participation btn-block" %>
+                  <% else %>
+                    <%= submit_tag "Je souhaite participer à ce projet", class: "btn btn-participation btn-block" %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <article class="article-one">
+          <div class="row">
+            <div class="col-xs-6">
+              <%= image_tag @project.thumb, class:"img-responsive" %>
+            </div>
+            <div class="col-xs-6">
+              <ul>
+                <li>Date de démarrage du projet: <%= time_tag @project.created_at, format: "%A %d %B %Y"  %> </li>
+                <li>Territoire impacté: <%= @project.location%> </li>
+                <li>Avancement:
+                  <ul>
+                    <li>Réflexion</li>
+                    <li>Définition</li>
+                    <li>Analyse du marché</li>
+                    <li>Recherche de partenaire</li>
+                    <li>Montage financier</li>
+                    <li>Mise en oeuvre</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <p>
+            <%= @project.content %>
+          </p>
+        </article>
+        <section id="comments">
+
+          <% if user_signed_in? %>
+
+            <%= form_for :comment, :url => article_comments_path(@project) do |f| %>
+              <input id="comment[commentable_type]" name="comment[commentable_type]" type="hidden" value="Project" />
+              <input id="comment[commentable_id]" name="comment[commentable_id]" type="hidden" value="<%= @project.id %>" />
+              <%= f.text_area :content, class: "form-control", rows: "6", cols: "100"%>
+              <%= f.submit :valider %>
+            <% end %>
+          <% end %>
+
+          <div class="comments-one">
+            <h2>Commentaires</h2>
+            <% @project.comments.each do | comment | %>
+            <div class="media">
+              <div class="media-left">
+                <a href="#">
+                  <%= image_tag comment.user.avatar, class:"img-rounded", size:"75x75"%>
+                </a>
+              </div>
+              <div class="media-body">
+                <% if comment.is_valid === true %>
+                <h4 class="media-heading"><%= time_ago_in_words(comment.created_at) %> par <%= comment.user.username %></h4>
+                <%= comment.content %>
+                <% elsif comment.user === current_user %>
+                    <p>Votre commentaire est en attente de validation par un administrateur</p>
+                <% end %>
+
+              </div>
+            </div>
+            <% end %>
+            </div>
+        </section>
+      </div>
+      <div class="col-md-2" id="sidebar">
+        <div>
+          <h3>Catégories :</h3>
+          <ul>
+            <li>Agriculture</li>
+            <li>Aide à la personne</li>
+            <li>High Tech</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

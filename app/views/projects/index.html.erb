@@ -1,13 +1,136 @@
-<% @projects.each do | project | %>
-  <h1><%= link_to project.name, project_path( project.friendly_id )%></h1>
-  <p>
-    <%= project.content %>
-  </p>
-  <ul>
-    <li>Créé le:  <%= project.created_at %></li>
-    <li>Auteur:   <%= project.owner.username %></li>
-    <li>Catégorie: <%= project.category.name %></li>
-  </ul>
-<% end %>
+<%= stylesheet_link_tag 'front/projets/index', media: 'all', 'data-turbolinks-track' => true %>
+<header>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1>Bienvenue sur la plateforme participative et collaborative de Meuse Tech</h1>
+        <ul>
+          <li>Accueil</li>
+          <li>Projets</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+<section id="projetsInfos">
 
-<%= link_to 'Créer un nouveau projet', new_project_path, 'data-no-turbolink' => true, class: "btn btn-info" %>
+  <div class="container">
+    <p id="first">L’esprit MeuseTech, c’est quoi ? </p>
+    <hr>
+    <p id="second">
+      Il s’agit de rassembler sous ce chapeau l’ensemble des initiatives intelligentes et novatrices du territoire pour dynamiser la vie économique et sociale, ouvrir de nouvelles perspectives. Celles-ci pouvant prendre plusieurs formes :
+    </p>
+    <div class="row">
+      <div class="col-xs-3">
+        <%= inline_svg("svg/innov.svg", class: "logo-description") %>
+        <p>
+          Projet innovant : projet exemplaire,inédit sur le territoire, expérimental
+        </p>
+      </div>
+      <div class="col-xs-3">
+        <%= inline_svg("svg/newtech.svg", class: "logo-description") %>
+        <p>
+          Recours aux nouvelles technologies, offre numérique qualitative
+        </p>
+      </div>
+      <div class="col-xs-3">
+        <%= inline_svg("svg/mains.svg", class: "logo-description") %>
+        <p>
+          Initiative interdisciplinaire, mise en réseau des acteurs, économie du partage, innovation sociale
+        </p>
+      </div>
+      <div class="col-xs-3">
+        <%= inline_svg("svg/ampoule.svg", class: "logo-description") %>
+        <p>
+          actions de développement durable, réduction des dépenses énergétiques
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="projetsIdees">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-md-6" id="projetsIdees_infos">
+        <h2>Vous avez des idées, un projet ?</h2>
+        <hr>
+        <p>
+          Vous souhaitez recueillir des avis sur son intérêt, développer le concept, Tout le monde peut déposer un projet ! Devenez acteur de votre territoire en quelques clics :
+        </p>
+        <a href="#" class="btn btn-primary">Je dépose un projet</a>
+      </div>
+      <div class="hidden-xs hidden-sm col-md-6" id="projetsIdees_illustration">
+        <%= image_tag("svg/DepotProjet.svg", class: "svgBoite") %>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="projetsCounter">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+        <p>
+          Actuellement <span><%= @projectsCount %></span>  projets sont déposés sur MeuseTech
+        </p>
+        <p>
+          Participez aux projets déposés en donnant votre avis, en vous associant, en apportant un coup de main.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="projetsList">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 nopadding">
+        <nav id="projectNav">
+          <ul>
+            <li><a href="#">Date</a></li>
+            <li><a href="#">Pertinance</a></li>
+            <li class="drop">
+              <a href="#">Catégories <i class="fa fa-chevron-down"></i></a>
+              <ul>
+                <% @categories.each do | category | %>
+                <li><a href="#"><%= category.name %></a></li>
+                <% end %>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid" id="pList">
+    <% @projects.each_with_index do | project, index | %>
+      <% index = index + 1%>
+      <% if index%4 == 0 || index == 1 %>
+      <div class="row projetLigne">
+      <% end %>
+        <div class="col-xs-12 col-md-4 ">
+          <article class="projet-one">
+            <div class="col-xs-2">
+              <%= image_tag( project.category.icon,  alt: "icone projet")%>
+            </div>
+            <div class="col-xs-10">
+              <%= link_to image_tag( project.thumb,  alt: "image article") , project_path( project.friendly_id )%>
+            </div>
+            <div class="projet-one_desc">
+              <h2><%= link_to project.name , project_path( project.friendly_id )%></h2>
+              <h4><%= project.owner.first_name %> <%= project.owner.last_name %></h4>
+              <p class="hidden-xs hidden-sm  hidden-md ">
+              <%=  truncate(project.content, :length => 180, :omission => "" , :escape => false) %>
+              </p>
+              <div class="projet-one_time">
+                le 15 juillet 2015
+              </div>
+              <%= link_to "Voir le projet", project_path( project.friendly_id ),  class:"btn btn-primary btn-projet"%>
+            </div>
+          </article>
+        </div>
+      <% if index%3 == 0  && index != 1 %>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+
+</section>

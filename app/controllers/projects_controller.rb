@@ -4,7 +4,9 @@ class ProjectsController < ApplicationController
 
 
   def index
-    @projects = Project.published.page(params[:page]).order('created_at DESC')
+    @projects = Project.page(params[:page]).order('created_at DESC')
+    @projectsCount = Project.count
+    @categories = Category.all.select(:name)
   end
 
   def show
@@ -57,13 +59,13 @@ class ProjectsController < ApplicationController
     @project = Project.friendly.find(params[:id])
     @categories = Category.all
   end
-    
+
   def participations
     @project = Project.friendly.find(params[:id])
     @participations = Interaction.where({role: "participation", project: @project})
     @participants = Array.new
     @participations.each do |participation|
-        @participants.push(participation.user)    
+        @participants.push(participation.user)
     end
   end
 
