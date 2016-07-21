@@ -29,33 +29,33 @@
     <section id="interaction">
       <div class="container">
         <div class="row"  id="interactionContainer">
-          <div class="interaction-one col-md-4 col-sm-12">
-            <a href="#"  class="interaction-img">
-              <%= image_tag( "hdd.jpg",  alt: "image article")%>
-            </a>
-            <h2>Je m'inscris</h2>
+          <div class="interaction-one col-md-4 col-sm-12" id="MainSigneBlock">
+            <a href="#"  class="interaction-img" >
+              <%= inline_svg("svg/Sinscrire.svg") %>
+
+            <h2>Je m'inscris</h2></a>
             <p class="hidden-xs">
               Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
               Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500,
               quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.
             </p>
           </div>
-          <div class="interaction-one col-md-4 col-sm-12">
+          <div class="interaction-one col-md-4 col-sm-12" id="DepotProjetBlock">
             <a href="#"  class="interaction-img">
-              <%= image_tag( "hdd.jpg",  alt: "image article")%>
-            </a>
-            <h2>Je dépose un projet</h2>
+              <%= inline_svg("svg/DepotProjet.svg") %>
+
+            <h2>Je dépose un projet</h2></a>
             <p class="hidden-xs">
               Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
               Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500,
               quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.
             </p>
           </div>
-          <div class="interaction-one col-md-4 col-sm-12">
+          <div class="interaction-one col-md-4 col-sm-12" id="SondageBlock">
             <a href="#"  class="interaction-img">
-              <%= image_tag( "hdd.jpg",  alt: "image article")%>
-            </a>
-            <h2>Je participe à un sondage</h2>
+              <%= inline_svg("svg/Sondage.svg") %>
+
+            <h2>Je participe à un sondage</h2></a>
             <p class="hidden-xs">
               Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.
               Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500,
@@ -105,7 +105,8 @@
         <div class="row">
           <div class="projets_content">
             <div class="last">
-              <% @last_projects.each do | lastProject | %>
+              <% @last_projects.each_with_index do | lastProject, index | %>
+              <% if index < 3 %>
                 <div class="col-xs-12 col-md-4">
                   <article class="projet-one">
                     <div class="col-xs-2">
@@ -127,10 +128,12 @@
                     </div>
                   </article>
                 </div>
+                <% end %>
               <% end %>
             </div>
             <div class="commented"  style="display: none;">
-              <%@most_active_projects.each do | lastProject | %>
+              <%@most_active_projects.each_with_index do | lastProject, index | %>
+                <% if index < 3 %>
                 <div class="col-xs-12 col-md-4">
                   <article class="projet-one">
                     <div class="col-xs-2">
@@ -152,9 +155,9 @@
                     </div>
                   </article>
                 </div>
+                <% end %>
               <% end %>
             </div>
-
           </div>
         </div>
       </div>
@@ -163,9 +166,10 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-xs-5" id="oiseauMT">
-            <%= image_tag( "OiseauMT.png",  alt: "image article")%>
+            <%= inline_svg("svg/OiseauMT.svg") %>
           </div>
-          <div class="col-xs-7">
+          <div class="col-xs-7" id="PanneauReseauxSociaux">
+            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fmeusetech%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
 
           </div>
         </div>
@@ -175,7 +179,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-xs-offset-5 col-xs-7">
-            hey
+            Liste des partenaires
           </div>
         </div>
       </div>
