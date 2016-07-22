@@ -15,7 +15,7 @@ class ThumbUploader < CarrierWave::Uploader::Base
     [version_name, "default.jpg"].compact.join('_')
   end
 
-  process resize_to_fill: [1024, 720]
+  #process resize_to_fill: [1024, 720]
 
   version :thumbnail do
      process resize_to_fill: [250, 175]
@@ -24,6 +24,7 @@ class ThumbUploader < CarrierWave::Uploader::Base
   version :icon do
      process resize_to_fill: [120, 120]
   end
+
 
   version :image do
      process resize_to_fill: [250, 175]

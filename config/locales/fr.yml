@@ -6,27 +6,27 @@ fr:
         record_invalid: 'La validation a échoué : %{errors}'
   date:
     abbr_day_names:
-    - dim
-    - lun
-    - mar
-    - mer
-    - jeu
-    - ven
-    - sam
+    - Dim
+    - Lun
+    - Mar
+    - Mer
+    - Jeu
+    - Ven
+    - Sam
     abbr_month_names:
     -
-    - jan.
-    - fév.
-    - mar.
-    - avr.
-    - mai
-    - juin
-    - juil.
-    - août
-    - sept.
-    - oct.
-    - nov.
-    - déc.
+    - Jan.
+    - Fév.
+    - Mar.
+    - Avr.
+    - Mai
+    - Juin
+    - Juil.
+    - Août
+    - Sept.
+    - Oct.
+    - Nov.
+    - Déc.
     day_names:
     - dimanche
     - lundi
@@ -204,4 +204,5 @@ fr:
       default: "%d %B %Y %Hh %Mmin %Ss"
       long: "%A %d %B %Y %Hh%M"
       short: "%d %b %Hh%M"
+      morejformat: "%A %d %B %Y"
     pm: pm

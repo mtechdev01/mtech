@@ -1,31 +1,67 @@
 <%= stylesheet_link_tag 'articles', media: 'all', 'data-turbolinks-track' => true %>
+<header>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1>Je suis les actualités en Meuse</h1>
+        <ul>
+          <li>Accueil</li>
+          <li>Articles</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
 
 <section id="actualites">
   <div class="container">
-    <div class="col-md-9">
-      <% @articles.each do | article | %>
-        <h1><%= link_to article.name, article_path( article.friendly_id )%></h1>
-        <p>
-          <%= article.content %>
-        </p>
+    <div class="row">
+      <div id= "articles-col" class="col-md-10">
+        <% @articles.each do | article | %>
+
+        <article>
+          <div class="container-fluid">
+            <div class="row article-item">
+              <div class="col-lg-5 article-item-left">
+                <%= image_tag "http://fond-ecran.loopio.fr/Fonds%20d'%C3%A9cran%20Pokemon/slides/fond-ecran-pokemon-32.jpg" , class: "img-responsive img-thumbnail" %>
+                <div class="image-triangle"></div>
+                <div class="image-category" style= "background-color:<%= article.category.color %>;"><%= image_tag article.category.icon %></div>
+              </div>
+              <div class="col-lg-7 article-item-right">
+                <div class="row article-item-content">
+                  <div class="article-title-yo"><h3><%= link_to article.name, article_path( article.friendly_id ), style: "color: white;"%></h3></div>
+                  <p>
+                    <%= article.content %>
+                  </p>
+                  <%= link_to 'En savoir plus <i class="fa fa-chevron-right"></i>'.html_safe, article_path( article.friendly_id ), class: "know-more" %>
+                </div>
+                <div class="row article-item-footer">
+                    <!--Créé le:  <%= time_tag article.published_at, format: :morejformat %>-->
+                    <span class="col-xs-5">par    <%= article.owner.username %></span>
+                    <span class="col-xs-5"><%= article.comments.count != 0 ? "#{article.comments.count} Commentaires" : "Aucun Commentaire" %></span>
+                    <span class="col-xs-2">F T</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </article>
+
+        <% end %>
+
+
+        <br>
+        <%= will_paginate @articles %>
+      </div>
+      <div id="categories-menu" class="col-md-2">
+        <h3>Catégories :</h3>
         <ul>
-          <li>Créé le:  <%= article.published_at %></li>
-          <li>Auteur:   <%= article.owner.username %></li>
-          <li>Catégorie: <%= article.category.name %></li>
+          <li>Agriculture</li>
+          <li>Aide à la personne</li>
+          <li>High Tech</li>
         </ul>
-      <% end %>
-
-      <%= will_paginate @articles %>
+      </div>
     </div>
-    <div class="col-md-3 menu-categories">
-      <h3>Catégories :</h3>
-      <ul>
-        <li>Agriculture</li>
-        <li>Aide à la personne</li>
-        <li>High Tech</li>
-      </ul>
-    </div>
-
   </div>
 </section>
 
