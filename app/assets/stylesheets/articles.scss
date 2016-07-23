@@ -29,9 +29,14 @@ header {
   }
 }
 
+.articles-col {
+  border-left: 6px solid #4B9AB6;
+  padding-top: 50px;
+  margin-top: 10px;
+}
+
 article {
   position: relative;
-  border-left: 6px solid #4B9AB6;
   h3 {
     text-align: center;
     font-size: 25px;
@@ -95,9 +100,35 @@ article:first-child {
 
 .article-item-footer {
   margin-top: 15px;
+  margin-bottom: 2px;
   span {
     color: #4B9AB6;
   }
+  span:first-child {
+    color: #6C6863;
+  }
+  .comments-style {
+    margin-left: 10%;
+    i {
+      color: #6C6863;
+    }
+  }
+  .rezosocio {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    i {
+      margin-left: 15px;
+    }
+    a , a:visited , a:focus, {
+      color:#6C6863;
+      transition: all 250ms;
+      &:hover{
+        color:#4B9AB6;
+      }
+  }
+}
+
 }
 
 .image-triangle {
@@ -126,6 +157,37 @@ article:first-child {
   }
 }
 
+.thedayoftoday {
+  position: relative;
+  border-bottom: 1px solid #4B9AB6;
+  max-width: 100%;
+  margin-left: 60px;
+  padding-top: 60px;
+  span {
+    position: absolute;
+    color: #4B9AB6;
+    top:-30px;
+    left: -65px;
+    margin-top: 60px;
+    border-top: 5px solid #4B9AB6;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: -15px;
+      left: -25px;
+      height: 25px;
+      width: 25px;
+      border-radius: 25px;
+      background-color: #4B9AB6;
+    }
+
+  }
+  .calendar-text {
+    margin-top: .3em;
+    font-size: .8em;
+  }
+}
 
 @media (min-width: 1200px) {
   .article-item {
@@ -150,7 +212,7 @@ article:first-child {
   }
   .article-item-footer {
     position: absolute;
-    width: 100%;
+    min-width: 460px;
     bottom: 0;
   }
   .image-category {
@@ -168,5 +230,8 @@ article:first-child {
   .article-title-yo {
     margin-left: -80px;
     width: 300px;
+  }
+  .thedayoftoday {
+    max-width: 370px;
   }
 }

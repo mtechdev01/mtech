@@ -4,7 +4,7 @@ class Article < ActiveRecord::Base
 
   mount_uploader :thumb, ThumbUploader
 
-  self.per_page = 2
+  self.per_page = 5
   belongs_to  :category
   belongs_to  :owner, class_name: "User"
   has_many    :comments, as: :commentable
