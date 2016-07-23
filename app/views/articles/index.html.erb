@@ -16,37 +16,42 @@
 <section id="actualites">
   <div class="container">
     <div class="row">
-      <div id= "articles-col" class="col-md-10">
+      <div class="col-md-10 articles-col">
+        <% @dayofpost = nil %>
         <% @articles.each do | article | %>
-
-        <article>
-          <div class="container-fluid">
-            <div class="row article-item">
-              <div class="col-lg-5 article-item-left">
-                <%= image_tag "http://fond-ecran.loopio.fr/Fonds%20d'%C3%A9cran%20Pokemon/slides/fond-ecran-pokemon-32.jpg" , class: "img-responsive img-thumbnail" %>
-                <div class="image-triangle"></div>
-                <div class="image-category" style= "background-color:<%= article.category.color %>;"><%= image_tag article.category.icon %></div>
-              </div>
-              <div class="col-lg-7 article-item-right">
-                <div class="row article-item-content">
-                  <div class="article-title-yo"><h3><%= link_to article.name, article_path( article.friendly_id ), style: "color: white;"%></h3></div>
-                  <p>
-                    <%= article.content %>
-                  </p>
-                  <%= link_to 'En savoir plus <i class="fa fa-chevron-right"></i>'.html_safe, article_path( article.friendly_id ), class: "know-more" %>
+          <% if @dayofpost == nil || @dayofpost.mday != article.published_at.mday || @dayofpost.mon != article.published_at.mon || @dayofpost.year != article.published_at.year  %>
+            <% @dayofpost = article.published_at %>
+            <div class="thedayoftoday">
+              <span class="fa-stack fa-2x">
+                <i class="fa fa-calendar-o fa-stack-2x"></i>
+                <strong class="fa-stack-1x calendar-text"><%= time_tag @dayofpost, format: "%a" %></strong>
+              </span>
+              <%= time_tag @dayofpost, format: :morejformat %>
+            </div>
+          <% end %>
+          <article>
+            <div class="container-fluid">
+              <div class="row article-item">
+                <div class="col-lg-5 article-item-left">
+                  <%= image_tag "http://fond-ecran.loopio.fr/Fonds%20d'%C3%A9cran%20Pokemon/slides/fond-ecran-pokemon-32.jpg" , class: "img-responsive img-thumbnail" %>
+                  <div class="image-triangle"></div>
+                  <div class="image-category" style= "background-color:<%= article.category.color %>;"><%= image_tag article.category.icon %></div>
                 </div>
-                <div class="row article-item-footer">
-                    <!--Créé le:  <%= time_tag article.published_at, format: :morejformat %>-->
-                    <span class="col-xs-5">par    <%= article.owner.username %></span>
-                    <span class="col-xs-5"><%= article.comments.count != 0 ? "#{article.comments.count} Commentaires" : "Aucun Commentaire" %></span>
-                    <span class="col-xs-2">F T</span>
+                <div class="col-lg-7 article-item-right">
+                  <div class="row article-item-content">
+                    <div class="article-title-yo"><h3><%= link_to article.name, article_path( article.friendly_id ), style: "color: white;"%></h3></div>
+                    <p><%= article.content %></p>
+                    <%= link_to 'En savoir plus <i class="fa fa-chevron-right"></i>'.html_safe, article_path( article.friendly_id ), class: "know-more" %>
+                  </div>
+                  <div class="article-item-footer">
+                      <span>Auteur: </span><span> <%= article.owner.username %></span>
+                      <span class="comments-style"><i class="fa fa-2x fa-comments-o"></i> <%= "#{article.comments.count}  Commentaire(s)" %></span>
+                      <span class="rezosocio"><a href= "#"><i class="fa fa-lg fa-facebook"></i></a><a href= "#"><i class="fa fa-lg fa-twitter"></i></a></span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-        </article>
-
+          </article>
         <% end %>
 
 
