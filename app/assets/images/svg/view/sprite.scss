@@ -1,0 +1,114 @@
+%svg-common {
+	background: url("svg/sprite.view.svg") no-repeat;
+}
+
+.svg-bureau-lampe {
+	@extend %svg-common;
+	background-position: 0 0;
+}
+
+.svg-bureau-lampe-dims {
+	width: 763.924px;
+	height: 478.778px;
+}
+
+.svg-cadre {
+	@extend %svg-common;
+	background-position: 82.12505631155248% 76.73700559315334%;
+}
+
+.svg-cadre-dims {
+	width: 76.917px;
+	height: 67.143px;
+}
+
+.svg-fenetre {
+	@extend %svg-common;
+	background-position: 0 99.96659275313299%;
+}
+
+.svg-fenetre-dims {
+	width: 417.258px;
+	height: 552.062px;
+}
+
+.svg-horloge {
+	@extend %svg-common;
+	background-position: 97.97439587132783% 52.32606574882262%;
+}
+
+.svg-horloge-dims {
+	width: 338.282px;
+	height: 293.983px;
+}
+
+.svg-lampe {
+	@extend %svg-common;
+	background-position: 85.9872870056737% 76.4760439478631%;
+}
+
+.svg-lampe-dims {
+	width: 34.227px;
+	height: 63.854px;
+}
+
+.svg-mini-plante {
+	@extend %svg-common;
+	background-position: 74.38881174447432% 82.81974680482742%;
+}
+
+.svg-mini-plante-dims {
+	width: 91.066px;
+	height: 137.934px;
+}
+
+.svg-pc {
+	@extend %svg-common;
+	background-position: 98.57694412041003% 18.499378656078566%;
+}
+
+.svg-pc-dims {
+	width: 343.048px;
+	height: 239.168px;
+}
+
+.svg-plante {
+	@extend %svg-common;
+	background-position: 51.07572159522118% 73.87808321696126%;
+}
+
+.svg-plante-dims {
+	width: 301.06px;
+	height: 382.935px;
+}
+
+.svg-post-it {
+	@extend %svg-common;
+	background-position: 91.1880755745744% 67.40738904041656%;
+}
+
+.svg-post-it-dims {
+	width: 80.667px;
+	height: 22.75px;
+}
+
+.svg-radiateur {
+	@extend %svg-common;
+	background-position: 99.94531243867273% 0;
+}
+
+.svg-radiateur-dims {
+	width: 353.658px;
+	height: 146.484px;
+}
+
+.svg-table {
+	@extend %svg-common;
+	background-position: 81.61581196581196% 69.99330587023687%;
+}
+
+.svg-table-dims {
+	width: 182px;
+	height: 60px;
+}
+

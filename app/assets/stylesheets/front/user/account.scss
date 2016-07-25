@@ -1,0 +1,200 @@
+@import "../vars";
+@import "partials/vars";
+@import "partials/globals";
+@import "partials/sol";
+@import "partials/left";
+@import "partials/middle";
+@import "partials/right";
+
+body{
+  margin-top: 101px;
+}
+.btn-primary {
+  background-color: $primary;
+  border: 0px;
+  transition: all 250ms;
+  border-radius: 0px;
+  &:hover {
+      background-color: darken($primary, 15%);
+  }
+}
+
+#navSocial {
+  height: $navSocialSize;
+  background-color: #000;
+  line-height: $navSocialSize;
+  #socialLink{
+    a , a:visited , a:focus, {
+      color:white;
+      font-size: 1.2em;
+      transition: all 250ms;
+      &:hover{
+        color:$primary;
+      }
+      i{
+        margin-top: $navSocialLinkMarge;
+        margin-right: $navSocialLinkMarge;
+      }
+    }
+  }
+  #userBar {
+    text-align: right;
+    a , a:visited , a:focus, {
+      color:white;
+      transition: all 250ms;
+      margin-right: $navSocialLinkMarge*6;
+      position: relative;
+
+      &:after {
+        content: " ";
+        position: absolute;
+        right: -$navSocialLinkMarge*3;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background-color: white;
+      }
+      &:nth-last-child(1){
+        &:after {
+          width: 0;
+        }
+      }
+      i {
+        color:$primary;
+      }
+      &:hover{
+        color:$primary;
+      }
+    }
+  }
+}
+
+#menu {
+  height: $navSocialSize*2;
+  background-color: rgba(0,0,0, 0.75);
+  margin: 0;
+  padding:0;
+  border: none;
+  border-radius: 0;
+
+}
+@media  screen and (min-width: 768px) {
+  margin-top: $navSocialSize;
+}
+#TopMenu {
+  a{
+    margin-right: $navSocialLinkMarge*8;
+    line-height: $navSocialSize;
+    position: relative;
+    font-size: 1.2em;
+    color:white;
+    transition: all 250ms;
+    text-transform: uppercase;
+    &:hover{
+      color:$primary;
+    }
+    &:after {
+      content: " ";
+      position: absolute;
+      right: -$navSocialLinkMarge*3;
+      top: 20%;
+      bottom: 20%;
+      width: 2px;
+      background-color: white;
+    }
+  }
+  a:nth-last-child(0){
+    &:after {
+      width: 0;
+    }
+  }
+}
+
+footer {
+  background: url(../../assets/img/verdun_03.jpg) top left no-repeat;
+  background-size: cover;
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
+  position: relative;
+  .mask {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0,0,0, 0.65);
+    z-index: 1;
+  }
+  .col-xs-4, .col-xs-12 {
+    z-index: 10;
+    color: white;
+    ul {
+      list-style: none;
+      margin:0;
+      padding:0;
+      li {
+        border-bottom: 2px solid $primary;
+        line-height: 45px;
+        font-size: 16px;
+        i{
+          font-size:18px;
+          color:$primary;
+          padding-right: 10px;
+        }
+      }
+    }
+
+  }
+  .footer-articles  {
+    text-align: center;
+    .row {
+      margin-bottom: 20px;
+    }
+    a {
+      position: relative;
+      margin: 10px;
+      width: 100%;
+      display: block;
+      transition: all 250ms;
+      overflow:hidden;
+      &:after {
+        content: ' ';
+        position: absolute;
+        top: 0;left:0;right: 0;bottom: 0;
+        border-radius: 100%;
+        transform: scale(0);
+        background-color: rgba(0,0,0, 0.5);
+        transition: all 250ms;
+      }
+      &:hover {
+          &:after {
+            transform: scale(1.5);
+          }
+      }
+      img {
+        border: 2px solid $primary;
+      }
+    }
+  }
+}
+#copyright {
+  min-height: 50px;
+  background-color: rgb(0,0,0);
+  line-height: 50px;
+  #mentions {
+    color: white;
+    padding-left: 100px;
+    a {
+      color: $primary;
+    }
+    span {
+      padding-right: 100px;
+    }
+  }
+  .socials {
+    font-size: 28px;
+    color: white;
+    padding-right: 100px;
+    i {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+}
