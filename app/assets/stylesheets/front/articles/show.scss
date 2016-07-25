@@ -1,0 +1,150 @@
+@import "../vars";
+body {
+    margin-top: 101px;
+}
+.btn {
+  border-radius: 0;
+  transition: all 250ms;
+}
+
+.btn-facebook {
+  background-color: #3B5998;
+  color: white;
+  &:hover {
+    background-color: darken(#3B5998, 10%);
+    color: white;
+  }
+}
+
+.btn-twitter {
+  background-color: #28A9E0;
+  color: white;
+  &:hover {
+    background-color: darken(#28A9E0, 10%);
+    color: white;
+  }
+}
+
+.btn-support {
+  background-color: #c93c3c;
+  color: white;
+  &:hover {
+    background-color: darken(#c93c3c, 10%);
+    color: white;
+  }
+}
+
+.btn-participation {
+  background-color: #e2833b;
+  color: white;
+  &:hover {
+    background-color: darken(#e2833b, 10%);
+    color: white;
+  }
+}
+
+#header {
+  position: relative;
+  background: asset-url("Agriculture1.jpg") no-repeat;
+  background-position: center;
+  height: 450px;
+  background-size: cover;
+  overflow-x: hidden;
+  #projet__arianne {
+    display: flex;
+    justify-content: flex-start;
+    position: absolute;
+    top:  0; left:0; right: 0;
+    & ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      & a, & a:visited{
+        padding: 1rem 2rem;
+        text-decoration: none;
+        color: white;
+        line-height: 45px;
+        transition: all 250ms;
+        &:hover, &:focus {
+          color: $primary;
+        }
+      }
+      i {
+        color: white;
+      }
+    }
+  }
+
+  #projet__title {
+    padding-top: 250px;
+    padding-left: 50px;
+    h1 {
+      & a, & a:visited{
+        text-decoration: none;
+        color: white;
+        transition: all 250ms;
+        &:hover, &:focus {
+          color: $primary;
+        }
+      }
+    }
+  }
+
+  #projet__infos {
+    display: flex;
+    justify-content: flex-start;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%,rgba(0,0,0,0) 100%);
+    position: absolute;
+    bottom:  0; left:0; right: 0;
+    & ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        color: white;
+        line-height: 45px;
+        padding: 1rem 2rem;
+      }
+      & a, & a:visited{
+        text-decoration: none;
+        color: white;
+        transition: all 250ms;
+        &:hover, &:focus {
+          color: $primary;
+        }
+      }
+      i {
+        color: white;
+      }
+    }
+  }
+
+
+
+}
+
+#linksShare {
+  padding: 15px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  .col-xs-3 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.article-one {
+  p {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+}
+.media {
+  padding: 25px;
+}
+.media:nth-child(2) {
+  background-color: rgb(242, 242, 242);
+}
