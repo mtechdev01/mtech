@@ -1,26 +1,50 @@
-<h1>Mes informations personnelles</h1>
-<div class="block">
-  <div class="block-content" style="line-height:35px">
+<%= stylesheet_link_tag 'front/user/account', media: 'all', 'data-turbolinks-track' => true %>
+<div id="sol">
+    <div id="plinthe"></div>
+  </div>
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-xs-1" style="max-width:35px;">
-        <i class="fa fa-calendar" aria-hidden="true"></i>
+      <div class="col-md-3 hidden-xs hidden-sm">
+        <div id="fenetreRad">
+          <svg id="fenetre"><use xlink:href="/svg/symbol/svg/sprite.symbol.svg#fenetre"></svg>
+          <svg id="radiateur"><use xlink:href="/svg/symbol/svg/sprite.symbol.svg#radiateur"></svg>
+        </div>
       </div>
-      <div class="col-xs-11" style="padding-left:0;">
-        depuis le: <%= time_tag(current_user.created_at) %>
+      <div class="col-md-6 col-xs-12">
+        <div id="middle">
+          <svg id="horloge" class="hidden-xs hidden-sm"><use class="use" xlink:href="/svg/symbol/svg/sprite.symbol.svg#horloge"></svg>
+          <svg id="cadre" class="hidden-lg hidden-md"><use xlink:href="/svg/symbol/svg/sprite.symbol.svg#cadre"></svg>
+              <div class="position: relative;" id="pc">
+                <img src="/svg/pc.svg" alt="" />
+                <%= link_to "<i class='fa fa-globe' aria-hidden='true'></i> Mon espace perso".html_safe, users_Infos_url, class: "btn btn-primary", style: "position: absolute;top: 45%;left: 45%;z-index: 100000;" %>
+              </div>
+
+        <svg id="table"><use xlink:href="/svg/symbol/svg/sprite.symbol.svg#bureau-lampe"></svg>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-11" style="padding-left:0;">
-        <%= current_user.address %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-1" style="max-width:35px;">
-        <i class="fa fa-map-marker" aria-hidden="true"></i>
-      </div>
-      <div class="col-xs-11" style="padding-left:0;">
-        <%= current_user.cp %> - <%= current_user.city %>
+      <div class="col-md-3 hidden-xs hidden-sm">
+        <div id="right">
+          <svg id="cadre">
+            <use xlink:href="/svg/symbol/svg/sprite.symbol.svg#cadre">
+              <div class="infos__user" style="position: absolute;top: 12%;left: -55%;max-width: 60%;">
+                <div class="col-lg-12" style="padding-bottom: 10px;">
+                  <%= image_tag(current_user.avatar, size: "75x75", alt: "Avatar", class:'img-responsive center-block img-circle user-avatar')%>
+                </div>
+                <div class="col-lg-12">
+                  <%= link_to "<i class='fa fa-pencil'></i> Editer mes informations".html_safe, users_Edit_url, class: "btn btn-block btn-xs btn-primary" %>
+                  <% if current_user.is_admin %>
+                    <%= link_to "<i class='fa fa-tachometer'></i> Administration".html_safe, admin_dashboard_url, class: "btn btn-block btn-xs btn-warning" %>
+                  <% end %>
+                  <%= link_to "<i class='fa fa-trash-o'></i> Supprimer mon compte".html_safe, registration_path(current_user), :data => { :confirm => t('.are_you_sure', :default => "Etes-vous certain de vouloir supprimer votre compte?") }, :method => 'delete', class: "btn btn-block btn-xs btn-danger" %>
+
+                </div>
+
+
+              </div>
+
+            </svg>
+          <svg id="plante"><use xlink:href="/svg/symbol/svg/sprite.symbol.svg#plante"></svg>
+        </div>
       </div>
     </div>
   </div>
-</div>

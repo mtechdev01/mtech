@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1 Tiny//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-tiny.dtd">
+<svg version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+	 x="0px" y="0px" width="281.319px" height="280.987px" viewBox="0 0 281.319 280.987" xml:space="preserve">
+<g id="Techno">
+	<circle cx="139.605" cy="139.273" r="50.205"/>
+	<circle fill="#FAFAFA" cx="139.605" cy="139.273" r="38.205"/>
+	<circle cx="139.605" cy="139.273" r="16.205"/>
+	<rect x="138.105" y="52.648" width="3" height="42"/>
+	<rect x="138.105" y="183.273" width="3" height="42"/>
+	<rect x="183.605" y="138.773" width="42" height="3"/>
+	<rect x="53.271" y="137.273" width="42" height="3"/>
+	<rect x="182.105" y="73.648" transform="matrix(-0.707 -0.7072 0.7072 -0.707 246.4841 291.4106)" width="3" height="42.001"/>
+	<rect x="93.771" y="73.648" transform="matrix(-0.7072 0.707 -0.707 -0.7072 229.5652 94.2233)" width="3" height="42.001"/>
+	<rect x="182.105" y="162.648" transform="matrix(-0.707 0.7072 -0.7072 -0.707 443.2924 183.6493)" width="3" height="42.001"/>
+	<rect x="93.771" y="162.648" transform="matrix(-0.7072 -0.707 0.707 -0.7072 32.8023 380.8818)" width="3" height="42.001"/>
+	<circle cx="139.605" cy="52.648" r="6.705"/>
+	<circle cx="225.605" cy="140.273" r="6.705"/>
+	<circle cx="53.271" cy="138.773" r="6.705"/>
+	<circle cx="139.605" cy="225.273" r="9.705"/>
+	<circle cx="198.438" cy="79.739" r="9.705"/>
+	<circle cx="80.438" cy="79.69" r="16.371"/>
+	<circle fill="#FAFAFA" cx="80.438" cy="79.69" r="12.458"/>
+	<circle cx="80.438" cy="79.69" r="5.284"/>
+	<circle cx="198.438" cy="198.537" r="16.372"/>
+	<circle fill="#FAFAFA" cx="198.438" cy="198.537" r="12.458"/>
+	<circle cx="198.438" cy="198.537" r="5.284"/>
+	<circle cx="80.376" cy="198.44" r="13.809"/>
+	<circle fill="#FAFAFA" cx="80.376" cy="198.44" r="10.508"/>
+	<circle cx="80.375" cy="198.44" r="4.457"/>
+</g>
+<path d="M140.605-0.441c-77.714,0-140.714,63-140.714,140.714s63,140.714,140.714,140.714c77.715,0,140.714-63,140.714-140.714
+	S218.32-0.441,140.605-0.441z M141.105,267.488c-70.258,0-127.214-56.956-127.214-127.214S70.847,13.06,141.105,13.06
+	c70.259,0,127.214,56.956,127.214,127.214S211.364,267.488,141.105,267.488z"/>
+</svg>

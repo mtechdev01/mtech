@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Meusetech | Mon Compte</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render "partials/frontend/menu" %>
+  <%= render "partials/alert" %>
+  <section id="infos">
+    <div class="position: relative;" id="pc">
+      <%= inline_svg("svg/pc.svg") %>
+      <div id="user_infos_content">
+        <%= yield %>
+      </div>
+    </div>
+    <div id="table-block">
+      <svg id="table"><use xlink:href="/svg/symbol/svg/sprite.symbol.svg#bureau-lampe"></svg>
+    </div>
+  </section>
+
+</body>
+</html>

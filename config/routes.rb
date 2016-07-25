@@ -96,6 +96,7 @@ Rails.application.routes.draw do
 
   namespace :users do
     get '/mon-compte', to: 'account#account', as: 'Account'
+    get '/mon-compte/infos', to: 'account#infos', as: 'Infos'
     get '/mon-compte/editer', to: 'account#edit', as: 'Edit'
     patch '/mon-compte/editer', to: 'account#update', as: "Update"
     get '/mon-compte/projets', to: 'account#projects', as: 'Projects'

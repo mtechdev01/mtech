@@ -9,16 +9,7 @@
 <body>
   <%= render "partials/frontend/menu" %>
   <%= render "partials/alert" %>
-  <div class="container">
-    <div class="row">
-        <div class="col-md-4">
-          <%= render "users/account/sidebar" %>
-        </div>
-        <div class="col-md-8">
-          <%= yield %>
-        </div>
-      </section>
-    </div>
-  </div>
+  <%= yield %>
+  <%= render "partials/frontend/footer" %>
 </body>
 </html>
