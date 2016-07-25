@@ -26,7 +26,7 @@
                 <i class="fa fa-calendar-o fa-stack-2x"></i>
                 <strong class="fa-stack-1x calendar-text"><%= time_tag @dayofpost, format: "%a" %></strong>
               </span>
-              <%= time_tag @dayofpost, format: :morejformat %>
+              <%= time_tag @dayofpost, format: :morejformat, style: "font-size: 1.3em;" %>
             </div>
           <% end %>
           <article>
@@ -40,7 +40,7 @@
                 <div class="col-lg-7 article-item-right">
                   <div class="row article-item-content">
                     <div class="article-title-yo"><h3><%= link_to article.name, article_path( article.friendly_id ), style: "color: white;"%></h3></div>
-                    <p><%= article.content %></p>
+                    <p><%= strip_tags article.content %></p>
                     <%= link_to 'En savoir plus <i class="fa fa-chevron-right"></i>'.html_safe, article_path( article.friendly_id ), class: "know-more" %>
                   </div>
                   <div class="article-item-footer">
