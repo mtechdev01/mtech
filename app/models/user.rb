@@ -43,4 +43,8 @@ class User < ActiveRecord::Base
    end
   end
 
+  def surveyResponded
+    SurveysResponse.where( user_id: self.id ).group(:survey_id).map(&:attributes)
+  end
+
 end

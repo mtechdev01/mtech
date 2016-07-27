@@ -104,7 +104,7 @@
           <div class="comments-one">
             <h2>Commentaires</h2>
             <% @project.comments.each do | comment | %>
-            <div class="media">
+            <div class="media" id="commentnb<%= comment.id %>">
               <div class="media-left">
                 <a href="#">
                   <%= image_tag comment.user.avatar, class:"img-rounded", size:"75x75"%>

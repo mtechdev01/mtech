@@ -1,3 +1,41 @@
 <%= stylesheet_link_tag 'front/user/infos', media: 'all', 'data-turbolinks-track' => true %>
+<div class="col-xs-3">
+    <%= image_tag(current_user.avatar, size: "125x125", alt: "Avatar", class:'img-responsive center-block img-circle user-avatar')%>
+    <%= link_to "<i class='fa fa-pencil'></i> Editer".html_safe, users_Edit_url, class: "btn btn-block btn-xs btn-primary" %>
+    <% if current_user.is_admin %>
+      <%= link_to "<i class='fa fa-tachometer'></i> Administration".html_safe, admin_dashboard_url, class: "btn btn-block btn-xs btn-warning" %>
+    <% end %>
+    <%= link_to "<i class='fa fa-trash-o'></i> Supprimer".html_safe, registration_path(current_user), :data => { :confirm => t('.are_you_sure', :default => "Etes-vous certain de vouloir supprimer votre compte?") }, :method => 'delete', class: "btn btn-block btn-xs btn-danger" %>
 
-    
+</div>
+<div class="col-xs-9">
+  <div class="infos--username">
+    <h1><%= current_user.username%></h1>
+  </div>
+  <div class="infos--name">
+    <%= current_user.first_name%> <%= current_user.last_name %>
+  </div>
+  <div class="infos--email">
+    <%= current_user.email %>
+  </div>
+  <div class="infos--adresse">
+    <%= current_user.address%><br>
+    <%= current_user.cp %> <%= current_user.city %><br>
+    <%= current_user.country %>
+  </div>
+  <div class="infos_stats">
+    <div class="infos_stats--notifications">
+      Vous avez actuellement <b><%= current_user.notifications.count %> notification<%= current_user.notifications.count > 1 ? "s" : "" %></b> non lues
+    </div>
+    <div class="infos_stats--projets">
+      Vous avez actuellement <b><%= current_user.projects.count %> projet<%= current_user.projects.count > 1 ? "s" : "" %></b>  mis en ligne
+    </div>
+    <div class="infos_stats--sondages">
+      Vous avez répndu à <b><%= current_user.surveyResponded.count %></b>  sondage<%= current_user.surveyResponded.count > 1 ? "s" : "" %>
+    </div>
+    <div class="infos_stats--commentaires">
+      Vous avez envoyé  <b><%= current_user.comments.count %></b> commentaires<%= current_user.comments.count > 1 ? "s" : "" %>
+    </div>
+  </div>
+
+</div>

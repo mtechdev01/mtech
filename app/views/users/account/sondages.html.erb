@@ -10,10 +10,10 @@
           <thead>
             <tr>
               <th>
-                Nom du sondage
+                Titre
               </th>
               <th>
-                Date de création
+                Date de réponse
               </th>
             </tr>
           </thead>
@@ -24,7 +24,7 @@
                   <%= link_to response.survey.title, survey_url(response.survey.id) %>
                 </td>
                 <td>
-                  <%= time_tag(response.survey.created_at) %>
+                  <%= time_tag(response.created_at,  format: "%A %d %B %Y"  ) %>
                 </td>
               </tr>
             <% end %>

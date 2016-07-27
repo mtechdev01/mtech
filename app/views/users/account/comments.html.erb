@@ -19,7 +19,7 @@
                 Commentaire
               </th>
               <th>
-                Validé par un admin?
+                Validé?
               </th>
               <th>
                 Actions
@@ -30,10 +30,11 @@
             <% @comments.each do | comment |  %>
               <tr>
                 <td>
-                  <%= link_to comment.commentable.name, polymorphic_url(comment.commentable_type.tableize.singularize, :id => comment.commentable_id) %>
+                  <% @anchor = "commentnb#{comment.id}" %>
+                  <%= link_to comment.commentable.name, polymorphic_url(comment.commentable_type.tableize.singularize, :id => comment.commentable_id, :anchor => @anchor) %>
                 </td>
                 <td>
-                  <%= time_tag(comment.created_at) %>
+                  <%= time_tag(comment.created_at ,  format: "%d %b %y"  ) %>
                 </td>
                 <td>
                   <%= comment.content %>
