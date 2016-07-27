@@ -34,15 +34,6 @@ body {
   }
 }
 
-.btn-participation {
-  background-color: #e2833b;
-  color: white;
-  &:hover {
-    background-color: darken(#e2833b, 10%);
-    color: white;
-  }
-}
-
 #header {
   position: relative;
   background: asset-url("Agriculture1.jpg") no-repeat;
@@ -50,7 +41,7 @@ body {
   height: 450px;
   background-size: cover;
   overflow-x: hidden;
-  #projet__arianne {
+  #article__arianne {
     display: flex;
     justify-content: flex-start;
     position: absolute;
@@ -76,7 +67,7 @@ body {
     }
   }
 
-  #projet__title {
+  #article__title {
     padding-top: 250px;
     padding-left: 50px;
     h1 {
@@ -91,7 +82,7 @@ body {
     }
   }
 
-  #projet__infos {
+  #article__infos {
     display: flex;
     justify-content: flex-start;
     background: linear-gradient(to top, rgba(0,0,0,0.85) 0%,rgba(0,0,0,0) 100%);
@@ -130,7 +121,7 @@ body {
   padding: 15px;
   padding-top: 25px;
   padding-bottom: 25px;
-  .col-xs-3 {
+  .col-xs-4 {
     padding-left: 0;
     padding-right: 0;
   }
