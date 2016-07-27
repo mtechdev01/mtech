@@ -1,12 +1,15 @@
 class Users::AccountController < ApplicationController
   before_action :authenticate_user!
-  layout "user"
-  layout "user_infos", only: [:infos, :projects, :comments, :notifications, :edit]
+  layout "user", only: [:account]
+  layout "user_infos", only: [:infos, :projects, :comments, :sondages, :edit, :notifications]
+
 
   def account
   end
+
   def infos
   end
+
   def projects
     @created_projects = Project.lastProjects(current_user)
     @supported_projects = Array.new

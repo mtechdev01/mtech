@@ -2,12 +2,13 @@
 <div class="row">
   <div class="col-sm-12">
     <div id="user-block_title">
-      <h1>Mes projets</h1>
+      <h1>Mes projets <%= link_to '<i class="fa fa-plus"></i> Créer un nouveau projet'.html_safe, new_project_path, class: "btn btn-info pull-right" %></h1>
+
     </div>
     <div class="block" id="user-block_content">
       <div class="block-content">
         <h3>Mes créations</h3>
-        <%= link_to 'Créer un nouveau projet', new_project_path, class: "btn btn-info" %>
+
         <table class="table table-hovered">
           <thead>
             <tr>
@@ -18,10 +19,10 @@
                 Catégorie
               </th>
               <th>
-                Date de création
+                Création
               </th>
               <th>
-                Mis en ligne par un admin?
+                Mis en ligne?
               </th>
               <th>
                 Actions
@@ -69,7 +70,7 @@
                 Catégorie
               </th>
               <th>
-                Date de création
+                Création
               </th>
               <th>
                 Actions
@@ -111,7 +112,7 @@
                 Catégorie
               </th>
               <th>
-                Date de création
+                Création
               </th>
               <th>
                 Actions

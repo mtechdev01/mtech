@@ -12,6 +12,15 @@ body {
 }
 #infos {
   padding-top: 100px;
+  .btn {
+    border-radius: 0;
+  }
+  .infos_stats {
+    padding-top: 25px;
+  }
+  .block-content {
+    margin-bottom: 50px;
+  }
   #user_infos_content {
     overflow-y: scroll;
     overflow-x: hidden;
@@ -26,10 +35,18 @@ body {
     z-index: 1000000000;
   }
   #pc svg {
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
     display: block;
-
+    height: 70vh;
+    text {
+      font-family: verdana;
+      font-weight: bold;
+    }
+  }
+  .user-avatar {
+    margin-top: 25px;
+    margin-bottom: 25px;
   }
   #table-block {
     height:15vh;
