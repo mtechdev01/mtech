@@ -9,4 +9,8 @@
 @import "admin/template/plugins/datatables/jquery.dataTables";
 @import "admin/template/plugins/datatables/dataTables.bootstrap";
 @import "admin/template/plugins/datatables/extensions/Responsive/css/dataTables.responsive.css";
-@import "admin/template/plugins/datatables/extensions/Responsive/css/dataTables.responsive.scss"
+@import "admin/template/plugins/datatables/extensions/Responsive/css/dataTables.responsive.scss";
+
+table.dashboard-list tbody td {
+  line-height: 50px;
+}

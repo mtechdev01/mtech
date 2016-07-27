@@ -2,48 +2,102 @@
     <h1>Accueil</h1>
 </section>
 <section class="content">
-    <div class="box">
-      <div class="box-body">
-        <table class="table table-bordered table-hover">
-          <thead>
-            <tr>
-              <th>
-                Projets
-              </th>
-              <th>
-                Articles
-              </th>
-              <th>
-                Commentaires
-              </th>
-              <th>
-                Commentaires en attente de validation
-              </th>
-              <th>
-                Utilisateurs inscrits
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-              <tr>
-                <td>
-                  <%= @projects.count %>
-                </td>
-                <td>
-                  <%= @articles.count %>
-                </td>
-                <td>
-                  <%= @comments.count %>
-                </td>
-                <td>
-                  <%= @comments.where(is_valid: false).count %>
-                </td>
-                <td>
-                  <%= @users.count %>
-                </td>
-              </tr>
-          </tbody>
-        </table>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-4">
+        <div class="small-box bg-aqua">
+          <div class="inner">
+            <h3><%= @users %></h3>
+            <p>Utilisateurs</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-users"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="small-box bg-yellow">
+          <div class="inner">
+            <h3><%= @projectsCount %></h3>
+            <p>Projets</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-briefcase"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="small-box bg-red">
+          <div class="inner">
+            <h3><%= @comments.where(is_valid: false).count %></h3>
+            <p>Commentaires à valider</p>
+          </div>
+          <div class="icon">
+            <i class="fa fa-comments"></i>
+          </div>
+        </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <div class="box">
+          <div class="box-header with-border">
+            <h3>Derniers articles</h3>
+          </div>
+          <div class="box-body">
+              <table class="table table-bordered dashboard-list">
+                <tbody>
+                  <% @projects.each do | project | %>
+                  <tr >
+                    <td>
+                      <%= image_tag project.thumb, height: "50" %>
+                    </td>
+                    <td>
+                      <%= project.name %>
+                    </td>
+                    <td>
+                      <%= project.published ? "<span class='text-success'>Oui</span>".html_safe : "<span class='text-danger'>Non</span>".html_safe %>
+                    </td>
+                    <td>
+                      <%= time_tag( project.created_at, format:"%d/%m/%y") %>
+                    </td>
+                  </tr>
+                  <% end %>
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="box">
+          <div class="box-header with-border">
+            <h3>Derniers projets</h3>
+          </div>
+          <div class="box-body">
+              <table class="table table-bordered dashboard-list">
+                <tbody>
+                  <% @articles.each do | article | %>
+                  <tr>
+                    <td>
+                      <%= image_tag article.thumb, height: "50" %>
+                    </td>
+                    <td>
+                      <%= article.name %>
+                    </td>
+                    <td>
+                      <%= article.published ? "<span class='text-success'>Oui</span>".html_safe : "<span class='text-danger'>Non</span>".html_safe %>
+                    </td>
+                    <td>
+                      <%= time_tag( article.created_at, format:"%d/%m/%y") %>
+                    </td>
+                  </tr>
+                  <% end %>
+                </tbody>
+              </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </section>
