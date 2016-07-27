@@ -17,7 +17,7 @@
         <ul>
           <li>Par  <a href="#"><%= @project.owner.username %></a></li>
           <li>Publié le  <%= time_tag @project.created_at, format: "%A %d %B %Y" %> </li>
-          <li><%= @project.comments.count %> commentaires</li>
+          <li><%= @project.comments.count < 2 ? "#{@project.comments.count} Commentaire" : "#{@project.comments.count} Commentaires" %></li>
         </ul>
       </div>
     </div>
@@ -42,9 +42,11 @@
                 <%= form_tag "/projects/new_support" do %>
                   <%= hidden_field_tag "id", @project.id %>
                   <% if @supported_by_user %>
-                    <%= submit_tag "Je ne souhaite plus soutenir ce projet", class: "btn btn-support  btn-block" %>
+                    <%= button_tag( :class => "btn btn-support btn-block") do %>
+                    Je soutiens <i class="fa fa-check"></i>
+                    <% end %>
                   <% else %>
-                    <%= submit_tag "Je soutiens ce projet", class: "btn btn-support  btn-block" %>
+                    <%= submit_tag "Soutenir", class: "btn btn-support  btn-block" %>
                   <% end %>
                 <% end %>
               <% end %>
@@ -54,9 +56,11 @@
                 <%= form_tag "/projects/new_participation" do %>
                   <%= hidden_field_tag "id", @project.id %>
                   <% if @user_participates %>
-                    <%= submit_tag "Je ne souhaite plus participer à ce projet", class: "btn btn-participation btn-block" %>
+                    <%= button_tag( :class => "btn btn-participation btn-block") do %>
+                    Je participes <i class="fa fa-check"></i>
+                    <% end %>
                   <% else %>
-                    <%= submit_tag "Je souhaite participer à ce projet", class: "btn btn-participation btn-block" %>
+                    <%= submit_tag "Participer", class: "btn btn-participation btn-block" %>
                   <% end %>
                 <% end %>
               <% end %>
