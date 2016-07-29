@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
   <div class="project_form">
     <%= form_for :project, :url => admin_projects_path do |f| %>
       <div class="form-group">
@@ -11,7 +11,7 @@
       </div>
       <div class="form-group">
         <%= label_tag 'content', 'Description de votre projet' %>
-        <%= f.text_area :content, class: "form-control" %>
+        <%= f.text_area :content, :class => "tinymce", :rows => 25, :cols => 120 %>
       </div>
       <div class="form-group">
         <%= label_tag 'content', 'Localisation' %>
@@ -37,3 +37,12 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+
+document.addEventListener("turbolinks:load", function() {
+  tinymce.remove();
+    tinyMCE.init({
+      selector: '.tinymce'
+    });
+})
+</script>

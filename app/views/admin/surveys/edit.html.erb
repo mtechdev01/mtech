@@ -1,5 +1,4 @@
-<%= tinymce_assets %>
-<%= tinymce :language => "fr_FR" %>
+
 <section class="content-header">
   <h1>
     Sondages
@@ -89,3 +88,12 @@
     </div>
   </div>
 </section>
+<script type="text/javascript">
+
+document.addEventListener("turbolinks:load", function() {
+  tinymce.remove();
+    tinyMCE.init({
+      selector: '.tinymce'
+    });
+})
+</script>

@@ -17,11 +17,11 @@ class Admin::PagesController < Admin::AdminController
   end
 
   def dashboard
-    @projects = Project.limit(10)
+    @projects = Project.limit(5)
     @projectsCount = Project.count
     @comments = Comment.all
     @users = User.count
-    @articles = Article.limit(10)
+    @articles = Article.limit(5)
     @articlesCount = Article.count
   end
 
