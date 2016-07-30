@@ -9,7 +9,7 @@ header {
   padding-top: 5%;
   padding-bottom: 5%;
   h1  {
-
+      color: darken( rgb(255, 235, 228), 65%);
     text-transform: uppercase;
   }
   ul {
@@ -19,6 +19,7 @@ header {
     li {
       float: left;
       padding-left: 5px;
+      color: darken( rgb(255, 235, 228), 65%);
       &:after {
         content: " / ";
       }

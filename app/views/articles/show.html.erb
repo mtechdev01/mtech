@@ -1,3 +1,17 @@
+<%
+meta title: "Meusetech - Blog: #{ @article.name }",
+     description: @article.content,
+     keywords: ["Meusetech", "Blog",  @article.name ,  @article.category.name, 'Innovations']
+%>
+<%
+meta og: {
+  image: image_url(@article.thumb),
+  title: "Meusetech - #{@article.name}",
+  url: article_url( @article.friendly_id ),
+  site_name:"MeuseTech",
+  description:truncate(@article.content.html_safe, length: 200, separator: ' '),
+}
+%>
 <%= stylesheet_link_tag 'front/articles/show', media: 'all', 'data-turbolinks-track' => true %>
 
 <header>
@@ -33,7 +47,7 @@
         <div id="linksShare">
           <div class="row">
             <div class="col-xs-4">
-              <a href="#" class="btn btn-facebook btn-facebook btn-block">Facebook</a>
+              <div as="FB" data-send="true" data-layout="button_count" data-href="<%= request.original_url %>" data-action="like"  data-width="450" data-show-faces="true"  class="fb-like btn btn-facebook btn-facebook btn-block"></div>
             </div>
             <div class="col-xs-4">
               <a href="#" class="btn btn-facebook btn-twitter btn-block">Twitter</a>

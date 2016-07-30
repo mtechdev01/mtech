@@ -1,4 +1,18 @@
 <%= stylesheet_link_tag 'front/projets/show', media: 'all', 'data-turbolinks-track' => true %>
+<%
+meta title: "Meusetech - Projets: #{@project.name} ",
+     description: @project.content,
+     keywords: ["Meusetech", "Projets",  @project.name, @project.category.name ]
+%>
+<%
+meta og: {
+  image: image_url(@project.thumb),
+  title: "Meusetech - #{@project.name}",
+  url: project_url( @project.friendly_id ),
+  site_name:"MeuseTech",
+  description:truncate(@project.content.html_safe, length: 200, separator: ' '),
+}
+%>
 <header>
   <div class="container">
     <div class="row" id="header">
@@ -32,10 +46,10 @@
         <div id="linksShare">
           <div class="row">
             <div class="col-xs-3">
-              <a href="#" class="btn btn-facebook btn-facebook btn-block">Facebook</a>
+              <div as="FB" data-send="true" data-layout="button_count" data-href="<%= request.original_url %>" data-action="like"  data-width="450" data-show-faces="true"  class="fb-like btn btn-facebook btn-facebook btn-block"></div>
             </div>
             <div class="col-xs-3">
-              <a href="#" class="btn btn-facebook btn-twitter btn-block">Twitter</a>
+              <a href="#" class="btn btn-twitter btn-block">Twitter</a>
             </div>
             <div class="col-xs-3">
               <% if user_signed_in? %>

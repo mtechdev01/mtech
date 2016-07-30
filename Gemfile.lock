@@ -155,6 +155,7 @@ GEM
       multi_json (~> 1.3)
       multi_xml (~> 0.5)
       rack (>= 1.2, < 3)
+    observejs (0.0.8)
     omniauth (1.3.1)
       hashie (>= 1.2, < 4)
       rack (>= 1.0, < 3)
@@ -280,6 +281,7 @@ DEPENDENCIES
   koala (~> 2.2)
   metamagic
   mini_magick
+  observejs
   omniauth-facebook
   omniauth-google-oauth2
   omniauth-twitter

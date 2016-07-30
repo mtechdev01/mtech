@@ -3,26 +3,42 @@ meta title: "Meusetech - Sondages",
      description: "Pour aider les entreprises, le développement des services à la personne, la valorisation et la préservation de l’environnement du Pays de Verdun... je participe à de courts sondages. Vous pourrez retrouver les sondages auxquels vous avez répondu dans votre compte. ",
      keywords: ["Meusetech", "sondages",  'aide']
 %>
-<style media="screen">
-  body {
-    margin-top: 101px;
-  }
-</style>
-<section id="survey-list">
-  <% @surveys.each do | survey | %>
-        <h2><%= link_to survey.title , survey_path( survey.id ) %> <%= (survey.end_at > Date.today) ? "<span class='label label-warning pull-right'>En cours</span>".html_safe : "<span class='label label-danger pull-right'>Terminé</span>".html_safe %></h2>
-        <p>
-          <%= raw survey.description %>
-        </p>
-        <%= survey.nbUsersResponded.size %> utilisateur<%= (survey.nbUsersResponded.size > 1 ) ? "s": "" %> <%= (survey.nbUsersResponded.size > 1 ) ? "ont": "a" %> répondu<%= (survey.nbUsersResponded.size > 1 ) ? "s": "" %></li>
-        <% if survey.end_at > Date.today %>
-          <% if user_signed_in? %>
-            <%= link_to "Participer au sondage" , survey_url( survey.id ), class: "pull-right btn btn-default" %>
-          <% else %>
-            <%= link_to "Participer au sondage" , new_session_path(:user), class:'pull-right btn btn-default' %>
-          <% end %>
-        <% else %>
-          <%= link_to "Voir les résultats" , surveyStats_url( survey.id ), class: "pull-right btn btn-default" %>
+
+<%= stylesheet_link_tag 'front/surveys/index', media: 'all', 'data-turbolinks-track' => true %>
+<header>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1>Exprimez votre avis</h1>
+        <ul>
+          <li>Accueil</li>
+          <li>Sondages</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <% @surveys.each do | survey | %>
+              <h2><%= link_to survey.title , survey_path( survey.id ) %> <%= (survey.end_at > Date.today) ? "<span class='label label-warning pull-right'>En cours</span>".html_safe : "<span class='label label-danger pull-right'>Terminé</span>".html_safe %></h2>
+              <p>
+                <%= raw survey.description %>
+              </p>
+              <%= survey.nbUsersResponded.size %> utilisateur<%= (survey.nbUsersResponded.size > 1 ) ? "s": "" %> <%= (survey.nbUsersResponded.size > 1 ) ? "ont": "a" %> répondu<%= (survey.nbUsersResponded.size > 1 ) ? "s": "" %></li>
+              <% if survey.end_at > Date.today %>
+                <% if user_signed_in? %>
+                  <%= link_to "Participer au sondage" , survey_url( survey.id ), class: "pull-right btn btn-default" %>
+                <% else %>
+                  <%= link_to "Participer au sondage" , new_session_path(:user), class:'pull-right btn btn-default' %>
+                <% end %>
+              <% else %>
+                <%= link_to "Voir les résultats" , surveyStats_url( survey.id ), class: "pull-right btn btn-default" %>
+              <% end %>
         <% end %>
-  <% end %>
+      </div>
+    </div>
+  </div>
 </section>
