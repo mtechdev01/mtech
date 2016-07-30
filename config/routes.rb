@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", registrations: 'registrations' }
 
+  get '/mentions-legales', to: 'pages#legals', as: 'legals'
   get '/a-propos', to: 'pages#about', as: 'about'
   get '/callback', to: 'pages#callback', as: 'fbcallback'
   resources :articles do

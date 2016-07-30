@@ -8,6 +8,9 @@ class PagesController < ApplicationController
   def about
   end
 
+  def legals
+  end
+
   def callback
     @state = params[:state].split(',')
     session[:fb_token] = params[:code]
