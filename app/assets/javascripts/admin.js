@@ -11,9 +11,8 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap-sprockets
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
 //= require admin/template/plugins/slimScroll/jquery.slimscroll.min.js
 //= require admin/template/plugins/fastclick/fastclick.min.js
 //= require admin/template/plugins/datatables/jquery.dataTables.js
@@ -21,5 +20,6 @@
 //= require admin/template/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js
 //= require admin/template/plugins/iCheck/icheck.min.js
 //= require jquery.minicolors
-//= require admin/template/app
+//= require admin/template/appOld
 //= require tinymce-jquery
+//= require turbolinks

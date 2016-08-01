@@ -11,8 +11,9 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap-sprockets
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
 //= require observejs
 //= require fb
+//= require admin/template/plugins/chartjs/Chart.min
+//= require turbolinks

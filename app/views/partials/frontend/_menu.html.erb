@@ -13,7 +13,7 @@
                 <% else %>
                   <%= link_to "<i class='fa fa-power-off' aria-hidden='true'></i> Deconnexion".html_safe, destroy_user_session_path, :method => :delete %>
                   <% if current_user.is_admin %>
-                    <%= link_to "<i class='fa fa-dashboard' aria-hidden='true'></i> Administration".html_safe, admin_dashboard_url %>
+                    <%= link_to "<i class='fa fa-dashboard' aria-hidden='true'></i> Administration".html_safe, admin_dashboard_url,  data: { turbolinks: 'false' }  %>
                   <% end %>
                   <a href="#"><i class="fa fa-mobile" aria-hidden="true"></i> Notifications</a>
                   <%= link_to "<i class='fa fa-globe' aria-hidden='true'></i> Mon espace perso".html_safe, users_Account_url %>
