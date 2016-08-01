@@ -119,8 +119,9 @@ meta og: {
             <% end %>
           <% end %>
 
+          <% if @project.comments.count != 0 %>
+          <h2>Commentaires</h2>
           <div class="comments-one">
-            <h2>Commentaires</h2>
             <% @project.comments.each do | comment | %>
             <div class="media" id="commentnb<%= comment.id %>">
               <div class="media-left">
@@ -135,11 +136,13 @@ meta og: {
                 <% elsif comment.user === current_user %>
                     <p>Votre commentaire est en attente de validation par un administrateur</p>
                 <% end %>
-
               </div>
             </div>
             <% end %>
             </div>
+          <% else %>
+            <h2>Aucun commentaire</h2>
+          <% end %>
         </section>
       </div>
       <div class="col-md-2" id="sidebar">
