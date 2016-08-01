@@ -23,7 +23,7 @@
     <!--<%= link_to "Mes conversations".html_safe, users_Notifs_url, class: "btn btn-block btn-default" %>-->
       <%= link_to "<i class='fa fa-pencil'></i> Editer mes informations".html_safe, users_Edit_url, class: "btn btn-block btn-primary" %>
     <% if current_user.is_admin %>
-      <%= link_to "<i class='fa fa-tachometer'></i> Administration".html_safe, admin_dashboard_url, class: "btn btn-block btn-warning" %>
+      <%= link_to "<i class='fa fa-tachometer'></i> Administration".html_safe, admin_dashboard_url, class: "btn btn-block btn-warning",  data: { turbolinks: 'false' } %>
     <% else %>
       <%= link_to "<i class='fa fa-trash-o'></i> Supprimer mon compte".html_safe, registration_path(current_user), :data => { :confirm => t('.are_you_sure', :default => "Etes-vous certain de vouloir supprimer votre compte?") }, :method => 'delete', class: "btn btn-block btn-danger" %>
     <% end %>
