@@ -1,0 +1,125 @@
+@import "https://fonts.googleapis.com/css?family=Roboto";
+/* line 7, /var/www/sites/dev/mtech/app/assets/stylesheets/front/_vars.scss */
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* line 3, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_carousel.scss */
+header .owl-carousel {
+  z-index: 0;
+}
+/* line 7, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_carousel.scss */
+header .owl-item {
+  position: fixed;
+  min-height: 45%;
+  max-height: 100vh;
+  top: 0;
+}
+/* line 13, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_carousel.scss */
+header .owl-item img {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+/* line 18, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_carousel.scss */
+header .owl-item .carousel-captions {
+  position: absolute;
+  top: 33%;
+  right: 0;
+  left: 0;
+  width: 50%;
+  color: white;
+  margin: 0 auto;
+  transform: translateY(-100%);
+  transition: all 350ms;
+  transition-delay: 350ms;
+  text-align: center;
+  text-transform: uppercase;
+}
+/* line 31, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_carousel.scss */
+header .owl-item .carousel-captions h2 {
+  font-size: 4em;
+  margin-bottom: 5%;
+}
+/* line 35, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_carousel.scss */
+header .owl-item .carousel-captions a.btn {
+  padding: 2%;
+  padding-left: 6%;
+  padding-right: 6%;
+}
+/* line 44, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_carousel.scss */
+header .owl-stage .active .carousel-captions {
+  transform: translateY(0);
+}
+/* line 49, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_carousel.scss */
+header .owl-nav {
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+  z-index: -1;
+  color: white;
+}
+/* line 56, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_carousel.scss */
+header .owl-nav .owl-prev {
+  position: absolute;
+  left: 5%;
+  top: 40%;
+  width: 75px;
+  height: 75px;
+  margin: 0;
+  line-height: 65px;
+  font-size: 6em;
+  background-color: transparent;
+  z-index: 1;
+  transition: all 250ms;
+}
+/* line 69, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_carousel.scss */
+header .owl-nav .owl-next {
+  position: absolute;
+  right: 5%;
+  top: 40%;
+  width: 75px;
+  height: 75px;
+  margin: 0;
+  line-height: 65px;
+  font-size: 6em;
+  background-color: transparent;
+  z-index: 1;
+  transition: all 250ms;
+}
+/* line 82, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_carousel.scss */
+header .owl-nav .owl-dots {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+/* line 86, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_carousel.scss */
+header .owl-nav .owl-dots .owl-dot span {
+  width: 20px;
+  height: 20px;
+  border: 6px solid white;
+  transition: all 450ms;
+}
+/* line 92, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_carousel.scss */
+header .owl-nav .owl-dots .owl-dot.active span {
+  background-color: #EF9A3E;
+}
+
+/* line 100, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_carousel.scss */
+#partenaires .owl-carousel .owl-item img {
+  width: initial;
+  height: 90px;
+}
+/* line 104, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_carousel.scss */
+#partenaires .owl-carousel2 {
+  z-index: 0;
+  position: relative;
+}
+/* line 107, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_carousel.scss */
+#partenaires .owl-carousel2 .owl-item {
+  max-height: 100px;
+  top: 0;
+  text-align: center;
+  padding: 10px;
+}

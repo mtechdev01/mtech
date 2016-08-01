@@ -1,0 +1,203 @@
+@import "https://fonts.googleapis.com/css?family=Roboto";
+/* line 7, /var/www/sites/dev/mtech/app/assets/stylesheets/front/_vars.scss */
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* line 5, /var/www/sites/dev/mtech/app/assets/stylesheets/front/surveys/index.scss */
+header {
+  text-align: center;
+  position: relative;
+  padding-top: 5%;
+  background: url(/assets/verdun_03-feda6bd451b771293fcf59084a5c96f4ed68d8e098fb714d7b041660ec082cc7.jpg) top left no-repeat;
+  padding-bottom: 5%;
+}
+/* line 11, /var/www/sites/dev/mtech/app/assets/stylesheets/front/surveys/index.scss */
+header h1 {
+  color: white;
+  text-transform: uppercase;
+}
+/* line 15, /var/www/sites/dev/mtech/app/assets/stylesheets/front/surveys/index.scss */
+header ul {
+  padding: 0;
+  list-style: none;
+  display: inline-block;
+}
+/* line 19, /var/www/sites/dev/mtech/app/assets/stylesheets/front/surveys/index.scss */
+header ul li {
+  float: left;
+  padding-left: 5px;
+  color: white;
+}
+/* line 23, /var/www/sites/dev/mtech/app/assets/stylesheets/front/surveys/index.scss */
+header ul li:after {
+  content: " / ";
+}
+/* line 27, /var/www/sites/dev/mtech/app/assets/stylesheets/front/surveys/index.scss */
+header ul li:last-child:after {
+  content: " ";
+}
+/* line 33, /var/www/sites/dev/mtech/app/assets/stylesheets/front/surveys/index.scss */
+header:before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(220, 99, 80, 0.4);
+}
+
+/* line 41, /var/www/sites/dev/mtech/app/assets/stylesheets/front/surveys/index.scss */
+.survey__col {
+  width: 100%;
+  height: 250px;
+  margin: 0 auto;
+  background-color: darkgrey;
+  position: relative;
+}
+/* line 47, /var/www/sites/dev/mtech/app/assets/stylesheets/front/surveys/index.scss */
+.survey__col .survey__col-content {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  padding: 5px;
+  border: 2px solid white;
+}
+
+/* line 58, /var/www/sites/dev/mtech/app/assets/stylesheets/front/surveys/index.scss */
+#survey__infos {
+  margin-bottom: 150px;
+  padding-top: 50px;
+  padding-bottom: 25px;
+}
+/* line 62, /var/www/sites/dev/mtech/app/assets/stylesheets/front/surveys/index.scss */
+#survey__infos #survey__infos--text {
+  line-height: 2em;
+  font-size: 1.2em;
+  padding: 20px;
+  padding-left: 150px;
+}
+/* line 67, /var/www/sites/dev/mtech/app/assets/stylesheets/front/surveys/index.scss */
+#survey__infos #survey__infos--text h2 {
+  text-align: center;
+  color: #DC6350;
+}
+/* line 72, /var/www/sites/dev/mtech/app/assets/stylesheets/front/surveys/index.scss */
+#survey__infos #survey__infos--image {
+  text-align: right;
+  padding-right: 150px;
+}
+
+/* line 80, /var/www/sites/dev/mtech/app/assets/stylesheets/front/surveys/index.scss */
+#catchPhrase #catchPhraseBlock-repere {
+  position: relative;
+}
+/* line 82, /var/www/sites/dev/mtech/app/assets/stylesheets/front/surveys/index.scss */
+#catchPhrase #catchPhraseBlock-repere #catchPhraseBlock {
+  background-color: #e07665;
+}
+/* line 84, /var/www/sites/dev/mtech/app/assets/stylesheets/front/surveys/index.scss */
+#catchPhrase #catchPhraseBlock-repere #catchPhraseBlock #catchPhraseBlock-content {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border: 2px solid white;
+  position: relative;
+  text-align: center;
+  color: white;
+}
+/* line 91, /var/www/sites/dev/mtech/app/assets/stylesheets/front/surveys/index.scss */
+#catchPhrase #catchPhraseBlock-repere #catchPhraseBlock #catchPhraseBlock-content h4 {
+  margin: 0;
+  padding: 0;
+  font-size: 2em;
+  line-height: 2em;
+}
+/* line 97, /var/www/sites/dev/mtech/app/assets/stylesheets/front/surveys/index.scss */
+#catchPhrase #catchPhraseBlock-repere #catchPhraseBlock #catchPhraseBlock-content .btn {
+  vertical-align: super;
+}
+
+@media screen and (min-width: 768px) {
+  /* line 108, /var/www/sites/dev/mtech/app/assets/stylesheets/front/surveys/index.scss */
+  #catchPhrase #catchPhraseBlock-repere #catchPhraseBlock {
+    position: absolute;
+    top: -65px;
+    left: 0;
+    height: 100px;
+    right: 0;
+    background-color: #e07665;
+  }
+  /* line 114, /var/www/sites/dev/mtech/app/assets/stylesheets/front/surveys/index.scss */
+  #catchPhrase #catchPhraseBlock-repere #catchPhraseBlock #catchPhraseBlock-content {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-left: 75px;
+    margin-right: 75px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 2px solid white;
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+  /* line 126, /var/www/sites/dev/mtech/app/assets/stylesheets/front/surveys/index.scss */
+  #catchPhrase #catchPhraseBlock-repere #catchPhraseBlock #catchPhraseBlock-content h4 {
+    margin: 0;
+    padding: 0;
+    font-size: 2em;
+    line-height: 2em;
+    display: inline-block;
+  }
+}
+@media screen and (min-width: 992px) {
+  /* line 142, /var/www/sites/dev/mtech/app/assets/stylesheets/front/surveys/index.scss */
+  #catchPhrase #catchPhraseBlock-repere #catchPhraseBlock {
+    height: 130px;
+  }
+  /* line 145, /var/www/sites/dev/mtech/app/assets/stylesheets/front/surveys/index.scss */
+  #catchPhrase #catchPhraseBlock-repere #catchPhraseBlock #catchPhraseBlock-content img {
+    position: absolute;
+    top: -100px;
+    left: -100px;
+  }
+  /* line 150, /var/www/sites/dev/mtech/app/assets/stylesheets/front/surveys/index.scss */
+  #catchPhrase #catchPhraseBlock-repere #catchPhraseBlock #catchPhraseBlock-content h4 {
+    font-size: 2.5em;
+    line-height: 2.5em;
+    padding-right: 50px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* line 163, /var/www/sites/dev/mtech/app/assets/stylesheets/front/surveys/index.scss */
+  #catchPhrase #catchPhraseBlock-repere #catchPhraseBlock {
+    position: absolute;
+    top: -65px;
+    left: 0;
+    height: 130px;
+    right: 0;
+    background-color: #e07665;
+  }
+  /* line 169, /var/www/sites/dev/mtech/app/assets/stylesheets/front/surveys/index.scss */
+  #catchPhrase #catchPhraseBlock-repere #catchPhraseBlock #catchPhraseBlock-content {
+    margin-left: 150px;
+    margin-right: 150px;
+  }
+  /* line 172, /var/www/sites/dev/mtech/app/assets/stylesheets/front/surveys/index.scss */
+  #catchPhrase #catchPhraseBlock-repere #catchPhraseBlock #catchPhraseBlock-content img {
+    position: absolute;
+    top: -100px;
+    left: -50px;
+  }
+  /* line 177, /var/www/sites/dev/mtech/app/assets/stylesheets/front/surveys/index.scss */
+  #catchPhrase #catchPhraseBlock-repere #catchPhraseBlock #catchPhraseBlock-content h4 {
+    margin: 0;
+    padding: 0;
+    font-size: 2.5em;
+    line-height: 2.5em;
+    padding-right: 50px;
+    display: inline-block;
+  }
+}

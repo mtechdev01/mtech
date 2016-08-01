@@ -1,0 +1,277 @@
+@import "https://fonts.googleapis.com/css?family=Roboto";
+/* line 7, /var/www/sites/dev/mtech/app/assets/stylesheets/front/_vars.scss */
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* line 3, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+body {
+  margin-top: 101px;
+}
+
+/* line 8, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+.btn-primary {
+  background-color: #EF9A3E;
+}
+/* line 10, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+.btn-primary:hover {
+  background-color: #cf7411;
+}
+
+/* line 15, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+header {
+  text-align: center;
+  position: relative;
+  padding-top: 5%;
+  background: url(/assets/bg_projets-a16253788464277b8ee290153a2a8eb1872907f8af77ac40f3f1f4eb9ef0493c.png) top left no-repeat;
+  padding-bottom: 5%;
+}
+/* line 21, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+header h1 {
+  color: white;
+  text-transform: uppercase;
+}
+/* line 25, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+header ul {
+  padding: 0;
+  list-style: none;
+  display: inline-block;
+}
+/* line 29, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+header ul li {
+  float: left;
+  padding-left: 5px;
+  color: white;
+}
+/* line 33, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+header ul li:after {
+  content: " / ";
+}
+/* line 37, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+header ul li:last-child:after {
+  content: " ";
+}
+/* line 43, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+header:before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(239, 154, 62, 0.4);
+}
+
+/* line 50, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+hr {
+  height: 3px;
+  width: 10%;
+  background-color: #4D9AB9;
+}
+
+/* line 55, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsInfos {
+  padding-top: 45px;
+  padding-bottom: 45px;
+  text-align: center;
+}
+/* line 59, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsInfos #first {
+  font-size: 36px;
+  padding-bottom: 35px;
+  text-align: center;
+}
+/* line 66, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsInfos #second {
+  padding-top: 35px;
+  font-size: 18px;
+  padding-bottom: 35px;
+}
+/* line 72, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsInfos .logo-description {
+  width: 125px;
+  height: 125px;
+  margin-bottom: 35px;
+}
+
+/* line 79, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsIdees {
+  text-align: center;
+  height: 550px;
+  overflow-x: hidden;
+}
+/* line 83, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsIdees #projetsIdees_infos {
+  background-color: #ededed;
+  padding: 5%;
+  height: 550px;
+}
+/* line 87, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsIdees #projetsIdees_infos h2 {
+  padding-bottom: 35px;
+  font-size: 43px;
+}
+/* line 91, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsIdees #projetsIdees_infos p {
+  font-size: 18px;
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+/* line 96, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsIdees #projetsIdees_infos a {
+  font-size: 24px;
+}
+/* line 100, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsIdees #projetsIdees_illustration {
+  background-color: #bfbfbf;
+  height: 550px;
+  padding: 5%;
+}
+/* line 104, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsIdees #projetsIdees_illustration img {
+  height: 100%;
+}
+
+/* line 110, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsCounter {
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+/* line 114, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsCounter p:first-child {
+  font-size: 24px;
+}
+/* line 116, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsCounter p:first-child span {
+  color: #EF9A3E;
+  font-weight: bold;
+}
+
+/* line 125, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsList #pList .row:nth-child(2) {
+  background-color: #e4e4e4;
+}
+/* line 128, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsList #pList .projetLigne {
+  padding: 5%;
+}
+/* line 132, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsList .nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+/* line 136, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsList #projectNav {
+  padding-left: 0;
+  padding-right: 0;
+  height: 45px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+}
+/* line 143, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsList #projectNav ul:first-child {
+  display: flex;
+  list-style: none;
+}
+/* line 146, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsList #projectNav ul:first-child a, #projetsList #projectNav ul:first-child a:visited {
+  padding: 1rem 2rem;
+  text-decoration: none;
+  color: white;
+  line-height: 45px;
+}
+/* line 151, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsList #projectNav ul:first-child a:hover, #projetsList #projectNav ul:first-child a:focus, #projetsList #projectNav ul:first-child a:visited:hover, #projetsList #projectNav ul:first-child a:visited:focus {
+  color: #EF9A3E;
+}
+/* line 156, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsList #projectNav ul:first-child .drop ul {
+  display: none;
+}
+/* line 158, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsList #projectNav ul:first-child .drop ul li {
+  list-style: none;
+}
+/* line 165, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsList .projetLigne:nth-child(4) {
+  background-color: red;
+}
+/* line 170, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsList .projet-one {
+  margin-top: 15px;
+}
+/* line 172, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsList .projet-one i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 45px;
+  padding-top: 33%;
+  padding-left: 33%;
+  display: block;
+  margin: 0 auto;
+}
+/* line 182, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsList .projet-one img {
+  width: 100%;
+}
+/* line 185, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsList .projet-one .projet-one_desc {
+  position: absolute;
+  top: 33%;
+  word-wrap: break-word;
+  left: 0;
+  width: 60%;
+  height: auto;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  background-color: white;
+  padding-bottom: 20px;
+  padding-left: 15px;
+}
+/* line 197, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsList .projet-one .projet-one_desc h2 {
+  font-size: 17px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+/* line 202, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsList .projet-one .projet-one_desc h4 {
+  font-size: 12px;
+  font-style: italic;
+}
+/* line 206, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsList .projet-one .projet-one_desc .projet-one_time {
+  font-weight: bold;
+  font-size: 12px;
+  padding-bottom: 20px;
+}
+/* line 211, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+#projetsList .projet-one .projet-one_desc .btn-projet {
+  width: 90%;
+}
+
+/* line 217, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+hr {
+  background-color: #EF9A3E;
+}
+
+/* line 220, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+svg {
+  transition: all 650ms;
+  fill: #EF9A3E;
+}
+/* line 223, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+svg ellipse {
+  fill: white;
+}
+
+/* line 228, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+svg:hover {
+  fill: white;
+}
+/* line 230, /var/www/sites/dev/mtech/app/assets/stylesheets/front/projets/index.scss */
+svg:hover ellipse {
+  fill: #EF9A3E;
+}

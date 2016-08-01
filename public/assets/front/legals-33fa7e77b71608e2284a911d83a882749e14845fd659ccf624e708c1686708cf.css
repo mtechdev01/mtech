@@ -1,0 +1,49 @@
+@import "https://fonts.googleapis.com/css?family=Roboto";
+/* line 7, /var/www/sites/dev/mtech/app/assets/stylesheets/front/_vars.scss */
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* line 2, /var/www/sites/dev/mtech/app/assets/stylesheets/front/legals.scss */
+header {
+  text-align: center;
+  background-color: #cddcf7;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+/* line 7, /var/www/sites/dev/mtech/app/assets/stylesheets/front/legals.scss */
+header h1 {
+  text-transform: uppercase;
+}
+/* line 11, /var/www/sites/dev/mtech/app/assets/stylesheets/front/legals.scss */
+header ul {
+  padding: 0;
+  list-style: none;
+  display: inline-block;
+}
+/* line 15, /var/www/sites/dev/mtech/app/assets/stylesheets/front/legals.scss */
+header ul li {
+  float: left;
+  padding-left: 5px;
+}
+
+/* line 21, /var/www/sites/dev/mtech/app/assets/stylesheets/front/legals.scss */
+h3 {
+  line-height: 2.5em;
+}
+
+/* line 25, /var/www/sites/dev/mtech/app/assets/stylesheets/front/legals.scss */
+li {
+  list-style: none;
+  padding: none;
+}
+
+/* line 29, /var/www/sites/dev/mtech/app/assets/stylesheets/front/legals.scss */
+p {
+  margin-left: 10px;
+}
+
+/* line 32, /var/www/sites/dev/mtech/app/assets/stylesheets/front/legals.scss */
+address {
+  margin-left: 10px;
+}

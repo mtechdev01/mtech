@@ -1,0 +1,8 @@
+/* line 2, /var/www/sites/dev/mtech/app/assets/stylesheets/front/user/partials/_globals.scss */
+body {
+  max-height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  background-color: #F8E6CE;
+}

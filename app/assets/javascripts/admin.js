@@ -20,6 +20,6 @@
 //= require admin/template/plugins/datatables/extensions/Responsive/js/dataTables.responsive.min.js
 //= require admin/template/plugins/iCheck/icheck.min.js
 //= require jquery.minicolors
-//= require admin/template/appOld
+//= require admin/template/app
 //= require tinymce-jquery
 //= require turbolinks

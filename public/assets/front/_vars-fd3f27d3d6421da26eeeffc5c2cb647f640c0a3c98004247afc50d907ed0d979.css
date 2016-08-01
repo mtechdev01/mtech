@@ -1,0 +1,5 @@
+@import "https://fonts.googleapis.com/css?family=Roboto";
+/* line 7, /var/www/sites/dev/mtech/app/assets/stylesheets/front/_vars.scss */
+* {
+  font-family: 'Roboto', sans-serif;
+}

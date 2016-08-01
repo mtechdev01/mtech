@@ -28,3 +28,33 @@ development:
       PERMS: "publish_actions,manage_pages,publish_pages"
     options:
       display: 'popup'
+# Configuration des réseaux sociaux
+production:
+  google:
+    GOOGLE_CLIENT_ID: "1079428113258-hpi4qicrvtf3ch03vk5j54iqsrd4lknf.apps.googleusercontent.com"
+    GOOGLE_CLIENT_SECRET: "yERuZx0gLmG8tsRciQze4llJ"
+    options:
+      name: "mtech"
+      scope: "email, profile, plus.me"
+      prompt: "select_account"
+      image_aspect_ratio: "square"
+      image_size: 50
+
+  twitter:
+    API_KEY: "gDPfe4IN61b9F2H8pVo9sexsE"
+    API_SECRET: "V1YbpGJoPUgAlcJSTbjmcmVtWHYvsPHsiOWhHjyWUeVl4oJmPW"
+    options:
+      secure_image_url: 'true'
+      image_size: 'original'
+      authorize_params:
+        force_login: 'true'
+        lang: 'fr'
+
+  facebook:
+    APP_KEY: "708003905969064"
+    APP_SECRET: "d61dd96269b177d63b2c12a61ac2b342"
+    PAGE_ID: "1162349303777261"
+    BACKEND:
+      PERMS: "publish_actions,manage_pages,publish_pages"
+    options:
+      display: 'popup'

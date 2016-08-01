@@ -1,0 +1,35 @@
+@import "https://fonts.googleapis.com/css?family=Roboto";
+/* line 7, /var/www/sites/dev/mtech/app/assets/stylesheets/front/_vars.scss */
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* line 2, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_socials.scss */
+#socials {
+  min-height: 65vh;
+  padding-top: 5%;
+}
+/* line 5, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_socials.scss */
+#socials #oiseauMT {
+  height: 65vh;
+  text-align: right;
+}
+/* line 8, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_socials.scss */
+#socials #oiseauMT svg {
+  position: absolute;
+  bottom: -15%;
+  left: 0;
+  width: 100%;
+  height: 65vh;
+}
+/* line 16, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_socials.scss */
+#socials #PanneauReseauxSociaux {
+  height: 65vh;
+}
+/* line 18, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_socials.scss */
+#socials #PanneauReseauxSociaux iframe {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 65vh;
+}

@@ -1,0 +1,107 @@
+/* line 5, /var/www/sites/dev/mtech/app/assets/stylesheets/front/_footer.scss */
+footer {
+  background: url(/assets/verdun_03-feda6bd451b771293fcf59084a5c96f4ed68d8e098fb714d7b041660ec082cc7.jpg) top left no-repeat;
+  background-size: cover;
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
+  position: relative;
+}
+/* line 11, /var/www/sites/dev/mtech/app/assets/stylesheets/front/_footer.scss */
+footer .mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  z-index: 1;
+}
+/* line 17, /var/www/sites/dev/mtech/app/assets/stylesheets/front/_footer.scss */
+footer .col-xs-4, footer .col-xs-12 {
+  z-index: 10;
+  color: white;
+}
+/* line 20, /var/www/sites/dev/mtech/app/assets/stylesheets/front/_footer.scss */
+footer .col-xs-4 ul, footer .col-xs-12 ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 24, /var/www/sites/dev/mtech/app/assets/stylesheets/front/_footer.scss */
+footer .col-xs-4 ul li, footer .col-xs-12 ul li {
+  border-bottom: 2px solid #EF9A3E;
+  line-height: 45px;
+  font-size: 16px;
+}
+/* line 28, /var/www/sites/dev/mtech/app/assets/stylesheets/front/_footer.scss */
+footer .col-xs-4 ul li i, footer .col-xs-12 ul li i {
+  font-size: 18px;
+  color: #EF9A3E;
+  padding-right: 10px;
+}
+/* line 37, /var/www/sites/dev/mtech/app/assets/stylesheets/front/_footer.scss */
+footer .footer-articles {
+  text-align: center;
+}
+/* line 39, /var/www/sites/dev/mtech/app/assets/stylesheets/front/_footer.scss */
+footer .footer-articles .row {
+  margin-bottom: 20px;
+}
+/* line 42, /var/www/sites/dev/mtech/app/assets/stylesheets/front/_footer.scss */
+footer .footer-articles a {
+  position: relative;
+  margin: 10px;
+  width: 100%;
+  display: block;
+  transition: all 250ms;
+  overflow: hidden;
+  border: 2px solid #EF9A3E;
+}
+/* line 51, /var/www/sites/dev/mtech/app/assets/stylesheets/front/_footer.scss */
+footer .footer-articles a:hover img {
+  transform: scale(1.1);
+}
+/* line 55, /var/www/sites/dev/mtech/app/assets/stylesheets/front/_footer.scss */
+footer .footer-articles a img {
+  transition: all 250ms;
+}
+
+/* line 62, /var/www/sites/dev/mtech/app/assets/stylesheets/front/_footer.scss */
+#copyright {
+  min-height: 50px;
+  background-color: black;
+  line-height: 50px;
+}
+/* line 66, /var/www/sites/dev/mtech/app/assets/stylesheets/front/_footer.scss */
+#copyright #mentions {
+  color: white;
+  padding-left: 100px;
+}
+/* line 69, /var/www/sites/dev/mtech/app/assets/stylesheets/front/_footer.scss */
+#copyright #mentions a {
+  color: #EF9A3E;
+}
+/* line 72, /var/www/sites/dev/mtech/app/assets/stylesheets/front/_footer.scss */
+#copyright #mentions span {
+  padding-right: 100px;
+}
+/* line 76, /var/www/sites/dev/mtech/app/assets/stylesheets/front/_footer.scss */
+#copyright .socials {
+  font-size: 28px;
+  color: white;
+  padding-right: 100px;
+}
+/* line 80, /var/www/sites/dev/mtech/app/assets/stylesheets/front/_footer.scss */
+#copyright .socials a, #copyright .socials a:visited, #copyright .socials a:focus {
+  color: white;
+  transition: all 250ms;
+}
+/* line 83, /var/www/sites/dev/mtech/app/assets/stylesheets/front/_footer.scss */
+#copyright .socials a:hover, #copyright .socials a:visited:hover, #copyright .socials a:focus:hover {
+  color: #EF9A3E;
+}
+/* line 86, /var/www/sites/dev/mtech/app/assets/stylesheets/front/_footer.scss */
+#copyright .socials a i, #copyright .socials a:visited i, #copyright .socials a:focus i {
+  padding-left: 20px;
+  padding-right: 20px;
+}

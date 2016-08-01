@@ -1,0 +1,11 @@
+@import "https://fonts.googleapis.com/css?family=Roboto";
+/* line 7, /var/www/sites/dev/mtech/app/assets/stylesheets/front/_vars.scss */
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* line 2, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_partenaires.scss */
+#partenaires {
+  background-color: #d1d0d0;
+  height: 120px;
+}

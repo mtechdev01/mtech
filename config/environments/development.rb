@@ -42,6 +42,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.smtp_settings = { host: 'localhost', port: 1025 }
   config.web_console.whitelisted_ips = '192.168.56.1'
+  config.serve_static_assets = true
   # Config Fb publisher
   config.fb_id      = Rails.configuration.socialConnect['facebook']["APP_KEY"]
   config.fb_secret  = Rails.configuration.socialConnect['facebook']["APP_SECRET"]

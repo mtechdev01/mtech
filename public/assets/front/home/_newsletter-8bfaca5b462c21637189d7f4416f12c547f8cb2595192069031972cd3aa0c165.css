@@ -1,0 +1,116 @@
+@import "https://fonts.googleapis.com/css?family=Roboto";
+/* line 7, /var/www/sites/dev/mtech/app/assets/stylesheets/front/_vars.scss */
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* line 3, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_newsletter.scss */
+#newsletter #newsBlock-repere {
+  position: relative;
+}
+/* line 5, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_newsletter.scss */
+#newsletter #newsBlock-repere #newsBlock {
+  background-color: #f1a656;
+}
+/* line 7, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_newsletter.scss */
+#newsletter #newsBlock-repere #newsBlock #newsBlock-content {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border: 2px solid white;
+  position: relative;
+  text-align: center;
+  color: white;
+}
+/* line 14, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_newsletter.scss */
+#newsletter #newsBlock-repere #newsBlock #newsBlock-content h4 {
+  margin: 0;
+  padding: 0;
+  font-size: 2em;
+  line-height: 2em;
+}
+/* line 20, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_newsletter.scss */
+#newsletter #newsBlock-repere #newsBlock #newsBlock-content .btn {
+  vertical-align: super;
+}
+
+@media screen and (min-width: 768px) {
+  /* line 31, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_newsletter.scss */
+  #newsletter #newsBlock-repere #newsBlock {
+    position: absolute;
+    top: -65px;
+    left: 0;
+    height: 100px;
+    right: 0;
+    background-color: #f1a656;
+  }
+  /* line 37, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_newsletter.scss */
+  #newsletter #newsBlock-repere #newsBlock #newsBlock-content {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-left: 75px;
+    margin-right: 75px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 2px solid white;
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+  /* line 49, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_newsletter.scss */
+  #newsletter #newsBlock-repere #newsBlock #newsBlock-content h4 {
+    margin: 0;
+    padding: 0;
+    font-size: 2em;
+    line-height: 2em;
+    display: inline-block;
+  }
+}
+@media screen and (min-width: 992px) {
+  /* line 65, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_newsletter.scss */
+  #newsletter #newsBlock-repere #newsBlock {
+    height: 130px;
+  }
+  /* line 68, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_newsletter.scss */
+  #newsletter #newsBlock-repere #newsBlock #newsBlock-content img {
+    position: absolute;
+    top: -100px;
+    left: -100px;
+  }
+  /* line 73, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_newsletter.scss */
+  #newsletter #newsBlock-repere #newsBlock #newsBlock-content h4 {
+    font-size: 2.5em;
+    line-height: 2.5em;
+    padding-right: 50px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* line 86, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_newsletter.scss */
+  #newsletter #newsBlock-repere #newsBlock {
+    position: absolute;
+    top: -65px;
+    left: 0;
+    height: 130px;
+    right: 0;
+    background-color: #f1a656;
+  }
+  /* line 92, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_newsletter.scss */
+  #newsletter #newsBlock-repere #newsBlock #newsBlock-content {
+    margin-left: 150px;
+    margin-right: 150px;
+  }
+  /* line 95, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_newsletter.scss */
+  #newsletter #newsBlock-repere #newsBlock #newsBlock-content img {
+    position: absolute;
+    top: -100px;
+    left: -50px;
+  }
+  /* line 100, /var/www/sites/dev/mtech/app/assets/stylesheets/front/home/_newsletter.scss */
+  #newsletter #newsBlock-repere #newsBlock #newsBlock-content h4 {
+    margin: 0;
+    padding: 0;
+    font-size: 2.5em;
+    line-height: 2.5em;
+    padding-right: 50px;
+    display: inline-block;
+  }
+}

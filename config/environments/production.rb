@@ -46,7 +46,7 @@ Rails.application.configure do
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
-  config.log_level = :debug
+  config.log_level = :warn
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
@@ -70,10 +70,16 @@ Rails.application.configure do
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
-
+  config.serve_static_files = true
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
-
+  config.secret_token = '3eb6db5a9026c547c72708438d496d942e976b252138db7e4e0ee5edd7539457d3ed0fa02ee5e7179420ce5290462018591adaf5f42adcf855da04877827def2'
   # Do not dump schema after migrations.
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.smtp_settings = { host: 'localhost', port: 1025 }
   config.active_record.dump_schema_after_migration = false
+  config.fb_id      = Rails.configuration.socialConnect['facebook']["APP_KEY"]
+  config.fb_secret  = Rails.configuration.socialConnect['facebook']["APP_SECRET"]
+  config.fb_page_id = Rails.configuration.socialConnect['facebook']["PAGE_ID"]
+  config.fb_perms   = Rails.configuration.socialConnect['facebook']["BACKEND"]['PERMS']
 end

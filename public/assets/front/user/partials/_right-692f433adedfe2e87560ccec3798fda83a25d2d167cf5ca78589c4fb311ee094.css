@@ -1,0 +1,21 @@
+/* line 2, /var/www/sites/dev/mtech/app/assets/stylesheets/front/user/partials/_right.scss */
+#right {
+  height: 100vh;
+  position: relative;
+}
+/* line 6, /var/www/sites/dev/mtech/app/assets/stylesheets/front/user/partials/_right.scss */
+#right #cadre {
+  position: absolute;
+  width: 100%;
+  height: 25%;
+  top: 5%;
+  left: -75%;
+}
+/* line 13, /var/www/sites/dev/mtech/app/assets/stylesheets/front/user/partials/_right.scss */
+#right #plante {
+  position: absolute;
+  width: 100%;
+  height: 37%;
+  bottom: 25%;
+  left: -50%;
+}

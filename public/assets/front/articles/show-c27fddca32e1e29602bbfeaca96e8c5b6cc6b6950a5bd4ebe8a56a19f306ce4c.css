@@ -1,0 +1,179 @@
+@import "https://fonts.googleapis.com/css?family=Roboto";
+/* line 7, /var/www/sites/dev/mtech/app/assets/stylesheets/front/_vars.scss */
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* line 2, /var/www/sites/dev/mtech/app/assets/stylesheets/front/articles/show.scss */
+body {
+  margin-top: 101px;
+}
+
+/* line 5, /var/www/sites/dev/mtech/app/assets/stylesheets/front/articles/show.scss */
+.btn {
+  border-radius: 0;
+  transition: all 250ms;
+}
+
+/* line 10, /var/www/sites/dev/mtech/app/assets/stylesheets/front/articles/show.scss */
+.btn-facebook {
+  background-color: #3B5998;
+  color: white;
+}
+/* line 13, /var/www/sites/dev/mtech/app/assets/stylesheets/front/articles/show.scss */
+.btn-facebook:hover {
+  background-color: #2d4373;
+  color: white;
+}
+
+/* line 19, /var/www/sites/dev/mtech/app/assets/stylesheets/front/articles/show.scss */
+.btn-twitter {
+  background-color: #28A9E0;
+  color: white;
+}
+/* line 22, /var/www/sites/dev/mtech/app/assets/stylesheets/front/articles/show.scss */
+.btn-twitter:hover {
+  background-color: #1b8bba;
+  color: white;
+}
+
+/* line 28, /var/www/sites/dev/mtech/app/assets/stylesheets/front/articles/show.scss */
+.btn-support {
+  background-color: #c93c3c;
+  color: white;
+}
+/* line 31, /var/www/sites/dev/mtech/app/assets/stylesheets/front/articles/show.scss */
+.btn-support:hover {
+  background-color: #a42e2e;
+  color: white;
+}
+
+/* line 37, /var/www/sites/dev/mtech/app/assets/stylesheets/front/articles/show.scss */
+#header {
+  position: relative;
+  background: url(/assets/Agriculture1-42043bf4f98d52f336a94638b9ef5d2077df43715fa4db0309ba8e721d8afcbc.jpg) no-repeat;
+  background-position: center;
+  height: 450px;
+  background-size: cover;
+  overflow-x: hidden;
+}
+/* line 44, /var/www/sites/dev/mtech/app/assets/stylesheets/front/articles/show.scss */
+#header #article__arianne {
+  display: flex;
+  justify-content: flex-start;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+/* line 49, /var/www/sites/dev/mtech/app/assets/stylesheets/front/articles/show.scss */
+#header #article__arianne ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 54, /var/www/sites/dev/mtech/app/assets/stylesheets/front/articles/show.scss */
+#header #article__arianne ul a, #header #article__arianne ul a:visited {
+  padding: 1rem 2rem;
+  text-decoration: none;
+  color: white;
+  line-height: 45px;
+  transition: all 250ms;
+}
+/* line 60, /var/www/sites/dev/mtech/app/assets/stylesheets/front/articles/show.scss */
+#header #article__arianne ul a:hover, #header #article__arianne ul a:focus, #header #article__arianne ul a:visited:hover, #header #article__arianne ul a:visited:focus {
+  color: #EF9A3E;
+}
+/* line 64, /var/www/sites/dev/mtech/app/assets/stylesheets/front/articles/show.scss */
+#header #article__arianne ul i {
+  color: white;
+}
+/* line 70, /var/www/sites/dev/mtech/app/assets/stylesheets/front/articles/show.scss */
+#header #article__title {
+  padding-top: 250px;
+  padding-left: 50px;
+}
+/* line 74, /var/www/sites/dev/mtech/app/assets/stylesheets/front/articles/show.scss */
+#header #article__title h1 a, #header #article__title h1 a:visited {
+  text-decoration: none;
+  color: white;
+  transition: all 250ms;
+}
+/* line 78, /var/www/sites/dev/mtech/app/assets/stylesheets/front/articles/show.scss */
+#header #article__title h1 a:hover, #header #article__title h1 a:focus, #header #article__title h1 a:visited:hover, #header #article__title h1 a:visited:focus {
+  color: #EF9A3E;
+}
+/* line 85, /var/www/sites/dev/mtech/app/assets/stylesheets/front/articles/show.scss */
+#header #article__infos {
+  display: flex;
+  justify-content: flex-start;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, transparent 100%);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+/* line 91, /var/www/sites/dev/mtech/app/assets/stylesheets/front/articles/show.scss */
+#header #article__infos ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 97, /var/www/sites/dev/mtech/app/assets/stylesheets/front/articles/show.scss */
+#header #article__infos ul li {
+  color: white;
+  line-height: 45px;
+  padding: 1rem 2rem;
+}
+/* line 102, /var/www/sites/dev/mtech/app/assets/stylesheets/front/articles/show.scss */
+#header #article__infos ul a, #header #article__infos ul a:visited {
+  text-decoration: none;
+  color: white;
+  transition: all 250ms;
+}
+/* line 106, /var/www/sites/dev/mtech/app/assets/stylesheets/front/articles/show.scss */
+#header #article__infos ul a:hover, #header #article__infos ul a:focus, #header #article__infos ul a:visited:hover, #header #article__infos ul a:visited:focus {
+  color: #EF9A3E;
+}
+/* line 110, /var/www/sites/dev/mtech/app/assets/stylesheets/front/articles/show.scss */
+#header #article__infos ul i {
+  color: white;
+}
+
+/* line 120, /var/www/sites/dev/mtech/app/assets/stylesheets/front/articles/show.scss */
+#linksShare {
+  padding: 15px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+/* line 124, /var/www/sites/dev/mtech/app/assets/stylesheets/front/articles/show.scss */
+#linksShare .col-xs-4 {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* line 131, /var/www/sites/dev/mtech/app/assets/stylesheets/front/articles/show.scss */
+.article-one p {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+/* line 137, /var/www/sites/dev/mtech/app/assets/stylesheets/front/articles/show.scss */
+.comments-one {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+/* line 145, /var/www/sites/dev/mtech/app/assets/stylesheets/front/articles/show.scss */
+.media {
+  padding: 25px;
+}
+
+/* line 148, /var/www/sites/dev/mtech/app/assets/stylesheets/front/articles/show.scss */
+.media:nth-child(even) {
+  background-color: #f2f2f2;
+}
