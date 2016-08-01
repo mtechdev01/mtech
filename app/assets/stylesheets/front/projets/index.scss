@@ -3,6 +3,7 @@
 body {
     margin-top: 101px;
 }
+//$primary: rgb(235, 238, 63);
 
 .btn-primary {
   background-color: $primary;
@@ -13,11 +14,12 @@ body {
 
 header {
   text-align: center;
-  background-color: rgb(255, 235, 228);
+  position: relative;
   padding-top: 5%;
+  background:  asset-url("bg_projets.png") top left no-repeat;
   padding-bottom: 5%;
   h1  {
-      color: darken( rgb(255, 235, 228), 65%);
+    color: white;
     text-transform: uppercase;
   }
   ul {
@@ -27,7 +29,7 @@ header {
     li {
       float: left;
       padding-left: 5px;
-      color: darken( rgb(255, 235, 228), 65%);
+      color: white;
       &:after {
         content: " / ";
       }
@@ -37,6 +39,12 @@ header {
         }
       }
     }
+  }
+  &:before {
+    content: " ";
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    background-color: rgba($primary, 0.4);
   }
 }
 hr {
@@ -158,6 +166,7 @@ hr {
     background-color: red;
   }
 
+
   .projet-one {
     margin-top: 15px;
     i {
@@ -203,5 +212,22 @@ hr {
             width: 90%;
       }
     }
+  }
+}
+hr {
+  background-color: $primary;
+}
+svg {
+  transition: all 650ms;
+  fill: $primary;
+  ellipse {
+    fill: white;
+  }
+}
+
+svg:hover {
+  fill: white;
+  ellipse {
+    fill: $primary;
   }
 }

@@ -95,3 +95,21 @@ header{
     }
   }
 }
+
+#partenaires {
+  .owl-carousel .owl-item img {
+    width: initial;
+    height: 90px;
+  }
+  .owl-carousel2 {
+    z-index: 0;
+    position: relative;
+    .owl-item {
+      max-height: 100px;
+      top: 0;
+      text-align: center;
+      padding:10px;
+    }
+  }
+
+}
