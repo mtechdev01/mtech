@@ -1,6 +1,14 @@
 @import "../vars";
+
 body {
     margin-top: 101px;
+}
+
+.btn-primary {
+  background-color: $primary;
+  &:hover {
+    background-color: darken($primary, 15%);
+  }
 }
 
 header {

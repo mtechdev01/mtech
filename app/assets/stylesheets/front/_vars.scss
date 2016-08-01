@@ -2,3 +2,8 @@ $primary: #EF9A3E;
 $secondary: #4D9AB9;
 $navSocialSize: 35px;
 $navSocialLinkMarge: 7px;
+@import 'https://fonts.googleapis.com/css?family=Roboto';
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
