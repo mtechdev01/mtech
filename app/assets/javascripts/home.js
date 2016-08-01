@@ -21,3 +21,12 @@ $('.owl-carousel').owlCarousel({
   autoplay:true,
   navText: ['<i class="fa fa-caret-left"></i>','<i class="fa fa-caret-right"></i>']
 })
+$('.owl-carousel2').owlCarousel({
+  loop:true,
+  margin:0,
+  nav:false,
+  dots:false,
+  items:3,
+  autoplay:true,
+  navText: ['<i class="fa fa-caret-left"></i>','<i class="fa fa-caret-right"></i>']
+})

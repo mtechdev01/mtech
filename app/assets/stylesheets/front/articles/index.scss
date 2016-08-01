@@ -1,11 +1,22 @@
+@import "../vars";
+
+$primary: #4B9AB6;
+
+.btn-primary {
+  background-color: $primary;
+  &:hover {
+    background-color: darken($primary, 15%);
+  }
+}
 header {
   text-align: center;
-  background-color: #c5eaf7;
+  position: relative;
   padding-top: 5%;
+  background:  asset-url("bg_articles.png") top left no-repeat;
   padding-bottom: 5%;
   h1  {
+    color: white;
     text-transform: uppercase;
-    color: darken(#c5eaf7, 65%);
   }
   ul {
     padding: 0;
@@ -14,7 +25,7 @@ header {
     li {
       float: left;
       padding-left: 5px;
-      color: darken(#c5eaf7, 65%);
+      color: white;
       &:after {
         content: " / ";
       }
@@ -24,6 +35,12 @@ header {
         }
       }
     }
+  }
+  &:before {
+    content: " ";
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+    background-color: rgba($primary, 0.65);
   }
 }
 
