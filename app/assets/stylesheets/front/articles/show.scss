@@ -133,9 +133,18 @@ body {
     padding-bottom: 25px;
   }
 }
+
+.comments-one {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+
 .media {
   padding: 25px;
 }
-.media:nth-child(2) {
+.media:nth-child(even) {
   background-color: rgb(242, 242, 242);
 }

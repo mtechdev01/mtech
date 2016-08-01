@@ -91,8 +91,9 @@ meta og: {
             <% end %>
 
         <% end %>
+        <% if @article.comments.count != 0 %>
+          <h2>Commentaires</h2>
           <div class="comments-one">
-            <h2>Commentaires</h2>
             <% @article.comments.each do | comment | %>
               <div class="media">
                 <div class="media-left">
@@ -101,17 +102,32 @@ meta og: {
                   </a>
                 </div>
                 <div class="media-body">
-                  <% if comment.is_valid === true %>
                   <h4 class="media-heading"><%= time_ago_in_words(comment.created_at) %> par <%= comment.user.username %></h4>
-                  <%= comment.content %>
+                  <% if comment.is_valid === true %>
+                    <p><%= comment.content %></p>
                   <% elsif comment.user === current_user %>
                       <p>Votre commentaire est en attente de validation par un administrateur</p>
+                  <% elsif current_user.is_admin %>
+                    <div class="alert alert-danger">
+                      Commentaire à valider
+                    </div>
+                      <p><%= comment.content %></p>
+                    <div class="pull-right">
+                      <% if !comment.is_valid %>
+                      <%= link_to "<i class='fa fa-check' aria-hidden='true'></i>".html_safe, admin_validatecomment_url({id:comment.id}), method: 'post', class:"btn btn-warning" %>
+                      <% end %>
+                      <%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, article_comment_path(comment.commentable_id, comment.id), :method => 'delete', class: "btn btn-danger" %>
+                    </div>
+                  <% else %>
+                      <p> Le commentaire est en attente de validation par un administrateur <p>
                   <% end %>
                 </div>
               </div>
             <% end %>
           </div>
-
+          <% else %>
+            <h2>Aucun commentaire</h2>
+          <% end %>
         </section>
         </div>
 

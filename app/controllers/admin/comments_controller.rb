@@ -17,16 +17,16 @@ class Admin::CommentsController < Admin::AdminController
         @comment.is_valid = true
         if @comment.save
           Notification.notify("Validation du Commentaire", @comment.id, "Comment", [@comment.user], current_user.id)
-          Notification.notify("Nouveau Commentaire", @comment.id, "Comment", notification_receivers, @comment.user)
+          Notification.notify("Nouveau Commentaire", @comment.id, "Comment", notification_receivers, @comment.user.id)
           flash[:notice] ="Le commentaire a été validé, les prochains commentaires seront directement mis en ligne"
           flash[:class] = "success"
           redirect_to :back
           end
       end
   end
-    
+
   private
-    
+
   def commentexport
     @comments = Comment.all
     respond_to do |format|
@@ -50,7 +50,7 @@ class Admin::CommentsController < Admin::AdminController
         @receivers.push(comment.user) #PERSONNES AYANT DEJA COMMENTé
       end
     end
-    if (@comment.commentable.owner != @comment.user) && (!@receivers.include?(@comment.commentable.owner)) && (!@comment.commentable.owner.is_admin)  
+    if (@comment.commentable.owner != @comment.user) && (!@receivers.include?(@comment.commentable.owner)) && (!@comment.commentable.owner.is_admin)
       @receivers.push(@comment.commentable.owner) #PROPRIETAIRE (article ou projet)
     end
     if @comment.commentable_type == "Project"
@@ -58,10 +58,10 @@ class Admin::CommentsController < Admin::AdminController
         if !@receivers.include?(interaction.user) && (interaction.user != @comment.user)
           @receivers.push(interaction.user) #INTERAGISSANTS
         end
-      end   
-    end 
+      end
+    end
     return @receivers
   end
 
-  
+
 end
