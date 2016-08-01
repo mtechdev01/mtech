@@ -50,7 +50,7 @@ class CommentsController  < ApplicationController
       Notification.where(notifiable_type: "Comment", notifiable_id: @comment.id).find_each do | notif |
           notif.destroy
       end
-      @comment.destroy 
+      @comment.destroy
       flash[:notice] ="Ce commentaire a été supprimé"
       flash[:class] = "success"
       redirect_to :back
@@ -66,7 +66,7 @@ class CommentsController  < ApplicationController
 
 
   private
-    
+
   def is_first
     @comments = Comment.where( { user_id: current_user.id, is_valid: true } ).first
     if @comments
@@ -79,6 +79,31 @@ class CommentsController  < ApplicationController
   def comment_params
     params.require(:comment)
       .permit( :content, :commentable_id, :commentable_type )
+  end
+
+  def notification_receivers
+    @receivers = []
+    User.where(is_admin: true).each do |admin|
+      if admin != @comment.user #celui qui commente n'est pas admin
+        @receivers.push(admin) #push admin
+      end
+    end
+    @comment.commentable.comments.each do |comment|
+      if (!@receivers.include?(comment.user)) && (comment.user != @comment.user) #push des gens qui ont déjà comment, sans celui qui est en train de commenter, et sans les admins
+        @receivers.push(comment.user)
+      end
+    end
+    if (@comment.commentable.owner != @comment.user) && (!@receivers.include?(@comment.commentable.owner))#test proprio de ce qui est commenté n'est pas celui qui commente ET si le propriètaire n'est pas déjà dans le tableau (déjà comment ou admin)
+       @receivers.push(@comment.commentable.owner)
+    end
+    if @comment.commentable_type == "Project"
+     @comment.commentable.interactions.each do |interaction|
+       if !@receivers.include?(interaction.user) && (interaction.user != @comment.user)
+         @receivers.push(interaction.user)#push les gens qui ont intéragit, si ils ne sont pas déjà dans le tableau
+       end
+     end
+    end
+    return @receivers
   end
 
 end
