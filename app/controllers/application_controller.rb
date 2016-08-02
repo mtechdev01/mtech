@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   end
 
   def getlastsprojects
-    @last_projects = Project.last(6)
+    @last_projects = Project.last(3)
   end
 
 

@@ -47,58 +47,36 @@ meta title: "Meusetech - Sondages",
     </div>
   </div>
 </section>
-<section style="margin-top: 200px;">
+<section id="surveyList">
   <div class="container">
-
     <div class="row">
         <% @surveys.each_with_index do | survey, index | %>
-
-          <% if index === 0  %>
-            <div class="col-xs-12">
-              <div class="survey__one">
-                <h2><%= link_to survey.title , survey_path( survey.id ) %> <%= (survey.end_at > Date.today) ? "<span class='label label-warning pull-right'>En cours</span>".html_safe : "<span class='label label-danger pull-right'>Terminé</span>".html_safe %></h2>
-                <p>
-                  <%= raw survey.description %>
-                </p>
-                <%= survey.nbUsersResponded.size %> utilisateur<%= (survey.nbUsersResponded.size > 1 ) ? "s": "" %> <%= (survey.nbUsersResponded.size > 1 ) ? "ont": "a" %> répondu<%= (survey.nbUsersResponded.size > 1 ) ? "s": "" %></li>
-                <% if survey.end_at > Date.today %>
-                  <% if user_signed_in? %>
-                    <%= link_to "Participer au sondage" , survey_url( survey.id ), class: "pull-right btn btn-default" %>
-                  <% else %>
-                    <%= link_to "Participer au sondage" , new_session_path(:user), class:'pull-right btn btn-default' %>
-                  <% end %>
-                <% else %>
-                  <%= link_to "Voir les résultats" , surveyStats_url( survey.id ), class: "pull-right btn btn-default" %>
-                <% end %>
-              </div>
-
-            </div>
-          <% else %>
             <div class="col-xs-4">
               <div class="survey__col">
-                <div class="survey__col-content">
-                  <h2><%= link_to survey.title , survey_path( survey.id ) %> <%= (survey.end_at > Date.today) ? "<span class='label label-warning pull-right'><i class='fa fa-close'></i></span>".html_safe : "<span class='label label-danger pull-right'>Terminé</span>".html_safe %></h2>
-                  <p>
-                    <%= raw survey.description %>
-                  </p>
-                  <%= survey.nbUsersResponded.size %> utilisateur<%= (survey.nbUsersResponded.size > 1 ) ? "s": "" %> <%= (survey.nbUsersResponded.size > 1 ) ? "ont": "a" %> répondu<%= (survey.nbUsersResponded.size > 1 ) ? "s": "" %></li>
-                  <% if survey.end_at > Date.today %>
-                    <% if user_signed_in? %>
-                      <%= link_to "Participer au sondage" , survey_url( survey.id ), class: "pull-right btn btn-default" %>
+                <div class="survey__col--content">
+                  <div class="survey__col--content__title">
+                    <h2><%= link_to survey.title , survey_path( survey.id ) %></h2>
+                  </div>
+                  <div class="survey__col--content__desc">
+                    <p>
+                      <%= raw survey.description %>
+                    </p>
+                  </div>
+                  <div class="survey__col--infos">
+                    <i class="fa fa-users" ></i> <%= survey.nbUsersResponded.size %>  <%= (survey.nbUsersResponded.size > 1 ) ? "s": "" %> <%= (survey.nbUsersResponded.size > 1 ) ? "ont": "a" %> répondu<%= (survey.nbUsersResponded.size > 1 ) ? "s": "" %></li>
+                    <% if survey.end_at > Date.today %>
+                      <% if user_signed_in? %>
+                        <%= link_to "Participer au sondage" , survey_url( survey.id ), class: "pull-right btn btn-primary" %>
+                      <% else %>
+                        <%= link_to "Participer au sondage" , new_session_path(:user), class:'pull-right btn btn-primary' %>
+                      <% end %>
                     <% else %>
-                      <%= link_to "Participer au sondage" , new_session_path(:user), class:'pull-right btn btn-default' %>
+                      <%= link_to "Voir les résultats" , surveyStats_url( survey.id ), class: "pull-right btn btn-primary" %>
                     <% end %>
-                  <% else %>
-                    <%= link_to "Voir les résultats" , surveyStats_url( survey.id ), class: "pull-right btn btn-default" %>
-                  <% end %>
+                  </div>
                 </div>
-
               </div>
-
             </div>
-          <% end %>
-
-
         <% end %>
       </div>
   </div>

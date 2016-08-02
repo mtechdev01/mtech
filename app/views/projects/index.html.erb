@@ -105,37 +105,30 @@ meta title: "Meusetech - Projets",
       </div>
     </div>
   </div>
-  <div class="container-fluid" id="pList">
+  <div class="container" id="pList">
+    <div class="row">
     <% @projects.each_with_index do | project, index | %>
-      <% index = index + 1%>
-      <% if index%4 == 0 || index == 1 %>
-      <div class="row projetLigne">
-      <% end %>
-        <div class="col-xs-12 col-md-4 ">
-          <article class="projet-one">
-            <div class="col-xs-2">
-              <%= image_tag( project.category.icon,  alt: "icone projet")%>
+        <div class="col-xs-12 col-md-4">
+          <article class="panel">
+            <div class="panel-title">
+              <%= link_to image_tag( project.thumb,  alt: "image article", class:"article-img") , project_path( project.friendly_id )%>
+              <div class="panel-icon" style="background-color:<%= project.category.color %>">
+                <%= image_tag( project.category.icon,  alt: "icone projet", class:"iconProjet")%>
+              </div>
             </div>
-            <div class="col-xs-10">
-              <%= link_to image_tag( project.thumb,  alt: "image article") , project_path( project.friendly_id )%>
-            </div>
-            <div class="projet-one_desc">
+            <div class="panel-content">
               <h2><%= link_to project.name , project_path( project.friendly_id )%></h2>
-              <h4><%= project.owner.first_name %> <%= project.owner.last_name %></h4>
-              <p class="hidden-xs hidden-sm  hidden-md ">
+              <h6><%= project.owner.first_name %> <%= project.owner.last_name %></h6>
+              <p class="">
               <%=  truncate(project.content, :length => 180, :omission => "" , :escape => false) %>
               </p>
-              <div class="projet-one_time">
-                le 15 juillet 2015
-              </div>
+            </div>
+            <div class="panel-footer">
               <%= link_to "Voir le projet", project_path( project.friendly_id ),  class:"btn btn-primary btn-projet"%>
             </div>
           </article>
         </div>
-      <% if index%3 == 0  && index != 1 %>
-      </div>
-      <% end %>
     <% end %>
+    </div>
   </div>
-
 </section>

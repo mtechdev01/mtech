@@ -14,26 +14,31 @@ meta og: {
 }
 %>
 <header>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row" id="header">
-      <div id="projet__arianne">
-        <ul>
-          <li><a href="#">Projets</a> <i class="fa fa-angle-right"></i></li>
-          <li><a href="#"><%= @project.category.name %></a> <i class="fa fa-angle-right"></i></li>
-          <li><a href="#"><%= @project.name %></a></li>
-        </ul>
+      <div class="container">
+        <div class="row">
+          <div id="projet__arianne">
+            <ul>
+              <li><a href="#">Projets</a> <i class="fa fa-angle-right"></i></li>
+              <li><a href="#"><%= @project.category.name %></a> <i class="fa fa-angle-right"></i></li>
+              <li><a href="#"><%= @project.name %></a></li>
+            </ul>
+          </div>
+          <div id="projet__title">
+            <a href="#" class="btn btn-primary"><%= @project.category.name %></a>
+            <h1><%= link_to @project.name, project_path( @project.friendly_id ) %></h1>
+          </div>
+          <div id="projet__infos">
+            <ul>
+              <li>Par  <a href="#"><%= @project.owner.username %></a></li>
+              <li>Publié le  <%= time_tag @project.created_at, format: "%A %d %B %Y" %> </li>
+              <li><%= @project.comments.count < 2 ? "#{@project.comments.count} Commentaire" : "#{@project.comments.count} Commentaires" %></li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div id="projet__title">
-        <a href="#" class="btn btn-primary"><%= @project.category.name %></a>
-        <h1><%= link_to @project.name, project_path( @project.friendly_id ) %></h1>
-      </div>
-      <div id="projet__infos">
-        <ul>
-          <li>Par  <a href="#"><%= @project.owner.username %></a></li>
-          <li>Publié le  <%= time_tag @project.created_at, format: "%A %d %B %Y" %> </li>
-          <li><%= @project.comments.count < 2 ? "#{@project.comments.count} Commentaire" : "#{@project.comments.count} Commentaires" %></li>
-        </ul>
-      </div>
+
     </div>
   </div>
 </header>

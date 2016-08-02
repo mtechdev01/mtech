@@ -15,27 +15,32 @@ meta og: {
 <%= stylesheet_link_tag 'front/articles/show', media: 'all', 'data-turbolinks-track' => true %>
 
 <header>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row" id="header">
-      <div id="article__arianne">
-        <ul>
-          <li><a href="#">Articles</a> <i class="fa fa-angle-right"></i></li>
-          <li><a href="#"><%= @article.category.name %></a> <i class="fa fa-angle-right"></i></li>
-          <li><a href="#"><%= @article.name %></a></li>
-        </ul>
+      <div class="container">
+        <div class="row">
+          <div id="article__arianne">
+            <ul>
+              <li><a href="#">Articles</a> <i class="fa fa-angle-right"></i></li>
+              <li><a href="#"><%= @article.category.name %></a> <i class="fa fa-angle-right"></i></li>
+              <li><a href="#"><%= @article.name %></a></li>
+            </ul>
+          </div>
+          <div id="article__title">
+            <a href="#" class="btn btn-primary"><%= @article.category.name %></a>
+            <h1><%= link_to @article.name, article_path( @article.friendly_id ) %></h1>
+          </div>
+          <div id="article__infos">
+            <ul>
+              <li>Par  <a href="#"><%= @article.owner.username %></a></li>
+              <li>Publié le  <%= time_tag @article.created_at, format: "%A %d %B %Y" %> </li>
+              <li><%= @article.comments.count < 2 ? "#{@article.comments.count} Commentaire" : "#{@article.comments.count} Commentaires" %></li>
+              <li><%= @article.likes.count %> <i class="fa fa-heart" aria-hidden="true"></i></li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div id="article__title">
-        <a href="#" class="btn btn-primary"><%= @article.category.name %></a>
-        <h1><%= link_to @article.name, article_path( @article.friendly_id ) %></h1>
-      </div>
-      <div id="article__infos">
-        <ul>
-          <li>Par  <a href="#"><%= @article.owner.username %></a></li>
-          <li>Publié le  <%= time_tag @article.created_at, format: "%A %d %B %Y" %> </li>
-          <li><%= @article.comments.count < 2 ? "#{@article.comments.count} Commentaire" : "#{@article.comments.count} Commentaires" %></li>
-          <li><%= @article.likes.count %> <i class="fa fa-heart" aria-hidden="true"></i></li>
-        </ul>
-      </div>
+
     </div>
   </div>
 </header>
