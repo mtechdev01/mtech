@@ -1,69 +1,72 @@
-<h2>Editer mon profil</h2>
+<div class="container">
+  <h2>Editer mon profil</h2>
 
-<%= form_for(@user, url: users_Edit_path) do |f| %>
-  <%= devise_error_messages! %>
+  <%= form_for(@user, url: users_Edit_path) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div class="field">
-      <%= f.label :username, "Pseudo" %><br />
-      <%= f.text_field :username, autofocus: true %>
-  </div>
-
-  <div class="field">
-      <%= f.label :first_name, "Prénom" %><br />
-      <%= f.text_field :first_name %>
-  </div>
-
-  <div class="field">
-      <%= f.label :last_name, "Nom"  %><br />
-      <%= f.text_field :last_name %>
-  </div>
-
-  <div class="field">
-    <div id="locationField">
-      <%= label("",:Ville) %><br />
-      <%= text_field_tag 'autocomplete'%>
+    <div class="field">
+        <%= f.label :username, "Pseudo" %><br />
+        <%= f.text_field :username, autofocus: true %>
     </div>
 
-    <%= f.hidden_field :city, id:"locality" %>
-    <%= f.hidden_field :cp, id:"postal_code" %>
-    <%= f.hidden_field :country, id:"country" %>
-  </div>
+    <div class="field">
+        <%= f.label :first_name, "Prénom" %><br />
+        <%= f.text_field :first_name %>
+    </div>
+
+    <div class="field">
+        <%= f.label :last_name, "Nom"  %><br />
+        <%= f.text_field :last_name %>
+    </div>
+
+    <div class="field">
+      <div id="locationField">
+        <%= label("",:Ville) %><br />
+        <%= text_field_tag 'autocomplete'%>
+      </div>
+
+      <%= f.hidden_field :city, id:"locality" %>
+      <%= f.hidden_field :cp, id:"postal_code" %>
+      <%= f.hidden_field :country, id:"country" %>
+    </div>
 
 
-  <div class="field">
-    <%= f.label :territory_attachment, "Attachement au territoire" %><br />
-    <%= f.select :territory_attachment, options_for_select(["Domicile", "Travail", "Loisirs", "Originaire du territoire", "Autre"]), {}, :onChange=>"javascript: changeHiddenInput(this);"  %><br />
-  </div>
+    <div class="field">
+      <%= f.label :territory_attachment, "Attachement au territoire" %><br />
+      <%= f.select :territory_attachment, options_for_select(["Domicile", "Travail", "Loisirs", "Originaire du territoire", "Autre"]), {}, :onChange=>"javascript: changeHiddenInput(this);"  %><br />
+    </div>
 
-  <div class="field", style="display:none", id="hiddenDiv">
-    <%= f.label :territory_attachment, "Précisez :" %><br />
-    <%= f.text_field :territory_attachment, id:"hiddenInput" %>
-  </div><br/>
+    <div class="field", style="display:none", id="hiddenDiv">
+      <%= f.label :territory_attachment, "Précisez :" %><br />
+      <%= f.text_field :territory_attachment, id:"hiddenInput" %>
+    </div><br/>
 
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
-  </div>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %> <i>(Laissez ce champ vide si vous ne souhaitez pas le modifier)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+    <div class="field">
+      <%= f.label :password %> <i>(Laissez ce champ vide si vous ne souhaitez pas le modifier)</i><br />
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(Votre mot de passe actuel est nécessaire pour valider les changements effectués)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
+    <div class="field">
+      <%= f.label :current_password %> <i>(Votre mot de passe actuel est nécessaire pour valider les changements effectués)</i><br />
+      <%= f.password_field :current_password, autocomplete: "off" %>
+    </div>
 
-  <div class="actions">
-      <%= f.submit "Mettre à jour" %>
-  </div>
-<% end %>
+    <div class="actions">
+        <%= f.submit "Mettre à jour" %>
+    </div>
+  <% end %>
 
-<%= link_to "Retour", :back %>
+  <%= link_to "Retour", :back %>
+
+</div>
