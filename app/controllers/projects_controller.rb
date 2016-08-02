@@ -4,8 +4,8 @@ class ProjectsController < ApplicationController
 
 
   def index
-    @projects = Project.page(params[:page]).order('created_at DESC')
-    @projectsCount = Project.count
+    @projects = Project.page(params[:page]).where(published: true).order('created_at DESC')
+    @projectsCount = Project.where(published: true).count
     @categories = Category.all.select(:name)
   end
 

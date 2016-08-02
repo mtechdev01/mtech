@@ -38,7 +38,7 @@ meta title: "Meusetech - Blog",
             <div class="container-fluid">
               <div class="row article-item">
                 <div class="col-lg-5 article-item-left">
-                  <%= image_tag "http://fond-ecran.loopio.fr/Fonds%20d'%C3%A9cran%20Pokemon/slides/fond-ecran-pokemon-32.jpg" , class: "img-responsive img-thumbnail" %>
+                  <%= image_tag article.thumb , class: "img-responsive img-thumbnail" %>
                   <div class="image-triangle"></div>
                   <div class="image-category" style= "background-color:<%= article.category.color %>;"><%= image_tag article.category.icon %></div>
                 </div>

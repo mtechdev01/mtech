@@ -115,6 +115,11 @@ meta title: "Meusetech - Projets",
               <div class="panel-icon" style="background-color:<%= project.category.color %>">
                 <%= image_tag( project.category.icon,  alt: "icone projet", class:"iconProjet")%>
               </div>
+              <% if project.labelized %>
+              <div class="panel-labelled">
+                <%= image_tag( "LabelBanner2.png",  alt: "icone projet", class:"iconProjet")%>
+              </div>
+              <% end %>
             </div>
             <div class="panel-content">
               <h2><%= link_to project.name , project_path( project.friendly_id )%></h2>

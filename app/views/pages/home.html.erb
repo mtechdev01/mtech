@@ -12,15 +12,14 @@ meta title: "Meusetech - Accueil",
               <div class="item">
                 <%= image_tag "slide.jpg",  alt: "image article" %>
                 <div class="carousel-captions">
-                  <h2>MeuseTECH</h2>
+                  <%= inline_svg("TitreMeuseTech.svg", class: "TitreMeuseTech") %>
                   <h4>Terre d'innovations</h4>
-                  <a href="#" class="btn btn-primary">En savoir plus</a>
                 </div>
               </div>
               <div class="item">
-                <%= image_tag( "slide.jpg",  alt: "image article")%>
+                <%= image_tag( "slide3.jpg",  alt: "image article")%>
                 <div class="carousel-captions">
-                  <h2>Valentin</h2>
+                  <h2>Découvrez les projets proche de vous</h2>
                   <h4>Terre d'innovations</h4>
                   <a href="#" class="btn btn-primary">En savoir plus</a>
                 </div>
@@ -119,6 +118,11 @@ meta title: "Meusetech - Accueil",
                         <div class="panel-icon" style="background-color:<%= project.category.color %>">
                           <%= image_tag( project.category.icon,  alt: "icone projet", class:"iconProjet")%>
                         </div>
+                        <% if project.labelized %>
+                        <div class="panel-labelled">
+                          <%= image_tag( "LabelBanner2.png",  alt: "icone projet", class:"iconProjet")%>
+                        </div>
+                        <% end %>
                       </div>
                       <div class="panel-content">
                         <h2><%= link_to project.name , project_path( project.friendly_id )%></h2>
@@ -143,6 +147,11 @@ meta title: "Meusetech - Accueil",
                         <div class="panel-icon" style="background-color:<%= project.category.color %>">
                           <%= image_tag( project.category.icon,  alt: "icone projet", class:"iconProjet")%>
                         </div>
+                        <% if project.labelized %>
+                        <div class="panel-labelled">
+                          <%= image_tag( "LabelBanner2.png",  alt: "icone projet", class:"iconProjet")%>
+                        </div>
+                        <% end %>
                       </div>
                       <div class="panel-content">
                         <h2><%= link_to project.name , project_path( project.friendly_id )%></h2>

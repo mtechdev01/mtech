@@ -263,6 +263,11 @@ svg:hover {
         height: 100%;
       }
     }
+    .panel-labelled {
+      position: absolute;
+      top: -5px;
+      left: 10px;
+    }
   }
 
   .panel-content {
