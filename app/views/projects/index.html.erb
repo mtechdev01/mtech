@@ -62,7 +62,7 @@ meta title: "Meusetech - Projets",
         <p>
           Vous souhaitez recueillir des avis sur son intérêt, développer le concept, Tout le monde peut déposer un projet ! Devenez acteur de votre territoire en quelques clics :
         </p>
-        <a href="#" class="btn btn-primary">Je dépose un projet</a>
+        <%= link_to 'Je dépose un projet', new_project_path, class: "btn btn-primary" %>
       </div>
       <div class="hidden-xs hidden-sm col-md-6" id="projetsIdees_illustration">
         <%= image_tag("svg/DepotProjet.svg", class: "svgBoite") %>
