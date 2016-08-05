@@ -33,9 +33,9 @@
                     <%= form_tag admin_validatecomment_url do %>
                       <%= hidden_field_tag "id", comment.id %>
                       <% if comment.is_valid %>
-                        <%= submit_tag "Oui" %>
+                        <%= submit_tag "Oui", class: "btn btn-success"  %>
                       <% else %>
-                        <%= submit_tag "Non" %>
+                        <%= submit_tag "Non", class: "btn btn-danger"  %>
                       <% end %>
                     <% end %>
                   </td>

@@ -30,12 +30,12 @@
             <tbody>
               <% @categories.each do | category | %>
               <tr>
-                <td><%= category.id %></td>
-                <td><%= category.name%></td>
-                <td><%= image_tag category.icon, size: "36x36", class: "img-responsive center-block"%></td>
-                <td><%= image_tag category.image, size: "36x36", class: "img-responsive center-block"%></td>
-                <td style="background-color: <%= category.color %>; width: 80px;"></td>
-                <td>
+                <td style="line-height:32px;"><%= category.id %></td>
+                <td style="line-height:32px;"><%= category.name%></td>
+                <td style="line-height:32px;"><%= image_tag category.icon, size: "36x36", class: "img-responsive center-block"%></td>
+                <td style="line-height:32px;"><%= image_tag category.image, size: "36x36", class: "img-responsive center-block"%></td>
+                <td style="line-height:32px;"><div style="width: 30px; height: 30px; background-color: <%= category.color %>; margin-left: auto; margin-right: auto; "></div></td>
+                <td style="line-height:32px;" >
                   <%= link_to "<i class='fa fa-pencil'></i>".html_safe, edit_admin_category_path(category.friendly_id), class: "btn btn-warning" %>
                   <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, admin_category_url(category.friendly_id), class: "btn btn-danger" , method: "delete"%>
                 </td>

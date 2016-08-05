@@ -10,7 +10,7 @@
 </section>
 <section class="content">
     <div>
-        <% @notifications.limit(5).each do | notif | %>
+        <% @notifications.each do | notif | %>
             <div class="well">
               <% if notif.message == "Nouveau Commentaire" || notif.message == "Validation du Commentaire" || notif.message == "Nouveau Commentaire en attente de validation" %>
                     <% if notif.message == "Nouveau Commentaire en attente de validation" %>
