@@ -18,6 +18,10 @@
         <%= f.text_area :location %>
       </div>
       <div class="form-group">
+        <%= label_tag 'project[state]', 'Avancement du projet:' %>
+        <%= select_tag "project[state]", options_for_select(["Proposé","En cours","Recherche","Fini"], "Proposé") %>
+      </div>
+      <div class="form-group">
         <%= f.label :thumb, 'Image'%>
         <div >
           <%= f.file_field :thumb %>
