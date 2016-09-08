@@ -1,6 +1,6 @@
 class Admin::ArticlesController < Admin::AdminController
 
-  def categories
+    def categories
       @categories = Category.all
     end
 

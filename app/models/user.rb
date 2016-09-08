@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :surveysResponses, class_name: "SurveysResponse"
   has_many :likes
   has_many :interactions
-  has_many :notifications
+  has_many :notifications, :dependent => :destroy
   has_many :conversations, :foreign_key => :sender_id
 
   validates_presence_of :city, :username, :email, :country, :territory_attachment, :first_name, :last_name, :message => "Ce champ est obligatoire"

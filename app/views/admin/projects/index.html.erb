@@ -21,12 +21,6 @@
             Catégorie
           </th>
           <th>
-            Icône
-          </th>
-          <th>
-            Image
-          </th>
-          <th>
             Lieu
           </th>
           <th>
@@ -50,33 +44,26 @@
         <% @projects.each do | project | %>
           <tr>
             <td>
-              <h4><%= truncate(project.name.html_safe) %></h4>
+              <h5><%= truncate(project.name.html_safe) %></h5>
             </td>
             <td>
               <%= form_tag admin_projectpublish_url do %>
-                <%= hidden_field_tag "id", project.id %>
-                <% if project.published %>
-                  <%= submit_tag "Oui" %>
-                <% else %>
-                  <%= submit_tag "Non" %>
+                  <%= hidden_field_tag "id", project.id %>
+                  <% if project.published %>
+                    <%= submit_tag "Oui", class: "btn btn-success" %>
+                  <% else %>
+                    <%= submit_tag "Non", class: "btn btn-danger" %>
+                  <% end %>
                 <% end %>
-              <% end %>
-            </td>
+                </td>
             <td>
               <%= project.category.name %>
-            </td>
-            <td>
-              <img class="logo_size" style=width:40px src="<%= project.category.icon %>" alt="category icon"/>
-            </td>
-            <td>
-              <img class="image_size" style=width:40px src="<%= project.thumb ? project.thumb : project.category.image %>"" alt="project thumb"/>
             </td>
             <td>
               <%= project.location %>
             </td>
             <td>
-              <%= project.created_at %>
-
+              <%= time_tag project.created_at, format: :morejformat %>
             </td>
             <td>
               <%= project.owner.username %>
@@ -88,11 +75,11 @@
                 <%= form_tag admin_projectlabelize_url do %>
                 <%= hidden_field_tag "id", project.id %>
                 <% if project.labelized %>
-                      <%= submit_tag "Oui" %>
-                    <% else %>
-                      <%= submit_tag "Non" %>
-                    <% end %>
-                  <% end %>
+                  <%= submit_tag "Oui", class: "btn btn-success" %>
+                <% else %>
+                  <%= submit_tag "Non", class: "btn btn-danger" %>
+                <% end %>
+              <% end %>
             </td>
             <td>
               <%= link_to "<i class='fa fa-pencil'></i>".html_safe, edit_admin_project_url(project.friendly_id), class:'btn btn-warning'%>

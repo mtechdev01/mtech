@@ -1,4 +1,4 @@
-
+# encoding: utf-8
 class Admin::CommentsController < Admin::AdminController
   def index
     @comments = Comment.all
@@ -34,9 +34,6 @@ class Admin::CommentsController < Admin::AdminController
       format.csv { send_data @comments.to_csv, filename: "comments-#{Date.today}.csv" }
     end
   end
-
-
-  private
 
   def comment_params
     params.require(:comment)

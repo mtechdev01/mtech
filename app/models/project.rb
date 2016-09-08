@@ -6,7 +6,7 @@ class Project < ActiveRecord::Base
   belongs_to  :owner, class_name: "User"
   has_many    :comments, as: :commentable
   has_many    :interactions
-  has_many    :notifications, as: :notifiable
+  has_many    :notifications, as: :notifiable, :dependent => :destroy
   mount_uploader :thumb, ThumbUploader
   self.per_page = 4
 
