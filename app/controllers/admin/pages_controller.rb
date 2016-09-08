@@ -12,10 +12,6 @@ class Admin::PagesController < Admin::AdminController
     redirect_to :back
   end
 
-  def notifications
-    @notifications = Notification.where(user: current_user).where(read: false).order(created_at: "desc")
-  end
-
   def dashboard
     @projects = Project.limit(5)
     @projectsCount = Project.count
